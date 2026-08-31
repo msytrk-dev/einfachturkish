@@ -407,7 +407,7 @@ function initContactForm() {
 
     const formData = new FormData(contactForm);
 
-    fetch('https://formsubmit.co/ajax/info@einfachturkisch.de', {
+    fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
       method: 'POST',
       body: formData
     })

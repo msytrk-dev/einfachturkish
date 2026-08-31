@@ -641,27 +641,27 @@
             <form id="contactForm" class="space-y-4">
               <div>
                 <label for="contactName" class="block text-xs font-medium text-slate-300 mb-1.5">Dein Name</label>
-                <input type="text" id="contactName" required placeholder="z. B. Max Mustermann" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                <input type="text" id="contactName" name="Name" required placeholder="z. B. Max Mustermann" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
               </div>
 
               <div>
                 <label for="contactEmail" class="block text-xs font-medium text-slate-300 mb-1.5">E-Mail-Adresse</label>
-                <input type="email" id="contactEmail" required placeholder="max@beispiel.de" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                <input type="email" id="contactEmail" name="Email" required placeholder="max@beispiel.de" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
               </div>
 
               <div>
                 <label for="contactLevel" class="block text-xs font-medium text-slate-300 mb-1.5">Dein aktuelles Türkisch-Niveau</label>
-                <select id="contactLevel" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-500 transition-colors">
-                  <option value="beginner">Absolute(r) Anfänger(in)</option>
-                  <option value="basic">Grundkenntnisse (A1-A2)</option>
-                  <option value="intermediate">Fortgeschritten (B1-B2)</option>
-                  <option value="other">Sonstiges / Beratung gewünscht</option>
+                <select id="contactLevel" name="Sprachniveau" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                  <option value="Absolute(r) Anfänger(in)">Absolute(r) Anfänger(in)</option>
+                  <option value="Grundkenntnisse (A1-A2)">Grundkenntnisse (A1-A2)</option>
+                  <option value="Fortgeschritten (B1-B2)">Fortgeschritten (B1-B2)</option>
+                  <option value="Sonstiges / Beratung gewünscht">Sonstiges / Beratung gewünscht</option>
                 </select>
               </div>
 
               <div>
                 <label for="contactMessage" class="block text-xs font-medium text-slate-300 mb-1.5">Deine Nachricht</label>
-                <textarea id="contactMessage" rows="4" required placeholder="Wie können wir dir helfen?" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
+                <textarea id="contactMessage" name="Nachricht" rows="4" required placeholder="Wie können wir dir helfen?" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
               </div>
 
               <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all">
