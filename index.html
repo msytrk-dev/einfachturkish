@@ -78,6 +78,16 @@
 
         <!-- CTA Action & Language Buttons -->
         <div class="hidden sm:flex items-center gap-3">
+          <!-- Audience Mode Switcher (Erwachsene / Kinder) -->
+          <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-700/80">
+            <button id="btnAdultsMode" class="audience-mode-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md" data-mode="adults" data-de="👨‍💼 Erwachsene" data-tr="👨‍💼 Yetişkinler">
+              👨‍💼 Yetişkinler
+            </button>
+            <button id="btnKidsMode" class="audience-mode-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white" data-mode="kids" data-de="🎈 Kinder" data-tr="🎈 Çocuklar">
+              🎈 Çocuklar
+            </button>
+          </div>
+
           <!-- DE / TR Language Switcher Button -->
           <button class="lang-toggle-btn flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-xs font-extrabold text-white transition-all shadow-md" title="Sprache wechseln / Dil Değiştir">
             <span class="lang-flag">🇩🇪</span>
@@ -105,6 +115,16 @@
 
     <!-- Mobile Drawer Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+      <!-- Mobile Audience Toggle -->
+      <div class="flex items-center justify-center p-1 rounded-xl bg-slate-900 border border-slate-700 mb-2">
+        <button class="audience-mode-btn w-1/2 py-2 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white" data-mode="adults" data-de="👨‍💼 Erwachsene" data-tr="👨‍💼 Yetişkinler">
+          👨‍💼 Yetişkinler
+        </button>
+        <button class="audience-mode-btn w-1/2 py-2 rounded-lg text-xs font-bold transition-all text-slate-400" data-mode="kids" data-de="🎈 Kinder" data-tr="🎈 Çocuklar">
+          🎈 Çocuklar
+        </button>
+      </div>
+
       <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Vokabel-Trainer</a>
       <a href="#warum-wir" data-de="Warum wir?" data-tr="Neden Biz?" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Warum wir?</a>
       <a href="#kurse" data-de="Kurspakete" data-tr="Kurs Paketleri" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Kurspakete</a>
@@ -182,7 +202,7 @@
             
             <!-- Main Hero Image Card -->
             <div class="relative glass-panel rounded-3xl p-3 border border-slate-700/60 shadow-2xl overflow-hidden">
-              <img src="assets/images/hero_turkish_app.png" alt="Einfach Türkisch Lernplattform Preview" class="rounded-2xl w-full h-auto object-cover shadow-lg">
+              <img id="heroImg" src="assets/images/hero_turkish_app.png" alt="Einfach Türkisch Lernplattform Preview" class="rounded-2xl w-full h-auto object-cover shadow-lg">
               
               <!-- Floating Badge 1: Wort des Tages -->
               <div class="absolute top-6 left-6 glass-panel px-4 py-2.5 rounded-2xl border border-white/10 shadow-xl animate-float hidden sm:flex items-center gap-3">
@@ -405,7 +425,7 @@
           </div>
         </div>
         <div class="lg:col-span-5">
-          <img src="assets/images/tutor_session.png" alt="Türkisch Live Tutor Session" class="rounded-2xl w-full h-auto object-cover border border-slate-700 shadow-xl">
+          <img id="tutorImg" src="assets/images/tutor_session.png" alt="Türkisch Live Tutor Session" class="rounded-2xl w-full h-auto object-cover border border-slate-700 shadow-xl">
         </div>
       </div>
 
@@ -443,7 +463,7 @@
       </div>
 
       <!-- 3 Pricing Cards Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <div id="coursePackagesGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
         
         <!-- Package 1: Basis (Anfänger A1-A2) -->
         <div class="glass-panel rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative hover:border-slate-700 transition-all">

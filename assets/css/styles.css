@@ -209,3 +209,42 @@ h1, h2, h3, h4, .font-heading {
   -webkit-backface-visibility: visible !important;
   backface-visibility: visible !important;
 }
+
+/* ==========================================
+   Kids Mode Visual Styles (.kids-mode)
+   ========================================== */
+body.kids-mode {
+  background-color: #0c0a1d;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(244, 63, 94, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
+}
+
+body.kids-mode .glass-panel {
+  background: rgba(23, 15, 38, 0.85);
+  border-color: rgba(244, 63, 94, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.25);
+}
+
+body.kids-mode .glass-header {
+  background: rgba(12, 10, 29, 0.9);
+  border-bottom-color: rgba(244, 63, 94, 0.2);
+}
+
+body.kids-mode .text-gradient-cyan {
+  background: linear-gradient(135deg, #f43f5e 0%, #fb923c 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.kids-mode .flashcard-front {
+  background: linear-gradient(135deg, #1e1035 0%, #2e104d 100%) !important;
+  border: 2px solid rgba(245, 158, 11, 0.4);
+}
+
+body.kids-mode .flashcard-back {
+  background: linear-gradient(135deg, #3b0764 0%, #1e1b4b 100%) !important;
+  border: 2px solid rgba(244, 63, 94, 0.4);
+}
+
