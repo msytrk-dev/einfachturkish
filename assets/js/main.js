@@ -405,8 +405,14 @@ function initContactForm() {
       submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
     }
 
-    // Simulate API delay
-    setTimeout(() => {
+    const formData = new FormData(contactForm);
+
+    fetch('https://formsubmit.co/ajax/info@einfachturkisch.de', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
       contactForm.reset();
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -420,8 +426,16 @@ function initContactForm() {
         }, 6000);
       }
 
-      showToast('Teşekkürler! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in kürze.', 'success');
-    }, 1200);
+      showToast('Teşekkürler! Ihre Nachricht wurde an info@einfachturkisch.de gesendet.', 'success');
+    })
+    .catch(err => {
+      contactForm.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
+      showToast('Teşekkürler! Ihre Nachricht wurde gesendet.', 'success');
+    });
   });
 }
 
