@@ -299,12 +299,70 @@ const vocabData = [
     phonetic: "[i-yi yol-dju-luk-lar]",
     category: "Höflichkeit",
     context: "Wünscht man jemandem vor der Abreise."
+  },
+  {
+    de: "Guten Morgen!",
+    tr: "Günaydın!",
+    phonetic: "[gyü-nai-dyn]",
+    category: "Begrüßung",
+    context: "Der klassische Gruß am Morgen bis mittags."
+  },
+  {
+    de: "Gute Nacht!",
+    tr: "İyi geceler!",
+    phonetic: "[i-yi ge-dje-ler]",
+    category: "Begrüßung",
+    context: "Verabschiedung am späten Abend oder vor dem Schlafen."
+  },
+  {
+    de: "Herzlichen Glückwunsch!",
+    tr: "Tebrik ederim!",
+    phonetic: "[teb-rik e-de-rim]",
+    category: "Höflichkeit",
+    context: "Wird zum Erfolg oder Geburtstag gewünscht."
+  },
+  {
+    de: "Gute Besserung!",
+    tr: "Geçmiş olsun!",
+    phonetic: "[getsch-mish ol-sun]",
+    category: "Höflichkeit",
+    context: "Sehr empathischer Wunsch bei Krankheit oder Missgeschick."
+  },
+  {
+    de: "Ein Wasser, bitte!",
+    tr: "Bir su, lütfen!",
+    phonetic: "[bir su, lyt-fen]",
+    category: "Restaurant & Café",
+    context: "Unverzichtbar bei jedem Restaurant- und Cafébesuch."
+  },
+  {
+    de: "Bis später!",
+    tr: "Sonra görüşürüz!",
+    phonetic: "[son-ra gyö-ryü-shyü-ryüz]",
+    category: "Begrüßung",
+    context: "Lockere Verabschiedung unter Freunden."
+  },
+  {
+    de: "Schönen Tag noch!",
+    tr: "İyi günler!",
+    phonetic: "[i-yi gyün-ler]",
+    category: "Höflichkeit",
+    context: "Höflicher Wunsch beim Verlassen von Geschäften."
   }
 ];
 
-// Automatically select a different featured word based on the current hour of the day (00-23)
-const currentHourOfDay = new Date().getHours();
-let currentVocabIndex = currentHourOfDay % vocabData.length;
+// Automatically select a daily featured word based on the Day of the Year (updates every night at 00:00)
+const getDayOfYear = () => {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const diff = now - start;
+  const oneDay = 1000 * 60 * 60 * 24;
+  return Math.floor(diff / oneDay);
+};
+
+// Daily starting index changes every day automatically
+const dailySeedIndex = getDayOfYear() % vocabData.length;
+let currentVocabIndex = dailySeedIndex;
 
 function initVocabTrainer() {
   const flashcard = document.getElementById('vocabFlashcard');
