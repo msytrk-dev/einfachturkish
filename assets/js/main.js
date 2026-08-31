@@ -1324,6 +1324,8 @@ function showToast(message, type = 'success') {
    Trial Lesson Popup Modal (Deneme Dersi Modal & Email Form)
    ========================================== */
 function initTrialModal() {
+  const trialForm = document.getElementById('trialForm');
+
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.open-trial-modal');
     if (trigger) {
@@ -1351,6 +1353,7 @@ function initTrialModal() {
   if (trialForm) {
     trialForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const modal = document.getElementById('trialModal');
       const submitBtn = trialForm.querySelector('button[type="submit"]');
       const originalText = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
