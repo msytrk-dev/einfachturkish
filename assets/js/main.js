@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPricingToggle();
   initContactForm();
   initCourseModal();
+  initTrialModal();
   initNewsletterForm();
   initScrollAnimations();
 });
@@ -1314,4 +1315,78 @@ function showToast(message, type = 'success') {
     toast.classList.add('opacity-0', 'translate-y-4');
     setTimeout(() => toast.remove(), 300);
   }, 5000);
+}
+
+/* ==========================================
+   Trial Lesson Modal (Deneme Dersi Modal)
+   ========================================== */
+function initTrialModal() {
+  const modal = document.getElementById('trialModal');
+  const closeBtn = document.getElementById('closeTrialModal');
+  const trialForm = document.getElementById('trialForm');
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.open-trial-modal');
+    if (trigger) {
+      e.preventDefault();
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+    modal?.classList.remove('flex');
+    document.body.style.overflow = '';
+  });
+
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  });
+
+  if (trialForm) {
+    trialForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = trialForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
+      }
+
+      try {
+        const formData = new FormData(trialForm);
+        const response = await fetch('https://formsubmit.co/ajax/info@einfachturkisch.de', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData
+        });
+
+        if (response.ok) {
+          const lang = localStorage.getItem('site_lang') || 'de';
+          showToast(lang === 'tr' ? '⭐ Deneme dersi talebiniz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.' : '⭐ Deine Probestunden-Anfrage wurde erfolgreich gesendet! Wir melden uns in Kürze.', 'success');
+          trialForm.reset();
+          modal?.classList.add('hidden');
+          modal?.classList.remove('flex');
+          document.body.style.overflow = '';
+        } else {
+          throw new Error('Server error');
+        }
+      } catch (err) {
+        showToast('Fehler beim Senden. Bitte versuche es erneut oder schreibe an info@einfachturkisch.de', 'error');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+        }
+      }
+    });
+  }
 }
