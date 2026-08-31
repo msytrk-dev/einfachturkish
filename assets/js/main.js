@@ -453,24 +453,35 @@ function initContactForm() {
         : '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
     }
 
-    const name = document.getElementById('contactName')?.value || '';
-    const email = document.getElementById('contactEmail')?.value || '';
-    const level = document.getElementById('contactLevel')?.value || '';
-    const message = document.getElementById('contactMessage')?.value || '';
+    const nameVal = document.getElementById('contactName')?.value || '';
+    const emailVal = document.getElementById('contactEmail')?.value || '';
+    const levelVal = document.getElementById('contactLevel')?.value || '';
+    const messageVal = document.getElementById('contactMessage')?.value || '';
+
+    const formData = new FormData();
+    if (currentLang === 'tr') {
+      formData.append('_subject', `Einfach Türkisch - Yeni İletişim Mesajı (${nameVal})`);
+      formData.append('Ad Soyad', nameVal);
+      formData.append('E-Posta Adresi', emailVal);
+      formData.append('Dil Seviyesi', levelVal);
+      formData.append('Mesaj', messageVal);
+    } else {
+      formData.append('_subject', `Einfach Türkisch - Neue Kontaktanfrage (${nameVal})`);
+      formData.append('Name', nameVal);
+      formData.append('E-Mail', emailVal);
+      formData.append('Sprachniveau', levelVal);
+      formData.append('Nachricht', messageVal);
+    }
+
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
 
     fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({
-        _subject: `Einfach Türkisch - Yeni İletişim Mesajı (${name})`,
-        Ad_Soyad: name,
-        Email: email,
-        Sprachniveau_Seviye: level,
-        Mesaj: message
-      })
+      body: formData
     })
     .then(res => res.json())
     .then(data => {
@@ -493,7 +504,15 @@ function initContactForm() {
       showToast(successMsg, 'success');
     })
     .catch(err => {
-      console.error('FormSubmit error:', err);
+      console.error('FormSubmit primary failed, executing secondary fallback:', err);
+      
+      // Fallback submit directly using native form submission or secondary fetch
+      fetch('https://formsubmit.co/ajax/info@einfachturkisch.de', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
       contactForm.reset();
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -563,21 +582,29 @@ function initCourseModal() {
     }
 
     const packageName = modalPackageSelect?.value || '';
-    const name = document.getElementById('modalName')?.value || '';
-    const email = document.getElementById('modalEmail')?.value || '';
+    const nameVal = document.getElementById('modalName')?.value || '';
+    const emailVal = document.getElementById('modalEmail')?.value || '';
+
+    const formData = new FormData();
+    if (currentLang === 'tr') {
+      formData.append('_subject', `Einfach Türkisch - Yeni Kurs Başvurusu (${packageName.toUpperCase()})`);
+      formData.append('Seçilen Paket', packageName);
+      formData.append('Ad Soyad', nameVal);
+      formData.append('E-Posta Adresi', emailVal);
+    } else {
+      formData.append('_subject', `Einfach Türkisch - Neue Kursanmeldung (${packageName.toUpperCase()})`);
+      formData.append('Paket', packageName);
+      formData.append('Name', nameVal);
+      formData.append('E-Mail', emailVal);
+    }
+    formData.append('_captcha', 'false');
 
     fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({
-        _subject: `Einfach Türkisch - Yeni Kurs Başvurusu (${packageName.toUpperCase()})`,
-        Paket: packageName,
-        Ad_Soyad: name,
-        Email: email
-      })
+      body: formData
     })
     .then(() => {
       closeModal();
@@ -614,17 +641,16 @@ function initNewsletterForm() {
     const currentLang = localStorage.getItem('site_lang') || 'de';
 
     if (input && input.value) {
-      const email = input.value;
+      const emailVal = input.value;
+      const formData = new FormData();
+      formData.append('_subject', 'Einfach Türkisch - Yeni Bülten Abonesi');
+      formData.append('Bülten E-Posta', emailVal);
+      formData.append('_captcha', 'false');
+
       fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: 'Einfach Türkisch - Yeni Bülten Abonesi',
-          Bulten_Email: email
-        })
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
 
       const msg = currentLang === 'tr'
