@@ -158,18 +158,17 @@ function initVocabTrainer() {
   function updateVocabCard(index) {
     const data = vocabData[index];
     
-    // Reset flip
+    // Reset flip state
     const inner = flashcard.querySelector('.flashcard-inner');
     inner?.classList.remove('is-flipped');
 
-    setTimeout(() => {
-      if (deText) deText.textContent = data.de;
-      if (trText) trText.textContent = data.tr;
-      if (phoneticText) phoneticText.textContent = data.phonetic;
-      if (categoryBadge) categoryBadge.textContent = data.category;
-      if (contextText) contextText.textContent = data.context;
-      if (counterText) counterText.textContent = `${index + 1} / ${vocabData.length}`;
-    }, 150);
+    // Update text content immediately
+    if (deText) deText.textContent = data.de;
+    if (trText) trText.textContent = data.tr;
+    if (phoneticText) phoneticText.textContent = data.phonetic;
+    if (categoryBadge) categoryBadge.textContent = data.category;
+    if (contextText) contextText.textContent = data.context;
+    if (counterText) counterText.textContent = `${index + 1} / ${vocabData.length}`;
   }
 
   // Initial load

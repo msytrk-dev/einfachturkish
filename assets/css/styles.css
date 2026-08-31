@@ -150,17 +150,51 @@ h1, h2, h3, h4, .font-heading {
 .flashcard-inner {
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  position: relative;
 }
 
 .flashcard-inner.is-flipped {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .flashcard-front, .flashcard-back {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.3s ease;
 }
 
 .flashcard-back {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+/* Robust Fallback for Safari & Webkit backface rendering */
+.flashcard-inner.is-flipped .flashcard-front {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.flashcard-inner.is-flipped .flashcard-back {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  z-index: 30 !important;
+}
+
+.flashcard-inner:not(.is-flipped) .flashcard-front {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  z-index: 30 !important;
+}
+
+.flashcard-inner:not(.is-flipped) .flashcard-back {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
 }
