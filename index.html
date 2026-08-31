@@ -69,36 +69,49 @@
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#vokabel-trainer" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Vokabel-Trainer</a>
-          <a href="#warum-wir" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Neden Biz?</a>
-          <a href="#kurse" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Kurs Paketleri</a>
-          <a href="#faq" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">FAQ</a>
-          <a href="#kontakt" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">İletişim</a>
+          <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Vokabel-Trainer</a>
+          <a href="#warum-wir" data-de="Neden Biz?" data-tr="Neden Biz?" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Neden Biz?</a>
+          <a href="#kurse" data-de="Kurs Paketleri" data-tr="Kurs Paketleri" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Kurs Paketleri</a>
+          <a href="#faq" data-de="FAQ" data-tr="SSS (FAQ)" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">FAQ</a>
+          <a href="#kontakt" data-de="İletişim" data-tr="İletişim" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">İletişim</a>
         </nav>
 
-        <!-- CTA Action Buttons -->
-        <div class="hidden sm:flex items-center gap-4">
-          <button class="open-course-modal px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" data-package="pro">
+        <!-- CTA Action & Language Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <!-- DE / TR Language Switcher Button -->
+          <button class="lang-toggle-btn flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-xs font-extrabold text-white transition-all shadow-md" title="Sprache wechseln / Dil Değiştir">
+            <span class="lang-flag">🇩🇪</span>
+            <span class="lang-label">DE</span>
+            <i class="fas fa-globe text-cyan-400"></i>
+          </button>
+
+          <button class="open-course-modal px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" data-package="pro" data-de="<i class='fas fa-rocket mr-2'></i> Kursa Başla" data-tr="<i class='fas fa-rocket mr-2'></i> Kursa Başla">
             <i class="fas fa-rocket mr-2"></i> Kursa Başla
           </button>
         </div>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuBtn" type="button" aria-label="Menü öffnen" class="md:hidden p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-slate-300 hover:text-white">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
+        <div class="flex items-center gap-2 md:hidden">
+          <button class="lang-toggle-btn flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs font-bold text-white">
+            <span class="lang-flag">🇩🇪</span>
+            <span class="lang-label">DE</span>
+          </button>
+          <button id="mobileMenuBtn" type="button" aria-label="Menü öffnen" class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Mobile Drawer Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
-      <a href="#vokabel-trainer" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Vokabel-Trainer</a>
-      <a href="#warum-wir" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Neden Biz?</a>
-      <a href="#kurse" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Kurs Paketleri</a>
-      <a href="#faq" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">FAQ</a>
-      <a href="#kontakt" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">İletişim</a>
-      <div class="pt-2">
-        <button class="open-course-modal w-full py-3 rounded-xl text-center font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25" data-package="pro">
+      <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Vokabel-Trainer</a>
+      <a href="#warum-wir" data-de="Neden Biz?" data-tr="Neden Biz?" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Neden Biz?</a>
+      <a href="#kurse" data-de="Kurs Paketleri" data-tr="Kurs Paketleri" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Kurs Paketleri</a>
+      <a href="#faq" data-de="FAQ" data-tr="SSS (FAQ)" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">FAQ</a>
+      <a href="#kontakt" data-de="İletişim" data-tr="İletişim" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">İletişim</a>
+      <div class="pt-2 flex flex-col gap-2">
+        <button class="open-course-modal w-full py-3 rounded-xl text-center font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25" data-package="pro" data-de="<i class='fas fa-rocket mr-2'></i> Kursa Başla" data-tr="<i class='fas fa-rocket mr-2'></i> Kursa Başla">
           <i class="fas fa-rocket mr-2"></i> Kursa Başla
         </button>
       </div>
@@ -122,26 +135,26 @@
           <!-- Audience Badge -->
           <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-xs md:text-sm font-semibold text-cyan-300 shadow-inner">
             <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span>🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht</span>
+            <span data-de="🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht" data-tr="🇩🇪 Almanca Konuşanlar İçin 🇹🇷 Kolay Türkçe">🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht</span>
           </div>
 
           <!-- Headline -->
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]" data-de="Spreche fließend <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkisch</span> – Schneller &amp; Intuitiv!" data-tr="Akıcı <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkçe</span> Konuşun – Daha Hızlı &amp; Sezgisel!">
             Spreche fließend <br class="hidden sm:inline">
             <span class="text-gradient-cyan">Türkisch</span> – Schneller &amp; Intuitiv!
           </h1>
 
           <!-- Subtitle -->
-          <p class="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          <p class="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0" data-de="Speziell entwickelte Lernmethode für Muttersprachler aus Deutschland, Österreich &amp; der Schweiz. Meistere Grammatik, Alltagsgespräche und Akzent ohne stundenlanges Büffeln." data-tr="Almanya, Avusturya ve İsviçre'den Almanca konuşanlar için özel geliştirilmiş öğrenme metodu. Gramer, günlük konuşma ve aksanı ezber yapmadan öğrenin.">
             Speziell entwickelte Lernmethode für Muttersprachler aus Deutschland, Österreich &amp; der Schweiz. Meistere Grammatik, Alltagsgespräche und Akzent ohne stundenlanges Büffeln.
           </p>
 
           <!-- Action Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <button class="open-course-modal w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-1" data-package="pro">
+            <button class="open-course-modal w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 shadow-xl shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-1" data-package="pro" data-de="<i class='fas fa-play mr-2.5'></i> Kursa Başla (Jetzt starten)" data-tr="<i class='fas fa-play mr-2.5'></i> Kursa Başla (Hemen Başla)">
               <i class="fas fa-play mr-2.5"></i> Kursa Başla (Jetzt starten)
             </button>
-            <a href="#vokabel-trainer" class="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-semibold text-slate-200 glass-panel hover:bg-slate-800 hover:text-white border border-slate-700 transition-all text-center">
+            <a href="#vokabel-trainer" class="w-full sm:w-auto px-7 py-4 rounded-xl text-base font-semibold text-slate-200 glass-panel hover:bg-slate-800 hover:text-white border border-slate-700 transition-all text-center" data-de="<i class='fas fa-layer-group mr-2 text-cyan-400'></i> Gratis Vokabel-Test" data-tr="<i class='fas fa-layer-group mr-2 text-cyan-400'></i> Ücretsiz Kelime Testi">
               <i class="fas fa-layer-group mr-2 text-cyan-400"></i> Gratis Vokabel-Test
             </a>
           </div>
@@ -150,15 +163,15 @@
           <div class="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
             <div class="text-center lg:text-left">
               <div class="text-2xl md:text-3xl font-extrabold text-white font-heading">12.500+</div>
-              <div class="text-xs text-slate-400 font-medium">Aktive Schüler</div>
+              <div class="text-xs text-slate-400 font-medium" data-de="Aktive Schüler" data-tr="Aktif Öğrenci">Aktive Schüler</div>
             </div>
             <div class="text-center lg:text-left">
               <div class="text-2xl md:text-3xl font-extrabold text-amber-400 font-heading">4.9 ★</div>
-              <div class="text-xs text-slate-400 font-medium">Top Bewertung</div>
+              <div class="text-xs text-slate-400 font-medium" data-de="Top Bewertung" data-tr="En Yüksek Puan">Top Bewertung</div>
             </div>
             <div class="text-center lg:text-left">
               <div class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-heading">98%</div>
-              <div class="text-xs text-slate-400 font-medium">Erfolgsquote</div>
+              <div class="text-xs text-slate-400 font-medium" data-de="Erfolgsquote" data-tr="Başarı Oranı">Erfolgsquote</div>
             </div>
           </div>
 
@@ -201,13 +214,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Interaktiver Vorgeschmack" data-tr="İnteraktif Kelime Eğitimi">
           Interaktiver Vorgeschmack
         </span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 font-heading">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 font-heading" data-de="Probier es direkt aus: <span class='text-gradient-cyan'>Express-Vokabeltrainer</span>" data-tr="Hemen Deneyin: <span class='text-gradient-cyan'>Hızlı Kelime Eğitimi</span>">
           Probier es direkt aus: <span class="text-gradient-cyan">Express-Vokabeltrainer</span>
         </h2>
-        <p class="text-slate-400 mt-2 text-base">
+        <p class="text-slate-400 mt-2 text-base" data-de="Klicke auf die Karte, um die Übersetzung &amp; Aussprachehilfe umzudrehen." data-tr="Çeviriyi ve okunuş yardımını görmek için karta tıklayın.">
           Klicke auf die Karte, um die Übersetzung &amp; Aussprachehilfe umzudrehen.
         </p>
       </div>
@@ -227,22 +240,22 @@
               </div>
               
               <div class="text-center my-auto">
-                <span class="text-xs uppercase tracking-widest text-slate-400 font-bold block mb-2">Deutsch</span>
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-bold block mb-2" data-de="Deutsch" data-tr="Almanca">Deutsch</span>
                 <h3 id="vocabDeText" class="text-3xl md:text-4xl font-extrabold text-white font-heading">
                   Guten Tag / Hallo
                 </h3>
               </div>
 
               <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-800">
-                <span><i class="fas fa-hand-pointer text-cyan-400 mr-1.5"></i> Zum Umdrehen tippen</span>
-                <span class="text-cyan-400 font-medium">Antwort zeigen &rarr;</span>
+                <span data-de="<i class='fas fa-hand-pointer text-cyan-400 mr-1.5'></i> Zum Umdrehen tippen" data-tr="<i class='fas fa-hand-pointer text-cyan-400 mr-1.5'></i> Çevirmek için tıklayın"><i class="fas fa-hand-pointer text-cyan-400 mr-1.5"></i> Zum Umdrehen tippen</span>
+                <span class="text-cyan-400 font-medium" data-de="Antwort zeigen &rarr;" data-tr="Cevabı göster &rarr;">Antwort zeigen &rarr;</span>
               </div>
             </div>
 
             <!-- Back of Card (Turkish & Pronunciation) -->
             <div class="flashcard-back absolute inset-0 p-8 flex flex-col justify-between rounded-3xl bg-gradient-to-b from-slate-900 to-indigo-950/80 border border-cyan-500/30">
               <div class="flex items-center justify-between">
-                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30" data-de="🇹🇷 Türkische Übersetzung" data-tr="🇹🇷 Türkçe Çevirisi">
                   🇹🇷 Türkische Übersetzung
                 </span>
                 <button id="vocabAudioBtn" title="Aussprache anhören" class="w-10 h-10 rounded-full bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 flex items-center justify-center transition-colors">
@@ -263,8 +276,8 @@
               </div>
 
               <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-800/80">
-                <span class="text-slate-400"><i class="fas fa-rotate-left mr-1"></i> Karte zurückdrehen</span>
-                <span class="text-emerald-400 font-semibold"><i class="fas fa-check-circle mr-1"></i> Verstanden</span>
+                <span class="text-slate-400" data-de="<i class='fas fa-rotate-left mr-1'></i> Karte zurückdrehen" data-tr="<i class='fas fa-rotate-left mr-1'></i> Geri çevir"><i class="fas fa-rotate-left mr-1"></i> Karte zurückdrehen</span>
+                <span class="text-emerald-400 font-semibold" data-de="<i class='fas fa-check-circle mr-1'></i> Verstanden" data-tr="<i class='fas fa-check-circle mr-1'></i> Anlaşıldı"><i class="fas fa-check-circle mr-1"></i> Verstanden</span>
               </div>
             </div>
 
@@ -273,15 +286,15 @@
 
         <!-- Controls below card -->
         <div class="flex items-center justify-between mt-6 px-2">
-          <button id="vocabPrevBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors">
+          <button id="vocabPrevBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors" data-de="<i class='fas fa-arrow-left'></i> Vorheriges" data-tr="<i class='fas fa-arrow-left'></i> Önceki">
             <i class="fas fa-arrow-left"></i> Vorheriges
           </button>
           
-          <button id="vocabFlipBtn" class="px-6 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-sm font-semibold border border-cyan-500/40 transition-colors">
+          <button id="vocabFlipBtn" class="px-6 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-sm font-semibold border border-cyan-500/40 transition-colors" data-de="<i class='fas fa-rotate mr-1.5'></i> Umdrehen" data-tr="<i class='fas fa-rotate mr-1.5'></i> Çevir">
             <i class="fas fa-rotate mr-1.5"></i> Umdrehen
           </button>
 
-          <button id="vocabNextBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors">
+          <button id="vocabNextBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors" data-de="Nächstes <i class='fas fa-arrow-right'></i>" data-tr="Sonraki <i class='fas fa-arrow-right'></i>">
             Nächstes <i class="fas fa-arrow-right"></i>
           </button>
         </div>
@@ -299,13 +312,13 @@
       
       <!-- Section Title Header -->
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Neden Biz? / Warum Einfach Türkisch?" data-tr="Neden Biz? / Neden Einfach Türkisch?">
           Neden Biz? / Warum Einfach Türkisch?
         </span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading" data-de="Die modernste Art, <span class='text-gradient-cyan'>Türkisch</span> nachhaltig zu lernen" data-tr="Türkçeyi Kalıcı Olarak Öğrenmenin <span class='text-gradient-cyan'>En Modern Yolu</span>">
           Die modernste Art, <span class="text-gradient-cyan">Türkisch</span> nachhaltig zu lernen
         </h2>
-        <p class="text-slate-300 text-base md:text-lg">
+        <p class="text-slate-300 text-base md:text-lg" data-de="Herkömmliche Sprachkurse überfordern oft mit trockener Grammatik. Wir kombinieren intuitive deutsche Sprachvergleiche mit Alltagsdialogen." data-tr="Geleneksel dil kursları genellikle sıkıcı gramer ile zorlar. Biz Almanca ile sezgisel dil karşılaştırmalarını günlük diyaloglarla birleştiriyoruz.">
           Herkömmliche Sprachkurse überfordern oft mit trockener Grammatik. Wir kombinieren intuitive deutsche Sprachvergleiche mit Alltagsdialogen.
         </p>
       </div>
@@ -410,24 +423,24 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Kurs Paketleri / Unsere Kurse &amp; Preise" data-tr="Kurs Paketleri / Kurslar ve Fiyatlar">
           Kurs Paketleri / Unsere Kurse &amp; Preise
         </span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading" data-de="Wähle das perfekte Paket für dein <span class='text-gradient-cyan'>Sprachziel</span>" data-tr="Dil Hedefiniz İçin <span class='text-gradient-cyan'>Mükemmel Paketi</span> Seçin">
           Wähle das perfekte Paket für dein <span class="text-gradient-cyan">Sprachziel</span>
         </h2>
-        <p class="text-slate-300 text-base md:text-lg">
+        <p class="text-slate-300 text-base md:text-lg" data-de="Transparent, fair und ohne versteckte Kosten. Alle Pakete beinhalten eine 14-Tage Geld-zurück-Garantie." data-tr="Şeffaf, adil ve gizli ücretler olmadan. Tüm paketlerimiz 14 günlük para iade garantisi içerir.">
           Transparent, fair und ohne versteckte Kosten. Alle Pakete beinhalten eine 14-Tage Geld-zurück-Garantie.
         </p>
 
         <!-- Billing Period Toggle -->
         <div class="pt-6 flex items-center justify-center gap-4">
-          <span class="text-sm font-medium text-slate-300">Monatlich</span>
+          <span class="text-sm font-medium text-slate-300" data-de="Monatlich" data-tr="Aylık">Monatlich</span>
           <label class="relative inline-flex items-center cursor-pointer">
             <input type="checkbox" id="billingToggle" class="sr-only peer" checked>
             <div class="w-14 h-7 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-cyan-400 after:border-slate-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-slate-950 border border-slate-700"></div>
           </label>
-          <span class="text-sm font-medium text-white flex items-center gap-1.5">
+          <span class="text-sm font-medium text-white flex items-center gap-1.5" data-de="Jährlich <span class='px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30'>20% Rabatt</span>" data-tr="Yıllık <span class='px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30'>%20 İndirim</span>">
             Jährlich <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">20% Rabatt</span>
           </span>
         </div>

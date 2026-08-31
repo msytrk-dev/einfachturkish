@@ -1,8 +1,5 @@
-/**
- * Einfach Türkisch - Interactive Platform JavaScript
- */
-
 document.addEventListener('DOMContentLoaded', () => {
+  initLanguageSwitcher();
   initNavbar();
   initFaqAccordion();
   initVocabTrainer();
@@ -12,6 +9,54 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletterForm();
   initScrollAnimations();
 });
+
+/* ==========================================
+   0. Language Switcher (DE ↔ TR)
+   ========================================== */
+let currentLanguage = localStorage.getItem('site_lang') || 'de';
+
+function initLanguageSwitcher() {
+  const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
+  if (!langToggleBtns.length) return;
+
+  function applyLanguage(lang) {
+    currentLanguage = lang;
+    localStorage.setItem('site_lang', lang);
+
+    langToggleBtns.forEach(btn => {
+      const flagEl = btn.querySelector('.lang-flag');
+      const labelEl = btn.querySelector('.lang-label');
+      if (lang === 'tr') {
+        if (flagEl) flagEl.textContent = '🇹🇷';
+        if (labelEl) labelEl.textContent = 'TR';
+        btn.setAttribute('title', 'Almanca\'ya Geç (DE)');
+      } else {
+        if (flagEl) flagEl.textContent = '🇩🇪';
+        if (labelEl) labelEl.textContent = 'DE';
+        btn.setAttribute('title', 'Türkçe\'ye Geç (TR)');
+      }
+    });
+
+    const translatableElements = document.querySelectorAll('[data-de][data-tr]');
+    translatableElements.forEach(el => {
+      const translation = el.getAttribute(`data-${lang}`);
+      if (translation) {
+        el.innerHTML = translation;
+      }
+    });
+  }
+
+  langToggleBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const nextLang = currentLanguage === 'de' ? 'tr' : 'de';
+      applyLanguage(nextLang);
+      showToast(nextLang === 'tr' ? 'Dil Türkçe olarak değiştirildi 🇹🇷' : 'Sprache auf Deutsch eingestellt 🇩🇪', 'info');
+    });
+  });
+
+  applyLanguage(currentLanguage);
+}
 
 /* ==========================================
    1. Navbar & Mobile Menu Logic
