@@ -1318,7 +1318,7 @@ function showToast(message, type = 'success') {
 }
 
 /* ==========================================
-   Trial Lesson Modal (Deneme Dersi Modal)
+   Trial Lesson Popup Modal (Deneme Dersi Modal & Email Form)
    ========================================== */
 function initTrialModal() {
   const modal = document.getElementById('trialModal');
@@ -1358,7 +1358,7 @@ function initTrialModal() {
       const originalText = submitBtn ? submitBtn.innerHTML : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Gönderiliyor...';
       }
 
       try {

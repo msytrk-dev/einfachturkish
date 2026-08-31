@@ -68,40 +68,35 @@
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-8">
-          <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Vokabel-Trainer</a>
-          <a href="#warum-wir" data-de="Warum wir?" data-tr="Neden Biz?" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Warum wir?</a>
-          <a href="#kurse" data-de="Kurspakete" data-tr="Kurs Paketleri" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Kurspakete</a>
-          <a href="#faq" data-de="FAQ" data-tr="SSS (FAQ)" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">FAQ</a>
-          <a href="#kontakt" data-de="Kontakt" data-tr="İletişim" class="text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors">Kontakt</a>
+        <nav class="hidden lg:flex items-center gap-6">
+          <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Kelime Eğitimi</a>
+          <a href="#warum-wir" data-de="Warum wir?" data-tr="Neden Biz?" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Neden Biz?</a>
+          <a href="#kurse" data-de="Kurspakete" data-tr="Kurs Paketleri" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Kurs Paketleri</a>
+          <a href="#faq" data-de="FAQ" data-tr="SSS (FAQ)" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">FAQ</a>
+          <a href="#kontakt" data-de="Kontakt" data-tr="İletişim" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">İletişim</a>
         </nav>
 
         <!-- CTA Action & Language Buttons -->
-        <div class="hidden sm:flex items-center gap-3">
+        <div class="hidden sm:flex items-center gap-2.5">
           <!-- Audience Mode Switcher (Erwachsene / Kinder) -->
           <div class="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-700/80">
-            <button id="btnAdultsMode" class="audience-mode-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md" data-mode="adults" data-de="👨‍💼 Erwachsene" data-tr="👨‍💼 Yetişkinler">
+            <button id="btnAdultsMode" class="audience-mode-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-md" data-mode="adults" data-de="👨‍💼 Erwachsene" data-tr="👨‍💼 Yetişkinler">
               👨‍💼 Yetişkinler
             </button>
-            <button id="btnKidsMode" class="audience-mode-btn px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white" data-mode="kids" data-de="🎈 Kinder" data-tr="🎈 Çocuklar">
+            <button id="btnKidsMode" class="audience-mode-btn px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white" data-mode="kids" data-de="🎈 Kinder" data-tr="🎈 Çocuklar">
               🎈 Çocuklar
             </button>
           </div>
 
           <!-- DE / TR Language Switcher Button -->
-          <button class="lang-toggle-btn flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-xs font-extrabold text-white transition-all shadow-md" title="Sprache wechseln / Dil Değiştir">
+          <button class="lang-toggle-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-xs font-extrabold text-white transition-all shadow-md" title="Sprache wechseln / Dil Değiştir">
             <span class="lang-flag">🇩🇪</span>
             <span class="lang-label">DE</span>
-            <i class="fas fa-globe text-cyan-400"></i>
+            <i class="fas fa-globe text-cyan-400 text-xs"></i>
           </button>
 
-          <!-- Striking Glowing Star Trial Lesson Button -->
-          <button class="open-trial-modal px-4 py-2.5 rounded-xl text-xs font-black text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse border border-amber-300/80 flex items-center gap-1.5 font-heading" data-de="⭐ Probestunde" data-tr="⭐ Deneme Dersi">
-            ⭐ Probestunde
-          </button>
-
-          <button class="open-course-modal px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" data-package="pro" data-de="<i class='fas fa-rocket mr-2'></i> Kurs starten" data-tr="<i class='fas fa-rocket mr-2'></i> Kursa Başla">
-            <i class="fas fa-rocket mr-2"></i> Kurs starten
+          <button class="open-course-modal px-4 py-2 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" data-package="pro" data-de="<i class='fas fa-rocket mr-1.5'></i> Kurs starten" data-tr="<i class='fas fa-rocket mr-1.5'></i> Kursa Başla">
+            <i class="fas fa-rocket mr-1.5"></i> Kursa Başla
           </button>
         </div>
 
@@ -736,12 +731,13 @@
               </div>
 
               <div>
-                <label for="contactLevel" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="Dein aktuelles Türkisch-Niveau" data-tr="Mevcut Türkçe Seviyeniz">Dein aktuelles Türkisch-Niveau</label>
+                <label for="contactLevel" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="Betreff / Sprachniveau" data-tr="Konu / Türkçe Seviyeniz">Betreff / Sprachniveau</label>
                 <select id="contactLevel" name="Sprachniveau" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-500 transition-colors">
-                  <option value="Absolute(r) Anfänger(in)" data-de="Absolute(r) Anfänger(in)" data-tr="Tam Başlangıç Seviyesi">Absolute(r) Anfänger(in)</option>
-                  <option value="Grundkenntnisse (A1-A2)" data-de="Grundkenntnisse (A1-A2)" data-tr="Temel Seviye (A1-A2)">Grundkenntnisse (A1-A2)</option>
-                  <option value="Fortgeschritten (B1-B2)" data-de="Fortgeschritten (B1-B2)" data-tr="Orta / İleri Seviye (B1-B2)">Fortgeschritten (B1-B2)</option>
-                  <option value="Sonstiges / Beratung gewünscht" data-de="Sonstiges / Beratung gewünscht" data-tr="Diğer / Danışmanlık İsteği">Sonstiges / Beratung gewünscht</option>
+                  <option value="⭐ Kostenlose Probestunde / Deneme Dersi" selected data-de="⭐ Kostenlose Probestunde" data-tr="⭐ Ücretsiz Deneme Dersi">⭐ Ücretsiz Deneme Dersi</option>
+                  <option value="Absolute(r) Anfänger(in)" data-de="Absolute(r) Anfänger(in) (A1)" data-tr="Tam Başlangıç Seviyesi (A1)">Tam Başlangıç Seviyesi (A1)</option>
+                  <option value="Grundkenntnisse (A1-A2)" data-de="Grundkenntnisse (A1-A2)" data-tr="Temel Seviye (A1-A2)">Temel Seviye (A1-A2)</option>
+                  <option value="Fortgeschritten (B1-B2)" data-de="Fortgeschritten (B1-B2)" data-tr="Orta / İleri Seviye (B1-B2)">Orta / İleri Seviye (B1-B2)</option>
+                  <option value="Sonstiges / Beratung gewünscht" data-de="Sonstiges / Beratung gewünscht" data-tr="Diğer / Danışmanlık İsteği">Diğer / Danışmanlık İsteği</option>
                 </select>
               </div>
 
@@ -912,61 +908,63 @@
         </p>
       </form>
 
-    </div>
-  <!-- Trial Lesson Modal (Deneme Dersi Modal) -->
+  </div>
+
+  <!-- Trial Lesson Popup Modal (Deneme Dersi Modal) -->
   <div id="trialModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
     <div class="glass-panel w-full max-w-lg rounded-3xl border-2 border-amber-500/60 bg-slate-900 p-6 md:p-8 shadow-2xl relative my-8">
       <button id="closeTrialModal" type="button" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl p-2 rounded-full hover:bg-slate-800 transition-colors">
         <i class="fas fa-times"></i>
       </button>
+      
       <div class="text-center space-y-2 mb-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
-          <i class="fas fa-star text-amber-400"></i> <span data-de="Kostenlose Probestunde" data-tr="Ücretsiz Deneme Dersi">Kostenlose Probestunde</span>
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+          <i class="fas fa-star text-amber-400"></i> <span data-de="Kostenlose Probestunde" data-tr="Ücretsiz Deneme Dersi">Ücretsiz Deneme Dersi</span>
         </div>
-        <h3 class="text-2xl font-bold text-white font-heading" data-de="Probestunde buchen" data-tr="Deneme Dersi Planla">Probestunde buchen</h3>
-        <p class="text-xs text-slate-300" data-de="Wähle deine bevorzugte Zeit – dein Coach meldet sich in Kürze!" data-tr="Tercih ettiğiniz zamanı seçin – öğretmeniniz en kısa sürede sizinle iletişime geçecektir!">Tercih ettiğiniz zamanı seçin!</p>
+        <h3 class="text-2xl font-bold text-white font-heading" data-de="Probestunde buchen" data-tr="Deneme Dersi Planla">Deneme Dersi Planla</h3>
+        <p class="text-xs text-slate-300 max-w-sm mx-auto" data-de="Wähle deine bevorzugte Zeit – dein Coach meldet sich in Kürze!" data-tr="Tercih ettiğiniz zamanı seçin – öğretmeniniz en kısa sürede sizinle iletişime geçecektir!">Tercih ettiğiniz zamanı seçin – öğretmeniniz en kısa sürede sizinle iletişime geçecektir!</p>
       </div>
 
-      <form id="trialForm" action="https://formsubmit.co/info@einfachturkisch.de" method="POST" class="space-y-4">
+      <form id="trialForm" class="space-y-4">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="⭐ Yeni Deneme Dersi Talebi! (einfachturkisch.de)">
-        <input type="hidden" name="_autoresponse" value="Vielen Dank für deine Anfrage! Wir haben deine Probestunden-Anfrage erhalten und melden uns in Kürze.">
+        <input type="hidden" name="_subject" value="⭐ DENEME DERSİ TALEBİ! (einfachturkisch.de)">
 
         <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Name & Nachname" data-tr="Ad Soyad">Name & Nachname *</label>
-          <input type="text" name="name" required placeholder="z.B. Alex Müller" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Name & Nachname" data-tr="Ad Soyad">Ad Soyad *</label>
+          <input type="text" name="name" required placeholder="z.B. Alex Müller" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="E-Mail Adresse" data-tr="E-posta Adresi">E-Mail Adresse *</label>
-          <input type="email" name="email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="E-Mail Adresse" data-tr="E-posta Adresi">E-posta Adresi *</label>
+          <input type="email" name="email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Zielgruppe" data-tr="Hedef Kitle">Zielgruppe</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Zielgruppe" data-tr="Hedef Kitle">Hedef Kitle</label>
             <select name="audience" class="w-full px-3 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
-              <option value="Erwachsene / Yetişkin">👨‍💼 Erwachsene / Yetişkin</option>
-              <option value="Kinder / Çocuk">🎈 Kinder / Çocuk</option>
+              <option value="Erwachsene / Yetişkin">👨‍💼 Yetişkinler</option>
+              <option value="Kinder / Çocuk">🎈 Çocuklar</option>
             </select>
           </div>
           <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Sprachniveau" data-tr="Seviyeniz">Sprachniveau</label>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Sprachniveau" data-tr="Seviyeniz">Seviyeniz</label>
             <select name="level" class="w-full px-3 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
-              <option value="A1 - Anfänger / Başlangıç">A1 - Anfänger</option>
-              <option value="A2 - Grundkenntnisse / Temel">A2 - Grundkenntnisse</option>
-              <option value="B1/B2 - Fortgeschritten / Orta">B1/B2 - Fortgeschritten</option>
+              <option value="A1 - Anfänger / Başlangıç">A1 - Başlangıç</option>
+              <option value="A2 - Grundkenntnisse / Temel">A2 - Temel</option>
+              <option value="B1/B2 - Fortgeschritten / Orta">B1/B2 - Orta</option>
             </select>
           </div>
         </div>
 
         <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Wunschtermin / Uhrzeit" data-tr="Tercih Edilen Gün & Saat">Wunschtermin / Uhrzeit</label>
-          <input type="text" name="preferred_time" placeholder="z.B. Montag 18:00 Uhr / Pazartesi 18:00" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Wunschtermin / Uhrzeit" data-tr="Tercih Edilen Gün & Saat">Tercih Edilen Gün & Saat</label>
+          <input type="text" name="preferred_time" placeholder="z.B. Montag 18:00 Uhr / Pazartesi 18:00" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
         </div>
 
-        <button type="submit" class="w-full py-4 rounded-xl text-base font-black text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-xl shadow-amber-500/30 transition-all font-heading" data-de="⭐ Jetzt Probestunde buchen" data-tr="⭐ Ücretsiz Deneme Dersimi Planla">
-          ⭐ Jetzt Probestunde buchen
+        <button type="submit" class="w-full py-4 rounded-xl text-base font-black text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-xl shadow-amber-500/30 transition-all font-heading flex items-center justify-center gap-2" data-de="⭐ Jetzt Probestunde buchen" data-tr="⭐ Ücretsiz Deneme Dersimi Planla">
+          <i class="fas fa-star text-amber-900"></i>
+          <span>⭐ Ücretsiz Deneme Dersimi Planla</span>
         </button>
       </form>
     </div>
