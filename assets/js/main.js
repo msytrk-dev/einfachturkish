@@ -567,6 +567,118 @@ const kidsVocabData = [
     phonetic: "[ka-lem]",
     category: "Lernen & Schule",
     context: "Zum Malen und Schreiben schöner Bilder."
+  },
+  {
+    de: "Die Erdbeere",
+    tr: "Çilek 🍓",
+    phonetic: "[tschi-lek]",
+    category: "Früchte / Meyveler",
+    context: "Süße rote Sommerfrucht."
+  },
+  {
+    de: "Der Schmetterling",
+    tr: "Kelebek 🦋",
+    phonetic: "[ke-le-bek]",
+    category: "Tiere / Hayvanlar",
+    context: "Fliegt bunt von Blume zu Blume."
+  },
+  {
+    de: "Der Ball",
+    tr: "Top ⚽",
+    phonetic: "[top]",
+    category: "Spiele & Spaß",
+    context: "Zum Kicken im Garten."
+  },
+  {
+    de: "Guten Abend!",
+    tr: "İyi akşamlar! 🌙",
+    phonetic: "[i-yi ak-sham-lar]",
+    category: "Begrüßung",
+    context: "Herzlicher Gruß am Abend."
+  },
+  {
+    de: "Die Blume",
+    tr: "Çiçek 🌸",
+    phonetic: "[tschi-tschek]",
+    category: "Natur / Doğa",
+    context: "Duftet schön im Garten."
+  },
+  {
+    de: "Das Auto",
+    tr: "Araba 🚗",
+    phonetic: "[a-ra-ba]",
+    category: "Spielsachen",
+    context: "Buntes Spielzeugauto zum Sausen."
+  },
+  {
+    de: "Die Milch",
+    tr: "Süt 🥛",
+    phonetic: "[syyt]",
+    category: "Getränke",
+    context: "Macht stark und gesund."
+  },
+  {
+    de: "Das Buch",
+    tr: "Kitap 📚",
+    phonetic: "[ki-tap]",
+    category: "Lernen & Schule",
+    context: "Spannende Geschichten zum Lesen."
+  },
+  {
+    de: "Die Schokolade",
+    tr: "Çikolata 🍫",
+    phonetic: "[tschi-ko-la-ta]",
+    category: "Leckereien",
+    context: "Köstliche süße Belohnung."
+  },
+  {
+    de: "Der Fisch",
+    tr: "Balık 🐠",
+    phonetic: "[ba-lyk]",
+    category: "Tiere / Hayvanlar",
+    context: "Schwimmt fröhlich im blauen Wasser."
+  },
+  {
+    de: "Der Bär",
+    tr: "Ayı 🧸",
+    phonetic: "[a-ny]",
+    category: "Tiere / Hayvanlar",
+    context: "Kuscheliger Plüschfreund im Bett."
+  },
+  {
+    de: "Der Mond",
+    tr: "Ay 🌙",
+    phonetic: "[ai]",
+    category: "Natur / Doğa",
+    context: "Leuchtet nachts am Sternenhimmel."
+  },
+  {
+    de: "Das Wasser",
+    tr: "Su 💧",
+    phonetic: "[su]",
+    category: "Natur & Leben",
+    context: "Erfrischend und gesund."
+  },
+  {
+    de: "Willkommen!",
+    tr: "Hoş geldin! 🥳",
+    phonetic: "[hosh gel-din]",
+    category: "Begrüßung",
+    context: "Herzlicher Empfang für Freunde."
+  },
+  {
+    de: "Bravo! / Super!",
+    tr: "Aferin! 👏",
+    phonetic: "[a-fe-rin]",
+    category: "Lob & Freude",
+    context: "Wird für tolle Leistungen gesagt."
+  },
+  {
+    de: "Gute Reise!",
+    tr: "İyi yolculuklar! 🚀",
+    phonetic: "[i-yi yol-dju-luk-lar]",
+    category: "Höflichkeit",
+    context: "Für spannende Entdeckungsreisen."
   }
 ];
 
@@ -579,9 +691,7 @@ const getDayOfYear = () => {
   return Math.floor(diff / oneDay);
 };
 
-// Daily starting index changes every day automatically
-const dailySeedIndex = getDayOfYear() % vocabData.length;
-let currentVocabIndex = dailySeedIndex;
+let currentVocabIndex = 0;
 
 function updateVocabCard(index) {
   const flashcard = document.getElementById('vocabFlashcard');
@@ -595,9 +705,14 @@ function updateVocabCard(index) {
   if (!flashcard) return;
 
   const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
+  const dayOfYear = getDayOfYear();
+  const dailyOffset = dayOfYear % dataset.length;
+
   const safeIndex = index % dataset.length;
   currentVocabIndex = safeIndex < 0 ? safeIndex + dataset.length : safeIndex;
-  const data = dataset[currentVocabIndex];
+  
+  const finalCardIndex = (currentVocabIndex + dailyOffset) % dataset.length;
+  const data = dataset[finalCardIndex];
 
   // Reset flip state
   const inner = flashcard.querySelector('.flashcard-inner');
@@ -609,7 +724,7 @@ function updateVocabCard(index) {
   if (phoneticText) phoneticText.textContent = data.phonetic;
   if (categoryBadge) categoryBadge.textContent = data.category;
   if (contextText) contextText.textContent = data.context;
-  if (counterText) counterText.textContent = `${currentVocabIndex + 1} / ${dataset.length}`;
+  if (counterText) counterText.textContent = `${finalCardIndex + 1} / ${dataset.length}`;
 }
 
 function renderCoursePackages(mode) {
