@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAudienceSwitcher();
   initLanguageSwitcher();
   initNavbar();
+  initSmoothScroll();
   initFaqAccordion();
   initVocabTrainer();
   initPricingToggle();
@@ -17,8 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 let currentAudienceMode = localStorage.getItem('audience_mode') || 'adults';
 
 function initAudienceSwitcher() {
-  const audienceBtns = document.querySelectorAll('.audience-mode-btn');
-  
   function applyAudienceMode(mode) {
     currentAudienceMode = mode;
     localStorage.setItem('audience_mode', mode);
@@ -29,7 +28,8 @@ function initAudienceSwitcher() {
       document.body.classList.remove('kids-mode');
     }
 
-    // Update active button styles
+    // Update active button styles for all buttons (desktop & mobile)
+    const audienceBtns = document.querySelectorAll('.audience-mode-btn');
     audienceBtns.forEach(btn => {
       const btnMode = btn.getAttribute('data-mode');
       if (btnMode === mode) {
@@ -60,17 +60,21 @@ function initAudienceSwitcher() {
     }
   }
 
-  audienceBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Event Delegation for Audience Mode Buttons (works on all clicks, child elements, mobile & desktop)
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.audience-mode-btn');
+    if (btn) {
       e.preventDefault();
       const targetMode = btn.getAttribute('data-mode');
-      applyAudienceMode(targetMode);
-      const currentLang = localStorage.getItem('site_lang') || 'de';
-      const msg = targetMode === 'kids'
-        ? (currentLang === 'tr' ? '🎈 Çocuklar Modu Aktif!' : '🎈 Kinder-Modus Aktiv!')
-        : (currentLang === 'tr' ? '👨‍💼 Yetişkinler Modu Aktif!' : '👨‍💼 Erwachsenen-Modus Aktiv!');
-      showToast(msg, 'info');
-    });
+      if (targetMode && targetMode !== currentAudienceMode) {
+        applyAudienceMode(targetMode);
+        const currentLang = localStorage.getItem('site_lang') || 'de';
+        const msg = targetMode === 'kids'
+          ? (currentLang === 'tr' ? '🎈 Çocuklar Modu Aktif!' : '🎈 Kinder-Modus Aktiv!')
+          : (currentLang === 'tr' ? '👨‍💼 Yetişkinler Modu Aktif!' : '👨‍💼 Erwachsenen-Modus Aktiv!');
+        showToast(msg, 'info');
+      }
+    }
   });
 
   applyAudienceMode(currentAudienceMode);
@@ -82,13 +86,11 @@ function initAudienceSwitcher() {
 let currentLanguage = localStorage.getItem('site_lang') || 'de';
 
 function initLanguageSwitcher() {
-  const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
-  if (!langToggleBtns.length) return;
-
   function applyLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem('site_lang', lang);
 
+    const langToggleBtns = document.querySelectorAll('.lang-toggle-btn');
     langToggleBtns.forEach(btn => {
       const flagEl = btn.querySelector('.lang-flag');
       const labelEl = btn.querySelector('.lang-label');
@@ -110,18 +112,61 @@ function initLanguageSwitcher() {
         el.innerHTML = translation;
       }
     });
+
+    // Re-render course packages with updated language
+    if (typeof renderCoursePackages === 'function') {
+      renderCoursePackages(currentAudienceMode);
+    }
   }
 
-  langToggleBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  // Event Delegation for Language Toggle Buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-toggle-btn');
+    if (btn) {
       e.preventDefault();
       const nextLang = currentLanguage === 'de' ? 'tr' : 'de';
       applyLanguage(nextLang);
       showToast(nextLang === 'tr' ? 'Dil Türkçe olarak değiştirildi 🇹🇷' : 'Sprache auf Deutsch eingestellt 🇩🇪', 'info');
-    });
+    }
   });
 
   applyLanguage(currentLanguage);
+}
+
+/* ==========================================
+   1. Smooth Scroll for Anchor Links (#section)
+   ========================================== */
+function initSmoothScroll() {
+  document.addEventListener('click', (e) => {
+    const anchor = e.target.closest('a[href^="#"]');
+    if (!anchor) return;
+
+    const targetId = anchor.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+
+    const targetEl = document.querySelector(targetId);
+    if (targetEl) {
+      e.preventDefault();
+      const headerOffset = 80;
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
+      // Close mobile drawer if open
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        if (mobileBtn) {
+          mobileBtn.innerHTML = '<i class="fas fa-bars text-xl text-slate-200"></i>';
+        }
+      }
+    }
+  });
 }
 
 /* ==========================================
