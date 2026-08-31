@@ -139,6 +139,9 @@ function initLanguageSwitcher() {
    ========================================== */
 function initSmoothScroll() {
   document.addEventListener('click', (e) => {
+    if (e.target.closest('.open-trial-modal') || e.target.closest('.open-course-modal')) {
+      return;
+    }
     const anchor = e.target.closest('a[href^="#"]');
     if (!anchor) return;
 
@@ -1321,33 +1324,27 @@ function showToast(message, type = 'success') {
    Trial Lesson Popup Modal (Deneme Dersi Modal & Email Form)
    ========================================== */
 function initTrialModal() {
-  const modal = document.getElementById('trialModal');
-  const closeBtn = document.getElementById('closeTrialModal');
-  const trialForm = document.getElementById('trialForm');
-
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('.open-trial-modal');
     if (trigger) {
       e.preventDefault();
+      e.stopPropagation();
+      const modal = document.getElementById('trialModal');
       if (modal) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
       }
     }
-  });
 
-  closeBtn?.addEventListener('click', () => {
-    modal?.classList.add('hidden');
-    modal?.classList.remove('flex');
-    document.body.style.overflow = '';
-  });
-
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = '';
+    const closeTrigger = e.target.closest('#closeTrialModal');
+    const modal = document.getElementById('trialModal');
+    if (closeTrigger || e.target === modal) {
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
     }
   });
 
