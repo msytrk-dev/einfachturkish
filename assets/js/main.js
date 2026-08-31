@@ -109,11 +109,39 @@ const vocabData = [
     context: "Oder kurz: 'Sağol' [sa-ol] unter Freunden."
   },
   {
-    de: "Wo ist der Basar?",
-    tr: "Pazar nerede?",
-    phonetic: "[pa-zar ne-re-de]",
-    category: "Reisen & Orientierung",
-    context: "Sehr nützlich beim Sightseeing in Istanbul oder Antalya."
+    de: "Gern geschehen / Bitte",
+    tr: "Rica ederim",
+    phonetic: "[ri-dja e-de-rim]",
+    category: "Höflichkeit",
+    context: "Höfliche Antwort auf 'Teşekkür ederim'."
+  },
+  {
+    de: "Herzlich willkommen!",
+    tr: "Hoş geldiniz!",
+    phonetic: "[hosh gel-di-niz]",
+    category: "Begrüßung",
+    context: "Antwort darauf: 'Hoş bulduk' [hosh bul-duk]."
+  },
+  {
+    de: "Auf Wiedersehen",
+    tr: "Görüşürüz / Hoşça kalın",
+    phonetic: "[gyö-ryü-shyü-ryüz / hosh-tscha ka-lyn]",
+    category: "Begrüßung",
+    context: "'Görüşürüz' heißt wörtlich: Wir sehen uns bald!"
+  },
+  {
+    de: "Wie heißt du?",
+    tr: "Adın ne?",
+    phonetic: "[a-dyn ne]",
+    category: "Smalltalk",
+    context: "Formell: 'Adınız nedir?' [a-dy-nyz ne-dir]."
+  },
+  {
+    de: "Freut mich, dich kennenzulernen",
+    tr: "Memnun oldum",
+    phonetic: "[mem-nun ol-dum]",
+    category: "Smalltalk",
+    context: "Sagt man nach dem gegenseitigen Vorstellen."
   },
   {
     de: "Ein Glas Tee, bitte",
@@ -123,11 +151,11 @@ const vocabData = [
     context: "Türkischer Tee (Çay) gehört in der Türkei einfach dazu!"
   },
   {
-    de: "Wie viel kostet das?",
-    tr: "Bu ne kadar?",
-    phonetic: "[bu ne ka-dar]",
-    category: "Einkaufen",
-    context: "Essentiell für jeden Marktbesuch."
+    de: "Die Rechnung, bitte!",
+    tr: "Hesap, lütfen!",
+    phonetic: "[he-sap, lyt-fen]",
+    category: "Restaurant & Café",
+    context: "Essentiell für jeden Restaurantbesuch."
   },
   {
     de: "Guten Appetit",
@@ -135,10 +163,103 @@ const vocabData = [
     phonetic: "[a-fi-yet ol-sun]",
     category: "Kultur & Essen",
     context: "Wird vor oder nach dem Essen wünschend gesagt."
+  },
+  {
+    de: "Es war sehr lecker!",
+    tr: "Elinize sağlık!",
+    phonetic: "[e-li-ni-ze sa-lyk]",
+    category: "Kultur & Essen",
+    context: "Bedankt sich bei dem Koch/der Köchin für das leckere Essen."
+  },
+  {
+    de: "Wie viel kostet das?",
+    tr: "Bu ne kadar?",
+    phonetic: "[bu ne ka-dar]",
+    category: "Einkaufen",
+    context: "Essentiell für jeden Basar- und Marktbesuch."
+  },
+  {
+    de: "Gibt es einen Rabatt?",
+    tr: "İndirim var mı?",
+    phonetic: "[in-di-rim var my]",
+    category: "Einkaufen",
+    context: "Der Klassiker beim Verhandeln auf dem Basar."
+  },
+  {
+    de: "Kann ich mit Karte zahlen?",
+    tr: "Kredi kartı geçiyor mu?",
+    phonetic: "[kre-di kar-ty ge-tschi-yor mu]",
+    category: "Einkaufen",
+    context: "Sehr nützlich in Geschäften und Taxis."
+  },
+  {
+    de: "Wo ist der Basar?",
+    tr: "Pazar nerede?",
+    phonetic: "[pa-zar ne-re-de]",
+    category: "Reisen & Orientierung",
+    context: "Sehr nützlich beim Sightseeing in Istanbul oder Antalya."
+  },
+  {
+    de: "Wo ist das Hotel?",
+    tr: "Otel nerede?",
+    phonetic: "[o-tel ne-re-de]",
+    category: "Reisen & Orientierung",
+    context: "Wichtig für die Orientierung im Urlaub."
+  },
+  {
+    de: "Wie viel Uhr ist es?",
+    tr: "Saat kaç?",
+    phonetic: "[sa-at katsch]",
+    category: "Reisen & Orientierung",
+    context: "Frage nach der aktuellen Uhrzeit."
+  },
+  {
+    de: "Ich verstehe nicht",
+    tr: "Anlamadım",
+    phonetic: "[an-la-ma-dym]",
+    category: "Hilfreich im Alltag",
+    context: "Sehr hilfreich, wenn jemand zu schnell Türkisch spricht."
+  },
+  {
+    de: "Sprechen Sie bitte etwas langsamer",
+    tr: "Lütfen daha yavaş konuşun",
+    phonetic: "[lyt-fen da-ha ya-vash ko-nu-shun]",
+    category: "Hilfreich im Alltag",
+    context: "Sofortige Rettung bei schnellem Sprachtempo."
+  },
+  {
+    de: "Können Sie mir helfen?",
+    tr: "Bana yardım edebilir misiniz?",
+    phonetic: "[ba-na yar-dym e-de-bi-lir mi-si-ni-z]",
+    category: "Hilfreich im Alltag",
+    context: "Höfliche Bitte um Unterstützung."
+  },
+  {
+    de: "Kein Problem / Macht nichts",
+    tr: "Sorun değil / Önemli değil",
+    phonetic: "[so-run de-yil / ö-nem-li de-yil]",
+    category: "Hilfreich im Alltag",
+    context: "Lockere Entwarnung im Gespräch."
+  },
+  {
+    de: "Alles ist super!",
+    tr: "Her şey çok güzel!",
+    phonetic: "[her shey tschok gyü-zel]",
+    category: "Smalltalk",
+    context: "Ausdruck von Begeisterung und Zufriedenheit."
+  },
+  {
+    de: "Gute Reise!",
+    tr: "İyi yolculuklar!",
+    phonetic: "[i-yi yol-dju-luk-lar]",
+    category: "Höflichkeit",
+    context: "Wünscht man jemandem vor der Abreise."
   }
 ];
 
-let currentVocabIndex = 0;
+// Automatically select a different featured word based on the current hour of the day (00-23)
+const currentHourOfDay = new Date().getHours();
+let currentVocabIndex = currentHourOfDay % vocabData.length;
 
 function initVocabTrainer() {
   const flashcard = document.getElementById('vocabFlashcard');
