@@ -798,6 +798,15 @@ function renderCoursePackages(mode) {
   });
 }
 
+function initVocabTrainer() {
+  const flashcard = document.getElementById('vocabFlashcard');
+  const prevBtn = document.getElementById('vocabPrevBtn');
+  const nextBtn = document.getElementById('vocabNextBtn');
+  const flipBtn = document.getElementById('vocabFlipBtn');
+  const audioBtn = document.getElementById('vocabAudioBtn');
+
+  if (!flashcard) return;
+
   // Initial load
   updateVocabCard(currentVocabIndex);
 
@@ -820,21 +829,24 @@ function renderCoursePackages(mode) {
 
   nextBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    currentVocabIndex = (currentVocabIndex + 1) % vocabData.length;
-    updateVocabCard(currentVocabIndex);
+    updateVocabCard(currentVocabIndex + 1);
   });
 
   prevBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    currentVocabIndex = (currentVocabIndex - 1 + vocabData.length) % vocabData.length;
-    updateVocabCard(currentVocabIndex);
+    updateVocabCard(currentVocabIndex - 1);
   });
 
   // Audio Speech synthesis
   audioBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    const data = vocabData[currentVocabIndex];
-    speakText(data.tr);
+    const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
+    const data = dataset[currentVocabIndex];
+    if (data && data.tr) {
+      // Clean emoji from audio text
+      const cleanAudioText = data.tr.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim();
+      speakText(cleanAudioText || data.tr);
+    }
   });
 }
 
