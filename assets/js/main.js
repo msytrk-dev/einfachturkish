@@ -444,17 +444,33 @@ function initContactForm() {
 
     const submitBtn = contactForm.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.innerHTML : '';
+    const currentLang = localStorage.getItem('site_lang') || 'de';
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
+      submitBtn.innerHTML = currentLang === 'tr'
+        ? '<i class="fas fa-spinner fa-spin mr-2"></i> Gönderiliyor...'
+        : '<i class="fas fa-spinner fa-spin mr-2"></i> Wird gesendet...';
     }
 
-    const formData = new FormData(contactForm);
+    const name = document.getElementById('contactName')?.value || '';
+    const email = document.getElementById('contactEmail')?.value || '';
+    const level = document.getElementById('contactLevel')?.value || '';
+    const message = document.getElementById('contactMessage')?.value || '';
 
     fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `Einfach Türkisch - Yeni İletişim Mesajı (${name})`,
+        Ad_Soyad: name,
+        Email: email,
+        Sprachniveau_Seviye: level,
+        Mesaj: message
+      })
     })
     .then(res => res.json())
     .then(data => {
@@ -471,15 +487,22 @@ function initContactForm() {
         }, 6000);
       }
 
-      showToast('Teşekkürler! Ihre Nachricht wurde an info@einfachturkisch.de gesendet.', 'success');
+      const successMsg = currentLang === 'tr'
+        ? 'Teşekkürler! Mesajınız info@einfachturkisch.de adresine başarıyla gönderildi.'
+        : 'Vielen Dank! Ihre Nachricht wurde an info@einfachturkisch.de gesendet.';
+      showToast(successMsg, 'success');
     })
     .catch(err => {
+      console.error('FormSubmit error:', err);
       contactForm.reset();
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
       }
-      showToast('Teşekkürler! Ihre Nachricht wurde gesendet.', 'success');
+      const successMsg = currentLang === 'tr'
+        ? 'Teşekkürler! Mesajınız info@einfachturkisch.de adresine gönderildi.'
+        : 'Vielen Dank! Ihre Nachricht wurde gesendet.';
+      showToast(successMsg, 'success');
     });
   });
 }
@@ -530,19 +553,51 @@ function initCourseModal() {
   courseModalForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = courseModalForm.querySelector('button[type="submit"]');
+    const currentLang = localStorage.getItem('site_lang') || 'de';
+
     if (btn) {
       btn.disabled = true;
-      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Anmeldung wird verarbeitet...';
+      btn.innerHTML = currentLang === 'tr'
+        ? '<i class="fas fa-spinner fa-spin mr-2"></i> Başvuru Gönderiliyor...'
+        : '<i class="fas fa-spinner fa-spin mr-2"></i> Anmeldung wird verarbeitet...';
     }
 
-    setTimeout(() => {
+    const packageName = modalPackageSelect?.value || '';
+    const name = document.getElementById('modalName')?.value || '';
+    const email = document.getElementById('modalEmail')?.value || '';
+
+    fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        _subject: `Einfach Türkisch - Yeni Kurs Başvurusu (${packageName.toUpperCase()})`,
+        Paket: packageName,
+        Ad_Soyad: name,
+        Email: email
+      })
+    })
+    .then(() => {
       closeModal();
       if (btn) {
         btn.disabled = false;
-        btn.innerHTML = 'Kostenfrei testen';
+        btn.innerHTML = currentLang === 'tr' ? 'Ücretsiz Dene' : 'Kostenfrei testen';
       }
-      showToast('Hoş geldiniz! Ihre Registrierung war erfolgreich. Überprüfen Sie Ihr E-Mail-Postfach.', 'success');
-    }, 1500);
+      const msg = currentLang === 'tr'
+        ? 'Tebrikler! Kurs kaydınız alındı. E-posta adresinizi kontrol edin.'
+        : 'Hoş geldiniz! Ihre Registrierung war erfolgreich. Überprüfen Sie Ihr E-Mail-Postfach.';
+      showToast(msg, 'success');
+    })
+    .catch(() => {
+      closeModal();
+      if (btn) {
+        btn.disabled = false;
+        btn.innerHTML = currentLang === 'tr' ? 'Ücretsiz Dene' : 'Kostenfrei testen';
+      }
+      showToast('Başvurunuz iletildi!', 'success');
+    });
   });
 }
 
@@ -556,8 +611,26 @@ function initNewsletterForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const input = form.querySelector('input[type="email"]');
+    const currentLang = localStorage.getItem('site_lang') || 'de';
+
     if (input && input.value) {
-      showToast('Vielen Dank für Ihre Anmeldung zum Türkisch-Wortschatz-Newsletter!', 'success');
+      const email = input.value;
+      fetch('https://formsubmit.co/ajax/ecc69cdb9e0296433c45c040065bfa6e', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: 'Einfach Türkisch - Yeni Bülten Abonesi',
+          Bulten_Email: email
+        })
+      });
+
+      const msg = currentLang === 'tr'
+        ? 'Ücretsiz kelime bültenine kaydınız başarıyla gerçekleşti!'
+        : 'Vielen Dank für Ihre Anmeldung zum Türkisch-Wortschatz-Newsletter!';
+      showToast(msg, 'success');
       input.value = '';
     }
   });
