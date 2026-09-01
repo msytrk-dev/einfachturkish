@@ -42,14 +42,44 @@ function initAudienceSwitcher() {
       }
     });
 
-    // Swap Hero & Showcase Visual Images
+    // Swap Hero & Showcase Visual Images & Headlines
     const heroImg = document.getElementById('heroImg');
     const tutorImg = document.getElementById('tutorImg');
+    const heroBadge = document.getElementById('heroAudienceBadge');
+    const heroTitle = document.getElementById('heroTitle');
+    const lang = localStorage.getItem('site_lang') || 'de';
+
     if (heroImg) {
-      heroImg.src = mode === 'kids' ? 'assets/images/hero_kids_app.png' : 'assets/images/hero_turkish_app.png';
+      heroImg.src = mode === 'kids' ? 'assets/images/hero_kids_explorer.png' : 'assets/images/hero_turkish_app.png';
     }
     if (tutorImg) {
       tutorImg.src = mode === 'kids' ? 'assets/images/kids_tutor_session.png' : 'assets/images/tutor_session.png';
+    }
+
+    if (heroBadge) {
+      if (mode === 'kids') {
+        heroBadge.innerHTML = `
+          <img src="assets/images/kids_mascot_avatar.png" alt="Türkçe Kaşifi Mascot" class="w-6 h-6 rounded-full shadow-md animate-bounce">
+          <span class="font-extrabold text-amber-300">${lang === 'tr' ? '🎈 Türkçe Kaşifleri - Oyunlarla Türkçe Eğlencesi!' : '🎈 Türkisch-Entdecker - Spielend Türkisch lernen!'}</span>
+        `;
+      } else {
+        heroBadge.innerHTML = `
+          <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+          <span>${lang === 'tr' ? '🇩🇪 Almanca Konuşanlar İçin 🇹🇷 Kolay Türkçe' : '🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht'}</span>
+        `;
+      }
+    }
+
+    if (heroTitle) {
+      if (mode === 'kids') {
+        heroTitle.innerHTML = lang === 'tr'
+          ? "Türkçeyi Eğlenerek Keşfet – <br class='hidden sm:inline'><span class='text-gradient-cyan'>Eğlenceli Maceran</span> Başlıyor!"
+          : "Entdecke Türkisch mit Spaß – <br class='hidden sm:inline'><span class='text-gradient-cyan'>Dein Abenteuer</span> beginnt!";
+      } else {
+        heroTitle.innerHTML = lang === 'tr'
+          ? "Akıcı <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkçe</span> Konuşun – Hızlı &amp; Bağlamsal!"
+          : "Spreche fließend <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkisch</span> – Schnell &amp; Kontextuell!";
+      }
     }
 
     // Swap Course Packages HTML
