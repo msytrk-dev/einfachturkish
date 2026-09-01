@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* Custom Utility Classes & Animations */
 :root {
@@ -8,10 +8,25 @@
   --accent-cyan: #06b6d4;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
+
+  /* Typography Theme Tokens - Erwachsene (Yetişkin Default) */
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-heading-weight: 700;
+  --font-heading-spacing: -0.015em;
+  --font-button: 'Outfit', sans-serif;
+}
+
+/* Typography Theme Overrides - Kinder (Çocuk Mode) */
+body.kids-mode {
+  --font-heading: 'Fredoka', 'Outfit', sans-serif;
+  --font-heading-weight: 600;
+  --font-heading-spacing: 0.01em;
+  --font-button: 'Fredoka', 'Outfit', sans-serif;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-body);
   background-color: var(--deep-bg);
   color: #f8fafc;
   overflow-x: hidden;
@@ -19,7 +34,13 @@ body {
 }
 
 h1, h2, h3, h4, .font-heading {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-heading) !important;
+  font-weight: var(--font-heading-weight);
+  letter-spacing: var(--font-heading-spacing);
+}
+
+button, .btn, .font-button, .audience-mode-btn, .open-course-modal, .open-trial-modal {
+  font-family: var(--font-button);
 }
 
 /* Glassmorphism effects */
