@@ -46,10 +46,34 @@ function initAudienceSwitcher() {
     const heroImg = document.getElementById('heroImg');
     const tutorImg = document.getElementById('tutorImg');
     if (heroImg) {
-      heroImg.src = mode === 'kids' ? 'assets/images/hero_kids_app.png' : 'assets/images/hero_turkish_app.png';
+      heroImg.src = mode === 'kids' ? 'assets/images/hero_kids_explorer.png' : 'assets/images/hero_turkish_app.png';
     }
     if (tutorImg) {
       tutorImg.src = mode === 'kids' ? 'assets/images/kids_tutor_session.png' : 'assets/images/tutor_session.png';
+    }
+
+    // Update Floating Mascot Badge in Hero Scene
+    const heroFloatingBadge = document.querySelector('.hero-floating-badge');
+    if (heroFloatingBadge) {
+      if (mode === 'kids') {
+        heroFloatingBadge.innerHTML = `
+          <img src="assets/images/kids_mascot_avatar.png" class="w-9 h-9 rounded-full border border-amber-400/60 shadow-md">
+          <div>
+            <div class="text-[10px] uppercase tracking-wider text-amber-300 font-bold font-heading">Türkçe Kaşifi</div>
+            <div class="text-xs font-extrabold text-white">Eğlenceli Keşif Saatleri!</div>
+          </div>
+        `;
+      } else {
+        heroFloatingBadge.innerHTML = `
+          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">
+            🇹🇷
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold" data-de="Wort des Tages" data-tr="Günün Kelimesi">Wort des Tages</div>
+            <div class="text-xs font-bold text-white">Teşekkür ederim <span class="text-cyan-400">(Danke)</span></div>
+          </div>
+        `;
+      }
     }
 
     // Swap Course Packages HTML
