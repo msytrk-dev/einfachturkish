@@ -16,14 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================
    0. Audience Switcher (Erwachsene ↔ Kinder / Yetişkinler ↔ Çocuklar)
    ========================================== */
-let currentAudienceMode = localStorage.getItem('audience_mode') || 'adults';
+let currentAudienceMode = 'adults';
+if (window.location.pathname.includes('kinder') || document.body.classList.contains('kids-mode')) {
+  currentAudienceMode = 'kids';
+} else if (window.location.pathname.includes('erwachsene')) {
+  currentAudienceMode = 'adults';
+} else {
+  currentAudienceMode = localStorage.getItem('audience_mode') || 'adults';
+}
 
 function initAudienceSwitcher() {
   function applyAudienceMode(mode) {
     currentAudienceMode = mode;
     localStorage.setItem('audience_mode', mode);
 
-    if (mode === 'kids') {
+    // Force kids-mode if on /kinder page
+    if (window.location.pathname.includes('kinder') || document.body.classList.contains('kids-mode')) {
+      currentAudienceMode = 'kids';
+      document.body.classList.add('kids-mode');
+    } else if (mode === 'kids') {
       document.body.classList.add('kids-mode');
     } else {
       document.body.classList.remove('kids-mode');
@@ -33,7 +44,7 @@ function initAudienceSwitcher() {
     const audienceBtns = document.querySelectorAll('.audience-mode-btn');
     audienceBtns.forEach(btn => {
       const btnMode = btn.getAttribute('data-mode');
-      if (btnMode === mode) {
+      if (btnMode === currentAudienceMode) {
         btn.classList.add('bg-gradient-to-r', 'from-cyan-500', 'to-blue-600', 'text-white', 'shadow-md');
         btn.classList.remove('text-slate-400', 'hover:text-white');
       } else {
@@ -46,16 +57,16 @@ function initAudienceSwitcher() {
     const heroImg = document.getElementById('heroImg');
     const tutorImg = document.getElementById('tutorImg');
     if (heroImg) {
-      heroImg.src = mode === 'kids' ? 'assets/images/hero_kids_explorer.png' : 'assets/images/hero_turkish_app.png';
+      heroImg.src = currentAudienceMode === 'kids' ? 'assets/images/hero_kids_explorer.png' : 'assets/images/hero_turkish_app.png';
     }
     if (tutorImg) {
-      tutorImg.src = mode === 'kids' ? 'assets/images/kids_tutor_session.png' : 'assets/images/tutor_session.png';
+      tutorImg.src = currentAudienceMode === 'kids' ? 'assets/images/kids_tutor_session.png' : 'assets/images/tutor_session.png';
     }
 
     // Update Floating Mascot Badge in Hero Scene (Only shown in Kids Mode)
     const heroFloatingBadge = document.querySelector('.hero-floating-badge');
     if (heroFloatingBadge) {
-      if (mode === 'kids') {
+      if (currentAudienceMode === 'kids') {
         heroFloatingBadge.classList.remove('hidden');
         heroFloatingBadge.style.display = 'flex';
         heroFloatingBadge.innerHTML = `
@@ -72,7 +83,7 @@ function initAudienceSwitcher() {
     }
 
     // Swap Course Packages HTML
-    renderCoursePackages(mode);
+    renderCoursePackages(currentAudienceMode);
 
     // Re-render Vocab Trainer with appropriate dataset
     if (typeof updateVocabCard === 'function') {
