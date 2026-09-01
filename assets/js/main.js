@@ -287,6 +287,7 @@ const vocabData = [
   {
     de: "Guten Tag / Hallo",
     tr: "Merhaba / İyi günler",
+    en: "Hello / Good day",
     phonetic: "[mer-ha-ba / i-yi gyün-ler]",
     category: "Begrüßung",
     context: "Der wichtigste Gruß im Alltag – morgens und nachmittags nutzbar."
@@ -294,6 +295,7 @@ const vocabData = [
   {
     de: "Wie geht es dir?",
     tr: "Nasılsın?",
+    en: "How are you?",
     phonetic: "[na-syl-syn]",
     category: "Smalltalk",
     context: "Antwort: 'İyiyim, teşekkürler' (Mir geht es gut, danke!)."
@@ -301,6 +303,7 @@ const vocabData = [
   {
     de: "Vielen Dank",
     tr: "Teşekkür ederim",
+    en: "Thank you very much",
     phonetic: "[te-shek-kyür e-de-rim]",
     category: "Höflichkeit",
     context: "Oder kurz: 'Sağol' [sa-ol] unter Freunden."
@@ -308,6 +311,7 @@ const vocabData = [
   {
     de: "Gern geschehen / Bitte",
     tr: "Rica ederim",
+    en: "You're welcome",
     phonetic: "[ri-dja e-de-rim]",
     category: "Höflichkeit",
     context: "Höfliche Antwort auf 'Teşekkür ederim'."
@@ -315,6 +319,7 @@ const vocabData = [
   {
     de: "Herzlich willkommen!",
     tr: "Hoş geldiniz!",
+    en: "Welcome!",
     phonetic: "[hosh gel-di-niz]",
     category: "Begrüßung",
     context: "Antwort darauf: 'Hoş bulduk' [hosh bul-duk]."
@@ -322,6 +327,7 @@ const vocabData = [
   {
     de: "Auf Wiedersehen",
     tr: "Görüşürüz / Hoşça kalın",
+    en: "Goodbye / See you",
     phonetic: "[gyö-ryü-shyü-ryüz / hosh-tscha ka-lyn]",
     category: "Begrüßung",
     context: "'Görüşürüz' heißt wörtlich: Wir sehen uns bald!"
@@ -329,6 +335,7 @@ const vocabData = [
   {
     de: "Wie heißt du?",
     tr: "Adın ne?",
+    en: "What is your name?",
     phonetic: "[a-dyn ne]",
     category: "Smalltalk",
     context: "Formell: 'Adınız nedir?' [a-dy-nyz ne-dir]."
@@ -336,6 +343,7 @@ const vocabData = [
   {
     de: "Freut mich, dich kennenzulernen",
     tr: "Memnun oldum",
+    en: "Nice to meet you",
     phonetic: "[mem-nun ol-dum]",
     category: "Smalltalk",
     context: "Sagt man nach dem gegenseitigen Vorstellen."
@@ -343,6 +351,7 @@ const vocabData = [
   {
     de: "Ein Glas Tee, bitte",
     tr: "Bir çay, lütfen",
+    en: "A glass of tea, please",
     phonetic: "[bir tschai, lyt-fen]",
     category: "Restaurant & Café",
     context: "Türkischer Tee (Çay) gehört in der Türkei einfach dazu!"
@@ -350,6 +359,7 @@ const vocabData = [
   {
     de: "Die Rechnung, bitte!",
     tr: "Hesap, lütfen!",
+    en: "The bill, please!",
     phonetic: "[he-sap, lyt-fen]",
     category: "Restaurant & Café",
     context: "Essentiell für jeden Restaurantbesuch."
@@ -357,6 +367,7 @@ const vocabData = [
   {
     de: "Guten Appetit",
     tr: "Afiyet olsun",
+    en: "Bon appétit / Enjoy your meal",
     phonetic: "[a-fi-yet ol-sun]",
     category: "Kultur & Essen",
     context: "Wird vor oder nach dem Essen wünschend gesagt."
@@ -364,6 +375,7 @@ const vocabData = [
   {
     de: "Es war sehr lecker!",
     tr: "Elinize sağlık!",
+    en: "It was delicious! (Health to your hands)",
     phonetic: "[e-li-ni-ze sa-lyk]",
     category: "Kultur & Essen",
     context: "Bedankt sich bei dem Koch/der Köchin für das leckere Essen."
@@ -371,6 +383,7 @@ const vocabData = [
   {
     de: "Wie viel kostet das?",
     tr: "Bu ne kadar?",
+    en: "How much does this cost?",
     phonetic: "[bu ne ka-dar]",
     category: "Einkaufen",
     context: "Essentiell für jeden Basar- und Marktbesuch."
@@ -378,6 +391,7 @@ const vocabData = [
   {
     de: "Gibt es einen Rabatt?",
     tr: "İndirim var mı?",
+    en: "Is there a discount?",
     phonetic: "[in-di-rim var my]",
     category: "Einkaufen",
     context: "Der Klassiker beim Verhandeln auf dem Basar."
@@ -385,6 +399,7 @@ const vocabData = [
   {
     de: "Kann ich mit Karte zahlen?",
     tr: "Kredi kartı geçiyor mu?",
+    en: "Can I pay by card?",
     phonetic: "[kre-di kar-ty ge-tschi-yor mu]",
     category: "Einkaufen",
     context: "Sehr nützlich in Geschäften und Taxis."
@@ -392,6 +407,7 @@ const vocabData = [
   {
     de: "Wo ist der Basar?",
     tr: "Pazar nerede?",
+    en: "Where is the bazaar?",
     phonetic: "[pa-zar ne-re-de]",
     category: "Reisen & Orientierung",
     context: "Sehr nützlich beim Sightseeing in Istanbul oder Antalya."
@@ -399,6 +415,7 @@ const vocabData = [
   {
     de: "Wo ist das Hotel?",
     tr: "Otel nerede?",
+    en: "Where is the hotel?",
     phonetic: "[o-tel ne-re-de]",
     category: "Reisen & Orientierung",
     context: "Wichtig für die Orientierung im Urlaub."
@@ -406,6 +423,7 @@ const vocabData = [
   {
     de: "Wie viel Uhr ist es?",
     tr: "Saat kaç?",
+    en: "What time is it?",
     phonetic: "[sa-at katsch]",
     category: "Reisen & Orientierung",
     context: "Frage nach der aktuellen Uhrzeit."
@@ -413,6 +431,7 @@ const vocabData = [
   {
     de: "Ich verstehe nicht",
     tr: "Anlamadım",
+    en: "I don't understand",
     phonetic: "[an-la-ma-dym]",
     category: "Hilfreich im Alltag",
     context: "Sehr hilfreich, wenn jemand zu schnell Türkisch spricht."
@@ -420,6 +439,7 @@ const vocabData = [
   {
     de: "Sprechen Sie bitte etwas langsamer",
     tr: "Lütfen daha yavaş konuşun",
+    en: "Please speak a bit slower",
     phonetic: "[lyt-fen da-ha ya-vash ko-nu-shun]",
     category: "Hilfreich im Alltag",
     context: "Sofortige Rettung bei schnellem Sprachtempo."
@@ -427,6 +447,7 @@ const vocabData = [
   {
     de: "Können Sie mir helfen?",
     tr: "Bana yardım edebilir misiniz?",
+    en: "Can you help me?",
     phonetic: "[ba-na yar-dym e-de-bi-lir mi-si-ni-z]",
     category: "Hilfreich im Alltag",
     context: "Höfliche Bitte um Unterstützung."
@@ -434,6 +455,7 @@ const vocabData = [
   {
     de: "Kein Problem / Macht nichts",
     tr: "Sorun değil / Önemli değil",
+    en: "No problem / Never mind",
     phonetic: "[so-run de-yil / ö-nem-li de-yil]",
     category: "Hilfreich im Alltag",
     context: "Lockere Entwarnung im Gespräch."
@@ -441,6 +463,7 @@ const vocabData = [
   {
     de: "Alles ist super!",
     tr: "Her şey çok güzel!",
+    en: "Everything is great!",
     phonetic: "[her shey tschok gyü-zel]",
     category: "Smalltalk",
     context: "Ausdruck von Begeisterung und Zufriedenheit."
@@ -448,6 +471,7 @@ const vocabData = [
   {
     de: "Gute Reise!",
     tr: "İyi yolculuklar!",
+    en: "Have a good trip!",
     phonetic: "[i-yi yol-dju-luk-lar]",
     category: "Höflichkeit",
     context: "Wünscht man jemandem vor der Abreise."
@@ -455,6 +479,7 @@ const vocabData = [
   {
     de: "Guten Morgen!",
     tr: "Günaydın!",
+    en: "Good morning!",
     phonetic: "[gyü-nai-dyn]",
     category: "Begrüßung",
     context: "Der klassische Gruß am Morgen bis mittags."
@@ -462,6 +487,7 @@ const vocabData = [
   {
     de: "Gute Nacht!",
     tr: "İyi geceler!",
+    en: "Good night!",
     phonetic: "[i-yi ge-dje-ler]",
     category: "Begrüßung",
     context: "Verabschiedung am späten Abend oder vor dem Schlafen."
@@ -469,6 +495,7 @@ const vocabData = [
   {
     de: "Herzlichen Glückwunsch!",
     tr: "Tebrik ederim!",
+    en: "Congratulations!",
     phonetic: "[teb-rik e-de-rim]",
     category: "Höflichkeit",
     context: "Wird zum Erfolg oder Geburtstag gewünscht."
@@ -476,6 +503,7 @@ const vocabData = [
   {
     de: "Gute Besserung!",
     tr: "Geçmiş olsun!",
+    en: "Get well soon!",
     phonetic: "[getsch-mish ol-sun]",
     category: "Höflichkeit",
     context: "Sehr empathischer Wunsch bei Krankheit oder Missgeschick."
@@ -483,6 +511,7 @@ const vocabData = [
   {
     de: "Ein Wasser, bitte!",
     tr: "Bir su, lütfen!",
+    en: "A water, please!",
     phonetic: "[bir su, lyt-fen]",
     category: "Restaurant & Café",
     context: "Unverzichtbar bei jedem Restaurant- und Cafébesuch."
@@ -490,6 +519,7 @@ const vocabData = [
   {
     de: "Bis später!",
     tr: "Sonra görüşürüz!",
+    en: "See you later!",
     phonetic: "[son-ra gyö-ryü-shyü-ryüz]",
     category: "Begrüßung",
     context: "Lockere Verabschiedung unter Freunden."
@@ -497,6 +527,7 @@ const vocabData = [
   {
     de: "Schönen Tag noch!",
     tr: "İyi günler!",
+    en: "Have a nice day!",
     phonetic: "[i-yi gyün-ler]",
     category: "Höflichkeit",
     context: "Höflicher Wunsch beim Verlassen von Geschäften."
@@ -507,6 +538,7 @@ const kidsVocabData = [
   {
     de: "Die Katze",
     tr: "Kedi 🐱",
+    en: "The Cat 🐱",
     phonetic: "[ke-di]",
     category: "Tiere / Hayvanlar",
     context: "Unser kleiner schnurrender Freund."
@@ -514,6 +546,7 @@ const kidsVocabData = [
   {
     de: "Der Hund",
     tr: "Köpek 🐶",
+    en: "The Dog 🐶",
     phonetic: "[kö-pek]",
     category: "Tiere / Hayvanlar",
     context: "Der treue Spielgefährte."
@@ -521,6 +554,7 @@ const kidsVocabData = [
   {
     de: "Der Apfel",
     tr: "Elma 🍎",
+    en: "The Apple 🍎",
     phonetic: "[el-ma]",
     category: "Früchte / Meyveler",
     context: "Süß, knackig und sehr gesund!"
@@ -528,6 +562,7 @@ const kidsVocabData = [
   {
     de: "Die Sonne",
     tr: "Güneş ☀️",
+    en: "The Sun ☀️",
     phonetic: "[gyü-nesh]",
     category: "Natur / Doğa",
     context: "Erwärmt den Tag am Himmel."
@@ -535,6 +570,7 @@ const kidsVocabData = [
   {
     de: "Lass uns spielen!",
     tr: "Hadi oynayalım! 🎮",
+    en: "Let's play! 🎮",
     phonetic: "[ha-di oi-na-ya-lym]",
     category: "Spiele & Spaß",
     context: "Einladung zum gemeinsamen Spiel mit Freunden."
@@ -542,6 +578,7 @@ const kidsVocabData = [
   {
     de: "Ich habe dich lieb!",
     tr: "Seni seviyorum ❤️",
+    en: "I love you ❤️",
     phonetic: "[se-ni se-vi-yo-rum]",
     category: "Gefühle / Duygular",
     context: "Wunderschöner Ausdruck von Zuneigung."
@@ -549,6 +586,7 @@ const kidsVocabData = [
   {
     de: "Die Schule",
     tr: "Okul 🏫",
+    en: "The School 🏫",
     phonetic: "[o-kul]",
     category: "Lernen & Schule",
     context: "Der bunte Ort, an dem wir Neues lernen."
@@ -556,6 +594,7 @@ const kidsVocabData = [
   {
     de: "Mein/e Lehrer/in",
     tr: "Öğretmenim 👩‍🏫",
+    en: "My Teacher 👩‍🏫",
     phonetic: "[öğ-ret-me-nim]",
     category: "Lernen & Schule",
     context: "Unsere liebe Lehrkraft im Unterricht."
@@ -563,6 +602,7 @@ const kidsVocabData = [
   {
     de: "Der Vogel",
     tr: "Kuş 🐦",
+    en: "The Bird 🐦",
     phonetic: "[kush]",
     category: "Tiere / Hayvanlar",
     context: "Fliegt frei am blauen Himmel."
@@ -570,6 +610,7 @@ const kidsVocabData = [
   {
     de: "Das Eis",
     tr: "Dondurma 🍦",
+    en: "The Ice Cream 🍦",
     phonetic: "[don-dur-ma]",
     category: "Leckereien",
     context: "Erfrischender Sommer-Genuss."
@@ -577,6 +618,7 @@ const kidsVocabData = [
   {
     de: "Danke, Lehrer/in!",
     tr: "Teşekkür ederim öğretmenim 🎓",
+    en: "Thank you, teacher! 🎓",
     phonetic: "[te-shek-kyür e-de-rim öğ-ret-me-nim]",
     category: "Höflichkeit",
     context: "Höflicher Dank im Kinderunterricht."
@@ -584,6 +626,7 @@ const kidsVocabData = [
   {
     de: "Der Stern",
     tr: "Yıldız 🌟",
+    en: "The Star 🌟",
     phonetic: "[nyl-dyz]",
     category: "Natur / Doğa",
     context: "Funkelt nachts am Himmelszelt."
@@ -591,6 +634,7 @@ const kidsVocabData = [
   {
     de: "Guten Morgen, mein Freund!",
     tr: "Günaydın arkadaşım! ☀️",
+    en: "Good morning, my friend! ☀️",
     phonetic: "[gyü-nai-dyn ar-ka-da-shym]",
     category: "Begrüßung",
     context: "Fröhlicher Morgen-Gruß unter Kindern."
@@ -598,6 +642,7 @@ const kidsVocabData = [
   {
     de: "Geschwister",
     tr: "Kardeş 👫",
+    en: "Sibling 👫",
     phonetic: "[kar-desh]",
     category: "Familie",
     context: "Bruder oder Schwester zu Hause."
@@ -605,6 +650,7 @@ const kidsVocabData = [
   {
     de: "Der Stift",
     tr: "Kalem ✏️",
+    en: "The Pencil ✏️",
     phonetic: "[ka-lem]",
     category: "Lernen & Schule",
     context: "Zum Malen und Schreiben schöner Bilder."
@@ -612,6 +658,7 @@ const kidsVocabData = [
   {
     de: "Die Erdbeere",
     tr: "Çilek 🍓",
+    en: "The Strawberry 🍓",
     phonetic: "[tschi-lek]",
     category: "Früchte / Meyveler",
     context: "Süße rote Sommerfrucht."
@@ -619,6 +666,7 @@ const kidsVocabData = [
   {
     de: "Der Schmetterling",
     tr: "Kelebek 🦋",
+    en: "The Butterfly 🦋",
     phonetic: "[ke-le-bek]",
     category: "Tiere / Hayvanlar",
     context: "Fliegt bunt von Blume zu Blume."
@@ -626,6 +674,7 @@ const kidsVocabData = [
   {
     de: "Der Ball",
     tr: "Top ⚽",
+    en: "The Ball ⚽",
     phonetic: "[top]",
     category: "Spiele & Spaß",
     context: "Zum Kicken im Garten."
@@ -633,6 +682,7 @@ const kidsVocabData = [
   {
     de: "Guten Abend!",
     tr: "İyi akşamlar! 🌙",
+    en: "Good evening! 🌙",
     phonetic: "[i-yi ak-sham-lar]",
     category: "Begrüßung",
     context: "Herzlicher Gruß am Abend."
@@ -640,6 +690,7 @@ const kidsVocabData = [
   {
     de: "Die Blume",
     tr: "Çiçek 🌸",
+    en: "The Flower 🌸",
     phonetic: "[tschi-tschek]",
     category: "Natur / Doğa",
     context: "Duftet schön im Garten."
@@ -647,6 +698,7 @@ const kidsVocabData = [
   {
     de: "Das Auto",
     tr: "Araba 🚗",
+    en: "The Car 🚗",
     phonetic: "[a-ra-ba]",
     category: "Spielsachen",
     context: "Buntes Spielzeugauto zum Sausen."
@@ -654,6 +706,7 @@ const kidsVocabData = [
   {
     de: "Die Milch",
     tr: "Süt 🥛",
+    en: "The Milk 🥛",
     phonetic: "[syyt]",
     category: "Getränke",
     context: "Macht stark und gesund."
@@ -661,6 +714,7 @@ const kidsVocabData = [
   {
     de: "Das Buch",
     tr: "Kitap 📚",
+    en: "The Book 📚",
     phonetic: "[ki-tap]",
     category: "Lernen & Schule",
     context: "Spannende Geschichten zum Lesen."
@@ -668,6 +722,7 @@ const kidsVocabData = [
   {
     de: "Die Schokolade",
     tr: "Çikolata 🍫",
+    en: "The Chocolate 🍫",
     phonetic: "[tschi-ko-la-ta]",
     category: "Leckereien",
     context: "Köstliche süße Belohnung."
@@ -675,6 +730,7 @@ const kidsVocabData = [
   {
     de: "Der Fisch",
     tr: "Balık 🐠",
+    en: "The Fish 🐠",
     phonetic: "[ba-lyk]",
     category: "Tiere / Hayvanlar",
     context: "Schwimmt fröhlich im blauen Wasser."
@@ -682,6 +738,7 @@ const kidsVocabData = [
   {
     de: "Der Bär",
     tr: "Ayı 🧸",
+    en: "The Bear 🧸",
     phonetic: "[a-ny]",
     category: "Tiere / Hayvanlar",
     context: "Kuscheliger Plüschfreund im Bett."
@@ -689,6 +746,7 @@ const kidsVocabData = [
   {
     de: "Der Mond",
     tr: "Ay 🌙",
+    en: "The Moon 🌙",
     phonetic: "[ai]",
     category: "Natur / Doğa",
     context: "Leuchtet nachts am Sternenhimmel."
@@ -696,6 +754,7 @@ const kidsVocabData = [
   {
     de: "Das Wasser",
     tr: "Su 💧",
+    en: "The Water 💧",
     phonetic: "[su]",
     category: "Natur & Leben",
     context: "Erfrischend und gesund."
@@ -703,6 +762,7 @@ const kidsVocabData = [
   {
     de: "Willkommen!",
     tr: "Hoş geldin! 🥳",
+    en: "Welcome! 🥳",
     phonetic: "[hosh gel-din]",
     category: "Begrüßung",
     context: "Herzlicher Empfang für Freunde."
@@ -710,6 +770,7 @@ const kidsVocabData = [
   {
     de: "Bravo! / Super!",
     tr: "Aferin! 👏",
+    en: "Bravo! / Super! 👏",
     phonetic: "[a-fe-rin]",
     category: "Lob & Freude",
     context: "Wird für tolle Leistungen gesagt."
@@ -717,6 +778,7 @@ const kidsVocabData = [
   {
     de: "Gute Reise!",
     tr: "İyi yolculuklar! 🚀",
+    en: "Have a safe trip! 🚀",
     phonetic: "[i-yi yol-dju-luk-lar]",
     category: "Höflichkeit",
     context: "Für spannende Entdeckungsreisen."
@@ -742,6 +804,7 @@ function updateVocabCard(index) {
   const categoryBadge = document.getElementById('vocabCategory');
   const contextText = document.getElementById('vocabContext');
   const counterText = document.getElementById('vocabCounter');
+  const frontLabel = document.getElementById('vocabFrontLabel');
 
   if (!flashcard) return;
 
@@ -759,8 +822,17 @@ function updateVocabCard(index) {
   const inner = flashcard.querySelector('.flashcard-inner');
   inner?.classList.remove('is-flipped');
 
-  // Update text content
-  if (deText) deText.textContent = data.de;
+  const lang = localStorage.getItem('site_lang') || 'de';
+
+  // Update front card text according to selected language
+  if (frontLabel) {
+    frontLabel.textContent = lang === 'en' ? 'ENGLISH' : (lang === 'tr' ? 'ALMANCA' : 'DEUTSCH');
+  }
+
+  if (deText) {
+    deText.textContent = lang === 'en' ? (data.en || data.de) : data.de;
+  }
+
   if (trText) trText.textContent = data.tr;
   if (phoneticText) phoneticText.textContent = data.phonetic;
   if (categoryBadge) categoryBadge.textContent = data.category;
@@ -980,12 +1052,17 @@ function initVocabTrainer() {
     const data = dataset[finalCardIndex];
 
     if (data) {
+      const lang = localStorage.getItem('site_lang') || 'de';
       if (isFlippedNow) {
         // Now showing Turkish back -> speak Turkish
         speakText(data.tr, 'tr-TR', audioBtnTr);
       } else {
-        // Now showing German front -> speak German
-        speakText(data.de, 'de-DE', audioBtnDe);
+        // Now showing Front -> speak English if EN selected, otherwise German
+        if (lang === 'en') {
+          speakText(data.en || data.de, 'en-US', audioBtnDe);
+        } else {
+          speakText(data.de, 'de-DE', audioBtnDe);
+        }
       }
     }
   };
@@ -1011,7 +1088,7 @@ function initVocabTrainer() {
     updateVocabCard(currentVocabIndex - 1);
   });
 
-  // German Audio Button (Front of Card)
+  // Front Audio Button (German / English depending on site_lang)
   audioBtnDe?.addEventListener('click', (e) => {
     e.stopPropagation();
     const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
@@ -1019,8 +1096,13 @@ function initVocabTrainer() {
     const dailyOffset = dayOfYear % dataset.length;
     const finalCardIndex = (currentVocabIndex + dailyOffset) % dataset.length;
     const data = dataset[finalCardIndex];
-    if (data && data.de) {
-      speakText(data.de, 'de-DE', audioBtnDe);
+    const lang = localStorage.getItem('site_lang') || 'de';
+    if (data) {
+      if (lang === 'en') {
+        speakText(data.en || data.de, 'en-US', audioBtnDe);
+      } else {
+        speakText(data.de, 'de-DE', audioBtnDe);
+      }
     }
   });
 
