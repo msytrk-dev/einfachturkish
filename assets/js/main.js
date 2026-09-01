@@ -779,24 +779,24 @@ function renderCoursePackages(mode) {
       <!-- Kids Package 1: Mini -->
       <div class="glass-panel rounded-3xl p-8 border border-rose-500/30 flex flex-col justify-between relative hover:border-rose-400 transition-all">
         <div>
-          <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400 mb-2">${lang === 'tr' ? '6-9 Yaş Grubu' : 'Altersgruppe 6-9'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Mini)' : 'Türkisch-Entdecker (Mini)'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çizgi karakterler, eğlenceli şarkılar ve görsel kelime oyunları.' : 'Zeichentrickfiguren, fröhliche Lieder und visuelle Wortspiele.'}</p>
+          <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400 mb-2">${lang === 'tr' ? '6-9 Yaş Grubu' : (lang === 'en' ? 'Age Group 6-9' : 'Altersgruppe 6-9')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Mini)' : (lang === 'en' ? 'Turkish Explorers (Mini)' : 'Türkisch-Entdecker (Mini)')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çizgi karakterler, eğlenceli şarkılar ve görsel kelime oyunları.' : (lang === 'en' ? 'Cartoon characters, cheerful songs and visual word games.' : 'Zeichentrickfiguren, fröhliche Lieder und visuelle Wortspiele.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-4xl font-extrabold text-white font-heading">€19</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich)'}</span>
+              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Interaktif Çizgi İllüstrasyonlar' : 'Interaktive Zeichnungen'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Sesli Harf & Kelime Oyunları' : 'Laut- & Wortspiele mit Audio'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Haftalık Eğlenceli Ödev Kartları' : 'Wöchentliche Lernkarten'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Interaktif Çizgi İllüstrasyonlar' : (lang === 'en' ? 'Interactive Cartoon Illustrations' : 'Interaktive Zeichnungen')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Sesli Harf & Kelime Oyunları' : (lang === 'en' ? 'Audio & Word Games' : 'Laut- & Wortspiele mit Audio')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Haftalık Eğlenceli Ödev Kartları' : (lang === 'en' ? 'Weekly Fun Flashcards' : 'Wöchentliche Lernkarten')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-rose-500 to-amber-500 hover:from-rose-400 hover:to-amber-400 transition-all" data-package="kids-mini">
-            ${lang === 'tr' ? '🎈 Kaşif Ol (Mini)' : '🎈 Entdecker werden (Mini)'}
+            ${lang === 'tr' ? '🎈 Kaşif Ol (Mini)' : (lang === 'en' ? '🎈 Become an Explorer (Mini)' : '🎈 Entdecker werden (Mini)')}
           </button>
         </div>
       </div>
@@ -804,27 +804,27 @@ function renderCoursePackages(mode) {
       <!-- Kids Package 2: Pro (Featured) -->
       <div class="glass-panel rounded-3xl p-8 border-2 border-amber-500/80 bg-gradient-to-b from-slate-900 to-purple-950/80 flex flex-col justify-between relative shadow-2xl transform lg:-translate-y-2">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-amber-500 to-rose-500 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg">
-          ★ ${lang === 'tr' ? 'En Çok Tercih Edilen' : 'Beliebtestes Paket'}
+          ★ ${lang === 'tr' ? 'En Çok Tercih Edilen' : (lang === 'en' ? 'Most Popular' : 'Beliebtestes Paket')}
         </div>
         <div>
-          <div class="text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? '10-14 Yaş Grubu' : 'Altersgruppe 10-14'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Pro)' : 'Türkisch-Entdecker (Pro)'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'İnteraktif grup oyunları, hikaye anlatımı ve okul destek dersleri.' : 'Interaktive Gruppenspiele, Storytelling und Schulunterstützung.'}</p>
+          <div class="text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? '10-14 Yaş Grubu' : (lang === 'en' ? 'Age Group 10-14' : 'Altersgruppe 10-14')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Pro)' : (lang === 'en' ? 'Turkish Explorers (Pro)' : 'Türkisch-Entdecker (Pro)')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'İnteraktif grup oyunları, hikaye anlatımı ve okul destek dersleri.' : (lang === 'en' ? 'Interactive group games, storytelling and school support.' : 'Interaktive Gruppenspiele, Storytelling und Schulunterstützung.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-5xl font-extrabold text-white font-heading">€35</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich)'}</span>
+              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Haftalık Canlı Çocuk Grup Dersi (Min. 2 Kişi)' : 'Wöchentlicher Kinder-Live-Unterricht'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'İnteraktif Türkçe Masallar & Kulüpler' : 'Interaktive Märchen & Clubs'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Rozet, Ödül ve Başarı Sertifikası' : 'Abzeichen, Belohnungen & Zertifikat'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Haftalık Canlı Çocuk Grup Dersi (Min. 2 Kişi)' : (lang === 'en' ? 'Weekly Live Kids Group Class (Min 2)' : 'Wöchentlicher Kinder-Live-Unterricht')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'İnteraktif Türkçe Masallar & Kulüpler' : (lang === 'en' ? 'Interactive Tales & Clubs' : 'Interaktive Märchen & Clubs')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Rozet, Ödül ve Başarı Sertifikası' : (lang === 'en' ? 'Badges, Rewards & Certificate' : 'Abzeichen, Belohnungen & Zertifikat')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:scale-[1.02] transition-all" data-package="kids-pro">
-            <i class="fas fa-star mr-2"></i> ${lang === 'tr' ? '🌟 Pro Kaşif Ol' : '🌟 Pro-Entdecker werden'}
+            <i class="fas fa-star mr-2"></i> ${lang === 'tr' ? '🌟 Pro Kaşif Ol' : (lang === 'en' ? '🌟 Become a Pro Explorer' : '🌟 Pro-Entdecker werden')}
           </button>
         </div>
       </div>
@@ -832,24 +832,24 @@ function renderCoursePackages(mode) {
       <!-- Kids Package 3: Birebir Koçluk -->
       <div class="glass-panel rounded-3xl p-8 border border-purple-500/30 flex flex-col justify-between relative hover:border-purple-400 transition-all">
         <div>
-          <div class="text-xs font-extrabold uppercase tracking-wider text-purple-400 mb-2">${lang === 'tr' ? 'Birebir Özel İlgi' : '1-zu-1 Betreuung'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Birebir Çocuk Koçluğu' : 'Kinder VIP Coaching'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çocuğunuzun öğrenme hızına özel hazırlanmış birebir canlı dersler.' : 'Individueller Einzelunterricht im Lerntempo Ihres Kindes.'}</p>
+          <div class="text-xs font-extrabold uppercase tracking-wider text-purple-400 mb-2">${lang === 'tr' ? 'Birebir Özel İlgi' : (lang === 'en' ? '1-on-1 VIP Care' : '1-zu-1 Betreuung')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Birebir Çocuk Koçluğu' : (lang === 'en' ? 'Kids VIP Coaching' : 'Kinder VIP Coaching')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çocuğunuzun öğrenme hızına özel hazırlanmış birebir canlı dersler.' : (lang === 'en' ? 'Personalized 1-on-1 live lessons at your child\'s pace.' : 'Individueller Einzelunterricht im Lerntempo Ihres Kindes.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-4xl font-extrabold text-white font-heading">€69</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich)'}</span>
+              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Ayda 4x Birebir Canlı Çocuk Dersi' : '4x Einzelunterricht im Monat'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Okul & Ödev Destek Rehberliği' : 'Schul- & Hausaufgabenhilfe'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Veli Gelişim Raporu & Özel Takip' : 'Entwicklungsberichte für Eltern'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Ayda 4x Birebir Canlı Çocuk Dersi' : (lang === 'en' ? '4x Live 1-on-1 Kids Lessons / Month' : '4x Einzelunterricht im Monat')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Okul & Ödev Destek Rehberliği' : (lang === 'en' ? 'School & Homework Guidance' : 'Schul- & Hausaufgabenhilfe')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Veli Gelişim Raporu & Özel Takip' : (lang === 'en' ? 'Parent Progress Reports' : 'Entwicklungsberichte für Eltern')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-purple-300 bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/40 transition-all" data-package="kids-vip">
-            ${lang === 'tr' ? 'Özel Koçluk Al' : 'VIP Coaching buchen'}
+            ${lang === 'tr' ? 'Özel Koçluk Al' : (lang === 'en' ? 'Book VIP Coaching' : 'VIP Coaching buchen')}
           </button>
         </div>
       </div>
@@ -860,25 +860,25 @@ function renderCoursePackages(mode) {
       <!-- Package 1: Bireysel Dersler -->
       <div class="glass-panel rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative hover:border-slate-700 transition-all">
         <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">${lang === 'tr' ? 'Bireysel Dersler' : 'Einzelunterricht'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Bireysel Kurs Paketleri' : 'Einzelkurs Paket'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Günlük konuşma, A1-C1 kur dersleri ve İş Türkçesi bireysel eğitimi.' : 'Alltagsgespräche, A1-C1 Kurse & Business-Türkisch im Einzelunterricht.'}</p>
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">${lang === 'tr' ? 'Bireysel Dersler' : (lang === 'en' ? 'Individual Lessons' : 'Einzelunterricht')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Bireysel Kurs Paketleri' : (lang === 'en' ? 'Individual Course Package' : 'Einzelkurs Paket')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Günlük konuşma, A1-C2 kur dersleri ve İş Türkçesi bireysel eğitimi.' : (lang === 'en' ? 'Daily conversation, A1-C2 courses & Business Turkish 1-on-1.' : 'Alltagsgespräche, A1-C2 Kurse & Business-Türkisch im Einzelunterricht.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-4xl font-extrabold text-white font-heading">€15</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich abgerechnet)'}</span>
+              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '🗣️ Günlük Konuşma Paketleri' : '🗣️ Alltagsgespräche Module'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📚 A1\'den C1\'e Kur Dersleri' : '📚 Kurse A1 bis C1 Level'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '✈️💼 Seyahat &amp; İş Türkçesi' : '✈️💼 Reise- &amp; Business-Türkisch'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? 'PDF Çalışma Kitapları &amp; Alıştırmalar' : 'PDF Arbeitsbücher &amp; Übungen'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '🗣️ Günlük Konuşma Paketleri' : (lang === 'en' ? '🗣️ Daily Conversation Modules' : '🗣️ Alltagsgespräche Module')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📚 A1\'den C2\'ye Kur Dersleri' : (lang === 'en' ? '📚 Courses A1 to C2 Level' : '📚 Kurse A1 bis C2 Level')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '✈️💼 Seyahat &amp; İş Türkçesi' : (lang === 'en' ? '✈️💼 Travel &amp; Business Turkish' : '✈️💼 Reise- &amp; Business-Türkisch')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? 'PDF Çalışma Kitapları &amp; Alıştırmalar' : (lang === 'en' ? 'PDF Workbooks &amp; Exercises' : 'PDF Arbeitsbücher &amp; Übungen')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-slate-200 bg-slate-800/90 hover:bg-slate-700 hover:text-white border border-slate-700 transition-all" data-package="basis">
-            ${lang === 'tr' ? 'Bireysel Kursa Başla' : 'Einzelkurs buchen'}
+            ${lang === 'tr' ? 'Bireysel Kursa Başla' : (lang === 'en' ? 'Book Individual Course' : 'Einzelkurs buchen')}
           </button>
         </div>
       </div>
@@ -886,28 +886,28 @@ function renderCoursePackages(mode) {
       <!-- Package 2: Grup Dersleri (Featured) -->
       <div class="glass-panel rounded-3xl p-8 border-2 border-cyan-500/80 bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950/80 flex flex-col justify-between relative shadow-2xl glow-cyan transform lg:-translate-y-2">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg">
-          ★ ${lang === 'tr' ? 'En Popüler' : 'Am Beliebtesten'}
+          ★ ${lang === 'tr' ? 'En Popüler' : (lang === 'en' ? 'Most Popular' : 'Am Beliebtesten')}
         </div>
         <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">${lang === 'tr' ? 'Interaktif Grup Eğitimi' : 'Gruppenunterricht'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Grup Dersleri Paketi' : 'Gruppenkurs Paket'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Min. 2 kişilik gruplarla A1-C1 dersleri ve canlı konuşma aktiviteleri.' : 'A1-C1 Kurse in Gruppen (Min. 2 Personen) & Aktivitäten.'}</p>
+          <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">${lang === 'tr' ? 'Interaktif Grup Eğitimi' : (lang === 'en' ? 'Interactive Group Training' : 'Gruppenunterricht')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Grup Dersleri Paketi' : (lang === 'en' ? 'Group Course Package' : 'Gruppenkurs Paket')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Min. 2 kişilik gruplarla A1-C2 dersleri ve canlı konuşma aktiviteleri.' : (lang === 'en' ? 'A1-C2 courses in small groups (Min 2) & live speaking.' : 'A1-C2 Kurse in Gruppen (Min. 2 Personen) & Aktivitäten.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-5xl font-extrabold text-white font-heading">€29</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich abgerechnet)'}</span>
+              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> <strong>${lang === 'tr' ? '👥 Min. 2 Kişilik Butik Gruplar' : '👥 Min. 2 Personen Gruppen'}</strong></li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📊 A1\'den C1\'e Seviye Sınıfları' : '📊 Level A1 bis C1 Kurse'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '🎭 Etkileşimli Canlı Aktiviteler' : '🎭 Interaktive Live-Aktivitäten'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? 'Offizielles B1/B2 Sertifikası' : 'Offizielles B1/B2 Sprachzertifikat'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> <strong>${lang === 'tr' ? '👥 Min. 2 Kişilik Butik Gruplar' : (lang === 'en' ? '👥 Small Boutique Groups (Min 2)' : '👥 Min. 2 Personen Gruppen')}</strong></li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📊 A1\'den C2\'ye Seviye Sınıfları' : (lang === 'en' ? '📊 Level A1 to C2 Classes' : '📊 Level A1 bis C2 Kurse')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '🎭 Etkileşimli Canlı Aktiviteler' : (lang === 'en' ? '🎭 Interactive Live Activities' : '🎭 Interaktive Live-Aktivitäten')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? 'Offizielles B1/B2 Sertifikası' : (lang === 'en' ? 'Official B1/B2 Language Certificate' : 'Offizielles B1/B2 Sprachzertifikat')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/30 transition-all transform hover:scale-[1.02]" data-package="pro">
-            <i class="fas fa-bolt mr-2"></i> ${lang === 'tr' ? 'Hemen Grup Kursuna Başla' : 'Jetzt Gruppenkurs starten'}
+            <i class="fas fa-bolt mr-2"></i> ${lang === 'tr' ? 'Hemen Grup Kursuna Başla' : (lang === 'en' ? 'Start Group Course Now' : 'Jetzt Gruppenkurs starten')}
           </button>
         </div>
       </div>
@@ -915,30 +915,32 @@ function renderCoursePackages(mode) {
       <!-- Package 3: VIP Coaching -->
       <div class="glass-panel rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative hover:border-slate-700 transition-all">
         <div>
-          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? 'Maksimum Başarı' : 'Maximaler Erfolg'}</div>
-          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Intensiv VIP Coaching' : 'Intensiv VIP Coaching'}</h3>
-          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Kişiye özel 1-a-1 canlı dersler ve 24/7 VIP öğretmen desteği.' : 'Individuelles 1-zu-1 Einzelcoaching & 24/7 WhatsApp Support.'}</p>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? 'Maksimum Başarı' : (lang === 'en' ? 'Maximum Success' : 'Maximaler Erfolg')}</div>
+          <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Intensiv VIP Coaching' : (lang === 'en' ? 'Intensive VIP Coaching' : 'Intensiv VIP Coaching')}</h3>
+          <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Kişiye özel 1-a-1 canlı dersler ve 24/7 VIP öğretmen desteği.' : (lang === 'en' ? 'Personal 1-on-1 live coaching & 24/7 VIP teacher support.' : 'Individuelles 1-zu-1 Einzelcoaching & 24/7 WhatsApp Support.')}</p>
           <div class="my-6">
             <div class="flex items-baseline gap-1">
               <span class="text-4xl font-extrabold text-white font-heading">€63</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : '/Monat (jährlich abgerechnet)'}</span>
+              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
             </div>
           </div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> <strong>${lang === 'tr' ? 'Grup &amp; Bireysel Ders Hakları' : 'Grup &amp; Einzelstunden'}</strong></li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? '4x 1-zu-1 Özel Canlı Ders / Ay' : '4x 1-zu-1 Einzelunterricht / Monat'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Kişiye Özel Ders Müfredatı' : 'Maßgeschneiderter Lernplan'}</li>
-            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? '24/7 VIP Chat-Support via WhatsApp' : '24/7 VIP Chat-Support via WhatsApp'}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> <strong>${lang === 'tr' ? 'Grup &amp; Bireysel Ders Hakları' : (lang === 'en' ? 'Group &amp; Individual Lessons' : 'Grup &amp; Einzelstunden')}</strong></li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? '4x 1-zu-1 Özel Canlı Ders / Ay' : (lang === 'en' ? '4x 1-on-1 Live Private Lessons / Month' : '4x 1-zu-1 Einzelunterricht / Monat')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Kişiye Özel Ders Müfredatı' : (lang === 'en' ? 'Custom Tailored Syllabus' : 'Maßgeschneiderter Lernplan')}</li>
+            <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? '24/7 VIP Chat-Support via WhatsApp' : (lang === 'en' ? '24/7 VIP Chat Support via WhatsApp' : '24/7 VIP Chat-Support via WhatsApp')}</li>
           </ul>
         </div>
         <div class="pt-8">
           <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 transition-all" data-package="vip">
-            ${lang === 'tr' ? 'VIP Paket Talep Et' : 'VIP Paket anfordern'}
+            ${lang === 'tr' ? 'VIP Paket Talep Et' : (lang === 'en' ? 'Request VIP Package' : 'VIP Paket anfordern')}
           </button>
         </div>
       </div>
     `;
   }
+
+  // Re-attach modal trigger events to dynamic buttons
 
   // Re-attach modal trigger events to dynamic buttons
   document.querySelectorAll('.open-course-modal').forEach(btn => {
