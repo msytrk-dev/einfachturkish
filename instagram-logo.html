@@ -31,8 +31,21 @@
         Einfach <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-cyan-400">Türkisch</span> Logo
       </h1>
       <p class="text-xs text-slate-400 max-w-md mx-auto">
-        Üstte dairesel "EINFACH", altta dairesel "TÜRKİSCH" yazılı ve ortada 3D cam efektli sadeleştirilmiş TR logosu.
+        Düzgün dairesel "EINFACH" ve "TÜRKİSCH" yazıları ile merkezi maskot seçimi.
       </p>
+    </div>
+
+    <!-- Mascot Selector Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-2.5">
+      <button id="btnFox" class="mascot-btn px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold text-xs shadow-lg shadow-cyan-500/20 border border-cyan-400/40 transition-all flex items-center gap-2">
+        <span>🦊 Tilki Maskotu</span>
+      </button>
+      <button id="btnCapybara" class="mascot-btn px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-extrabold text-xs border border-slate-700 transition-all flex items-center gap-2">
+        <span>🦫 Capybara Maskotu</span>
+      </button>
+      <button id="btnTR" class="mascot-btn px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-extrabold text-xs border border-slate-700 transition-all flex items-center gap-2">
+        <span>🔤 3D TR Amblemi</span>
+      </button>
     </div>
 
     <!-- Live Preview Card (Instagram Circle Simulation) -->
@@ -41,7 +54,7 @@
       <!-- Inside Instagram Circle Crop Container -->
       <div id="svgContainer" class="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center shadow-inner relative">
         
-        <svg id="logoSvg" viewBox="0 0 1080 1080" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <svg id="logoSvg" viewBox="0 0 1080 1080" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
             <!-- Background Gradients -->
             <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
@@ -68,10 +81,16 @@
             </linearGradient>
             
             <!-- Curved Paths for Text Alignment -->
-            <!-- Top Arc Path for "EINFACH" (Clockwise) -->
+            <!-- Top Arc Path for "EINFACH" (Clockwise, top curve) -->
             <path id="topArcPath" d="M 180 540 A 360 360 0 0 1 900 540" fill="none" />
-            <!-- Bottom Arc Path for "TÜRKİSCH" (Counter-Clockwise for upright bottom text) -->
-            <path id="bottomArcPath" d="M 900 540 A 360 360 0 0 1 180 540" fill="none" />
+            
+            <!-- Bottom Arc Path for "TÜRKİSCH" (Counter-Clockwise, bottom curve from left to right) -->
+            <path id="bottomArcPath" d="M 180 540 A 360 360 0 0 0 900 540" fill="none" />
+
+            <!-- Mascot Clip Path -->
+            <clipPath id="mascotClip">
+              <circle cx="540" cy="540" r="240" />
+            </clipPath>
 
             <!-- Glow & Shadow Filters -->
             <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -95,66 +114,109 @@
           <circle cx="540" cy="540" r="480" fill="none" stroke="url(#ringGrad)" stroke-width="12" opacity="0.85" />
           <circle cx="540" cy="540" r="455" fill="none" stroke="#334155" stroke-width="3" stroke-dasharray="8 8" opacity="0.6" />
 
-          <!-- Inner 3D Glassmorphic Badge Circle -->
-          <circle cx="540" cy="540" r="300" fill="#0f172a" stroke="url(#ringGrad)" stroke-width="8" filter="url(#dropShadow)" />
-          <circle cx="540" cy="540" r="294" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.15" />
+          <!-- Inner Badge Border Circle -->
+          <circle cx="540" cy="540" r="260" fill="#0f172a" stroke="url(#ringGrad)" stroke-width="8" filter="url(#dropShadow)" />
+          <circle cx="540" cy="540" r="254" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.15" />
 
-          <!-- Floating Accent Sparkles & Elements -->
-          <!-- Star top-right -->
-          <path d="M 720 340 L 728 358 L 748 360 L 733 373 L 738 392 L 720 381 L 702 392 L 707 373 L 692 360 L 712 358 Z" fill="#f59e0b" filter="url(#neonGlow)" />
-          <!-- Small Chat Bubble bottom-left -->
-          <circle cx="360" cy="700" r="24" fill="#06b6d4" opacity="0.9" />
-          <polygon points="345,715 330,735 360,720" fill="#06b6d4" />
-          <circle cx="352" cy="700" r="3" fill="#ffffff" />
-          <circle cx="360" cy="700" r="3" fill="#ffffff" />
-          <circle cx="368" cy="700" r="3" fill="#ffffff" />
-          <!-- Small Heart top-left -->
-          <path d="M 360 360 C 360 345 345 335 332 345 C 320 355 335 375 360 390 C 385 375 400 355 388 345 C 375 335 360 345 360 360 Z" fill="#e11d48" opacity="0.9" />
+          <!-- Floating Accents -->
+          <path d="M 740 330 L 748 348 L 768 350 L 753 363 L 758 382 L 740 371 L 722 382 L 727 363 L 712 350 L 732 348 Z" fill="#f59e0b" filter="url(#neonGlow)" />
+          <circle cx="330" cy="720" r="22" fill="#06b6d4" opacity="0.9" />
+          <polygon points="315,735 300,755 330,740" fill="#06b6d4" />
+          <circle cx="322" cy="720" r="3" fill="#ffffff" />
+          <circle cx="330" cy="720" r="3" fill="#ffffff" />
+          <circle cx="338" cy="720" r="3" fill="#ffffff" />
 
-          <!-- Central 3D "TR" Letters -->
-          <!-- Letter T -->
-          <g filter="url(#dropShadow)">
-            <!-- Shadow offset -->
-            <path d="M 400 420 L 510 420 L 510 465 L 478 465 L 478 650 L 432 650 L 432 465 L 400 465 Z" fill="#0369a1" />
-            <!-- Main Gradient T -->
-            <path d="M 395 415 L 505 415 L 505 460 L 473 460 L 473 645 L 427 645 L 427 460 L 395 460 Z" fill="url(#tGrad)" />
-            <!-- Highlight Gloss -->
-            <path d="M 398 418 L 502 418 L 502 430 L 398 430 Z" fill="#ffffff" opacity="0.4" />
+          <!-- ============================================================ -->
+          <!-- DYNAMIC CENTER CONTENT GROUP -->
+          <!-- ============================================================ -->
+          <g id="centerContent">
+            
+            <!-- OPTION 1: FOX MASCOT (DEFAULT) -->
+            <g id="foxMascotGroup">
+              <image href="assets/images/kids_mascot_avatar.png" x="300" y="300" width="480" height="480" clip-path="url(#mascotClip)" />
+              <circle cx="540" cy="540" r="240" fill="none" stroke="#f59e0b" stroke-width="6" opacity="0.8" />
+            </g>
+
+            <!-- OPTION 2: CAPYBARA MASCOT -->
+            <g id="capybaraGroup" class="hidden">
+              <circle cx="540" cy="540" r="240" fill="#2d1b0e" clip-path="url(#mascotClip)" />
+              
+              <!-- Capybara 3D Vector Character -->
+              <!-- Body & Head -->
+              <ellipse cx="540" cy="570" rx="180" ry="150" fill="#8c583c" />
+              <ellipse cx="540" cy="520" rx="150" ry="120" fill="#a66b49" />
+              
+              <!-- Cute Snout & Nose -->
+              <ellipse cx="540" cy="560" rx="90" ry="60" fill="#6e422b" />
+              <ellipse cx="540" cy="545" rx="35" ry="20" fill="#3b2012" />
+              <!-- Mouth -->
+              <path d="M 525 565 Q 540 575 555 565" fill="none" stroke="#3b2012" stroke-width="5" stroke-linecap="round" />
+
+              <!-- Friendly Eyes -->
+              <ellipse cx="460" cy="490" rx="14" ry="18" fill="#1e1008" />
+              <circle cx="464" cy="484" r="5" fill="#ffffff" />
+              <ellipse cx="620" cy="490" rx="14" ry="18" fill="#1e1008" />
+              <circle cx="624" cy="484" r="5" fill="#ffffff" />
+
+              <!-- Small Cute Round Ears -->
+              <circle cx="400" cy="440" r="30" fill="#8c583c" stroke="#6e422b" stroke-width="4" />
+              <circle cx="400" cy="440" r="16" fill="#a66b49" />
+              <circle cx="680" cy="440" r="30" fill="#8c583c" stroke="#6e422b" stroke-width="4" />
+              <circle cx="680" cy="440" r="16" fill="#a66b49" />
+
+              <!-- Explorer Hat with Turkish Star Pin -->
+              <path d="M 430 420 Q 540 370 650 420 Z" fill="#4a5d3e" />
+              <rect x="420" y="415" width="240" height="25" rx="12" fill="#38472f" />
+              <circle cx="540" cy="405" r="14" fill="#e11d48" />
+              <!-- Star Pin -->
+              <path d="M 540 397 L 543 403 L 550 404 L 545 409 L 546 415 L 540 412 L 534 415 L 535 409 L 530 404 L 537 403 Z" fill="#ffffff" />
+
+              <!-- Red Scarf -->
+              <path d="M 420 610 Q 540 660 660 610 Q 540 640 420 610 Z" fill="#e11d48" />
+              <circle cx="540" cy="540" r="240" fill="none" stroke="#06b6d4" stroke-width="6" opacity="0.8" />
+            </g>
+
+            <!-- OPTION 3: 3D TR LETTERS -->
+            <g id="trBadgeGroup" class="hidden">
+              <!-- Letter T -->
+              <g filter="url(#dropShadow)">
+                <path d="M 400 420 L 510 420 L 510 465 L 478 465 L 478 650 L 432 650 L 432 465 L 400 465 Z" fill="#0369a1" />
+                <path d="M 395 415 L 505 415 L 505 460 L 473 460 L 473 645 L 427 645 L 427 460 L 395 460 Z" fill="url(#tGrad)" />
+                <path d="M 398 418 L 502 418 L 502 430 L 398 430 Z" fill="#ffffff" opacity="0.4" />
+              </g>
+              <!-- Letter R -->
+              <g filter="url(#dropShadow)">
+                <path d="M 540 420 L 635 420 C 670 420 685 440 685 470 C 685 498 668 515 640 522 L 690 650 L 642 650 L 598 535 L 582 535 L 582 650 L 540 650 Z M 582 460 L 582 495 L 625 495 C 642 495 650 488 650 477 C 650 466 642 460 625 460 Z" fill="#be123c" />
+                <path d="M 535 415 L 630 415 C 665 415 680 435 680 465 C 680 493 663 510 635 517 L 685 645 L 637 645 L 593 530 L 577 530 L 577 645 L 535 645 Z M 577 455 L 577 490 L 620 490 C 637 490 645 483 645 472 C 645 461 637 455 620 455 Z" fill="url(#rGrad)" />
+                <path d="M 538 418 L 628 418 L 628 428 L 538 428 Z" fill="#ffffff" opacity="0.4" />
+              </g>
+            </g>
+
           </g>
 
-          <!-- Letter R -->
-          <g filter="url(#dropShadow)">
-            <!-- Shadow offset -->
-            <path d="M 540 420 L 635 420 C 670 420 685 440 685 470 C 685 498 668 515 640 522 L 690 650 L 642 650 L 598 535 L 582 535 L 582 650 L 540 650 Z M 582 460 L 582 495 L 625 495 C 642 495 650 488 650 477 C 650 466 642 460 625 460 Z" fill="#be123c" />
-            <!-- Main Gradient R -->
-            <path d="M 535 415 L 630 415 C 665 415 680 435 680 465 C 680 493 663 510 635 517 L 685 645 L 637 645 L 593 530 L 577 530 L 577 645 L 535 645 Z M 577 455 L 577 490 L 620 490 C 637 490 645 483 645 472 C 645 461 637 455 620 455 Z" fill="url(#rGrad)" />
-            <!-- Highlight Gloss -->
-            <path d="M 538 418 L 628 418 L 628 428 L 538 428 Z" fill="#ffffff" opacity="0.4" />
-          </g>
-
-          <!-- Upper Arc Curved Text: "E I N F A C H" -->
-          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#ffffff" letter-spacing="18" filter="url(#dropShadow)">
-            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
-              EINFACH
-            </textPath>
-          </text>
+          <!-- ============================================================ -->
+          <!-- CURVED TEXTS (PERFECTLY UPRIGHT ALONG TOP AND BOTTOM ARCS) -->
+          <!-- ============================================================ -->
           
-          <!-- Upper Arc Text Accent Glow -->
-          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#f59e0b" letter-spacing="18" opacity="0.3" filter="url(#neonGlow)">
+          <!-- Upper Arc Curved Text: "E I N F A C H" -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="82" fill="#ffffff" letter-spacing="22" filter="url(#dropShadow)">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
+              EINFACH
+            </textPath>
+          </text>
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="82" fill="#f59e0b" letter-spacing="22" opacity="0.4" filter="url(#neonGlow)">
             <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
               EINFACH
             </textPath>
           </text>
 
-          <!-- Lower Arc Curved Text: "T Ü R K İ S C H" -->
-          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="74" fill="#06b6d4" letter-spacing="16" filter="url(#dropShadow)">
+          <!-- Lower Arc Curved Text: "T Ü R K İ S C H" (RIGHT-SIDE UP) -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#06b6d4" letter-spacing="18" filter="url(#dropShadow)">
             <textPath href="#bottomArcPath" startOffset="50%" text-anchor="middle">
               TÜRKİSCH
             </textPath>
           </text>
-
-          <!-- Lower Arc Text Glow -->
-          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="74" fill="#06b6d4" letter-spacing="16" opacity="0.4" filter="url(#neonGlow)">
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#06b6d4" letter-spacing="18" opacity="0.4" filter="url(#neonGlow)">
             <textPath href="#bottomArcPath" startOffset="50%" text-anchor="middle">
               TÜRKİSCH
             </textPath>
@@ -171,7 +233,7 @@
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
         </svg>
-        <span>Instagram Logosunu İndir (1080x1080 PNG)</span>
+        <span id="downloadBtnText">Instagram Logosunu İndir (1080x1080 PNG)</span>
       </button>
 
       <a href="/" class="px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-bold border border-slate-700 transition-all">
@@ -184,6 +246,42 @@
   <canvas id="exportCanvas" width="1080" height="1080" class="hidden"></canvas>
 
   <script>
+    const foxGroup = document.getElementById('foxMascotGroup');
+    const capybaraGroup = document.getElementById('capybaraGroup');
+    const trBadgeGroup = document.getElementById('trBadgeGroup');
+
+    const btnFox = document.getElementById('btnFox');
+    const btnCapybara = document.getElementById('btnCapybara');
+    const btnTR = document.getElementById('btnTR');
+
+    let currentSelection = 'fox';
+
+    function setSelection(type) {
+      currentSelection = type;
+      foxGroup.classList.add('hidden');
+      capybaraGroup.classList.add('hidden');
+      trBadgeGroup.classList.add('hidden');
+
+      [btnFox, btnCapybara, btnTR].forEach(btn => {
+        btn.className = 'mascot-btn px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-extrabold text-xs border border-slate-700 transition-all flex items-center gap-2';
+      });
+
+      if (type === 'fox') {
+        foxGroup.classList.remove('hidden');
+        btnFox.className = 'mascot-btn px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold text-xs shadow-lg shadow-cyan-500/20 border border-cyan-400/40 transition-all flex items-center gap-2';
+      } else if (type === 'capybara') {
+        capybaraGroup.classList.remove('hidden');
+        btnCapybara.className = 'mascot-btn px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-rose-600 text-white font-extrabold text-xs shadow-lg shadow-amber-500/20 border border-amber-400/40 transition-all flex items-center gap-2';
+      } else if (type === 'tr') {
+        trBadgeGroup.classList.remove('hidden');
+        btnTR.className = 'mascot-btn px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-extrabold text-xs shadow-lg shadow-indigo-500/20 border border-indigo-400/40 transition-all flex items-center gap-2';
+      }
+    }
+
+    btnFox.addEventListener('click', () => setSelection('fox'));
+    btnCapybara.addEventListener('click', () => setSelection('capybara'));
+    btnTR.addEventListener('click', () => setSelection('tr'));
+
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const svg = document.getElementById('logoSvg');
       const canvas = document.getElementById('exportCanvas');
@@ -201,7 +299,7 @@
         
         const downloadLink = document.createElement('a');
         downloadLink.href = pngUrl;
-        downloadLink.download = 'Einfach_Turkisch_Instagram_Profile_1080x1080.png';
+        downloadLink.download = `Einfach_Turkisch_${currentSelection.toUpperCase()}_Instagram_1080x1080.png`;
         document.body.appendChild(downloadLink);
         downloadLink.click();
         document.body.removeChild(downloadLink);
