@@ -52,10 +52,12 @@ function initAudienceSwitcher() {
       tutorImg.src = mode === 'kids' ? 'assets/images/kids_tutor_session.png' : 'assets/images/tutor_session.png';
     }
 
-    // Update Floating Mascot Badge in Hero Scene
+    // Update Floating Mascot Badge in Hero Scene (Only shown in Kids Mode)
     const heroFloatingBadge = document.querySelector('.hero-floating-badge');
     if (heroFloatingBadge) {
       if (mode === 'kids') {
+        heroFloatingBadge.classList.remove('hidden');
+        heroFloatingBadge.style.display = 'flex';
         heroFloatingBadge.innerHTML = `
           <img src="assets/images/kids_mascot_avatar.png" class="w-9 h-9 rounded-full border border-amber-400/60 shadow-md">
           <div>
@@ -64,15 +66,8 @@ function initAudienceSwitcher() {
           </div>
         `;
       } else {
-        heroFloatingBadge.innerHTML = `
-          <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs">
-            🇹🇷
-          </div>
-          <div>
-            <div class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold" data-de="Wort des Tages" data-tr="Günün Kelimesi">Wort des Tages</div>
-            <div class="text-xs font-bold text-white">Teşekkür ederim <span class="text-cyan-400">(Danke)</span></div>
-          </div>
-        `;
+        heroFloatingBadge.classList.add('hidden');
+        heroFloatingBadge.style.display = 'none';
       }
     }
 
