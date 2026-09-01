@@ -152,6 +152,11 @@ function initLanguageSwitcher() {
     if (typeof renderCoursePackages === 'function') {
       renderCoursePackages(currentAudienceMode);
     }
+
+    // Re-render flashcard trainer with updated language
+    if (typeof updateVocabCard === 'function') {
+      updateVocabCard(currentVocabIndex);
+    }
   }
 
   // Event Delegation for Language Toggle Buttons
