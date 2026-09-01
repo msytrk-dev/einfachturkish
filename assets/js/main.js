@@ -941,7 +941,8 @@ function initVocabTrainer() {
   const prevBtn = document.getElementById('vocabPrevBtn');
   const nextBtn = document.getElementById('vocabNextBtn');
   const flipBtn = document.getElementById('vocabFlipBtn');
-  const audioBtn = document.getElementById('vocabAudioBtn');
+  const audioBtnDe = document.getElementById('vocabAudioBtnDe');
+  const audioBtnTr = document.getElementById('vocabAudioBtnTr') || document.getElementById('vocabAudioBtn');
 
   if (!flashcard) return;
 
@@ -951,7 +952,22 @@ function initVocabTrainer() {
   // Flip trigger
   const innerCard = flashcard.querySelector('.flashcard-inner');
   const flipAction = () => {
-    innerCard?.classList.toggle('is-flipped');
+    const isFlippedNow = innerCard?.classList.toggle('is-flipped');
+    const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
+    const dayOfYear = getDayOfYear();
+    const dailyOffset = dayOfYear % dataset.length;
+    const finalCardIndex = (currentVocabIndex + dailyOffset) % dataset.length;
+    const data = dataset[finalCardIndex];
+
+    if (data) {
+      if (isFlippedNow) {
+        // Now showing Turkish back -> speak Turkish
+        speakText(data.tr, 'tr-TR', audioBtnTr);
+      } else {
+        // Now showing German front -> speak German
+        speakText(data.de, 'de-DE', audioBtnDe);
+      }
+    }
   };
 
   flashcard.addEventListener('click', (e) => {
@@ -975,32 +991,51 @@ function initVocabTrainer() {
     updateVocabCard(currentVocabIndex - 1);
   });
 
-  // Audio Speech synthesis
-  audioBtn?.addEventListener('click', (e) => {
+  // German Audio Button (Front of Card)
+  audioBtnDe?.addEventListener('click', (e) => {
     e.stopPropagation();
     const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
-    const data = dataset[currentVocabIndex];
+    const dayOfYear = getDayOfYear();
+    const dailyOffset = dayOfYear % dataset.length;
+    const finalCardIndex = (currentVocabIndex + dailyOffset) % dataset.length;
+    const data = dataset[finalCardIndex];
+    if (data && data.de) {
+      speakText(data.de, 'de-DE', audioBtnDe);
+    }
+  });
+
+  // Turkish Audio Button (Back of Card)
+  audioBtnTr?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dataset = currentAudienceMode === 'kids' ? kidsVocabData : vocabData;
+    const dayOfYear = getDayOfYear();
+    const dailyOffset = dayOfYear % dataset.length;
+    const finalCardIndex = (currentVocabIndex + dailyOffset) % dataset.length;
+    const data = dataset[finalCardIndex];
     if (data && data.tr) {
-      // Clean emoji from audio text
-      const cleanAudioText = data.tr.replace(/[\u{1F300}-\u{1F9FF}]/gu, '').trim();
-      speakText(cleanAudioText || data.tr);
+      speakText(data.tr, 'tr-TR', audioBtnTr);
     }
   });
 }
 
-function speakText(text) {
+function speakText(text, langCode = 'tr-TR', targetBtn = null) {
+  if (!text) return;
+  
   if ('speechSynthesis' in window) {
-    window.speechSynthesis.cancel(); // Stop current speech
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'tr-TR';
+    window.speechSynthesis.cancel(); // Stop any current speech
+    
+    // Clean emojis and extra bracketed notes from audio string
+    const cleanAudioText = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
+    
+    const utterance = new SpeechSynthesisUtterance(cleanAudioText || text);
+    utterance.lang = langCode; // 'de-DE' for German, 'tr-TR' for Turkish
     utterance.rate = 0.9;
     
     // Visual sound indicator effect on button
-    const audioBtn = document.getElementById('vocabAudioBtn');
-    if (audioBtn) {
-      audioBtn.classList.add('animate-bounce', 'text-amber-400');
+    if (targetBtn) {
+      targetBtn.classList.add('animate-bounce', 'text-amber-400');
       utterance.onend = () => {
-        audioBtn.classList.remove('animate-bounce', 'text-amber-400');
+        targetBtn.classList.remove('animate-bounce', 'text-amber-400');
       };
     }
 
