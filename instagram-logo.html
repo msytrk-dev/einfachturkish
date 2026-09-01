@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einfach Türkisch – Instagram Profil Resmi Oluşturucu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #090d16;
+      color: #f8fafc;
+    }
+    .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 selection:bg-cyan-500 selection:text-white">
+
+  <!-- Main Container -->
+  <div class="max-w-2xl w-full text-center space-y-6">
+    
+    <!-- Title Header -->
+    <div class="space-y-2">
+      <span class="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-widest bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+        Instagram Profil Resmi (1080x1080)
+      </span>
+      <h1 class="text-3xl font-extrabold text-white font-heading">
+        Einfach <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-500 to-cyan-400">Türkisch</span> Logo
+      </h1>
+      <p class="text-xs text-slate-400 max-w-md mx-auto">
+        Üstte dairesel "EINFACH", altta dairesel "TÜRKİSCH" yazılı ve ortada 3D cam efektli sadeleştirilmiş TR logosu.
+      </p>
+    </div>
+
+    <!-- Live Preview Card (Instagram Circle Simulation) -->
+    <div class="relative mx-auto w-[360px] h-[360px] md:w-[450px] md:h-[450px] rounded-full p-2 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-amber-500 shadow-2xl shadow-cyan-500/20 flex items-center justify-center">
+      
+      <!-- Inside Instagram Circle Crop Container -->
+      <div id="svgContainer" class="w-full h-full rounded-full overflow-hidden bg-slate-950 flex items-center justify-center shadow-inner relative">
+        
+        <svg id="logoSvg" viewBox="0 0 1080 1080" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Background Gradients -->
+            <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#1e293b" />
+              <stop offset="60%" stop-color="#0f172a" />
+              <stop offset="100%" stop-color="#090d16" />
+            </radialGradient>
+
+            <!-- Outer Ring Gradient -->
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="50%" stop-color="#e11d48" />
+              <stop offset="100%" stop-color="#06b6d4" />
+            </linearGradient>
+
+            <!-- 3D TR Letter Gradients -->
+            <linearGradient id="tGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <linearGradient id="rGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fb7185" />
+              <stop offset="100%" stop-color="#e11d48" />
+            </linearGradient>
+            
+            <!-- Curved Paths for Text Alignment -->
+            <!-- Top Arc Path for "EINFACH" (Clockwise) -->
+            <path id="topArcPath" d="M 180 540 A 360 360 0 0 1 900 540" fill="none" />
+            <!-- Bottom Arc Path for "TÜRKİSCH" (Counter-Clockwise for upright bottom text) -->
+            <path id="bottomArcPath" d="M 900 540 A 360 360 0 0 1 180 540" fill="none" />
+
+            <!-- Glow & Shadow Filters -->
+            <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="16" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+            
+            <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.6" />
+            </filter>
+          </defs>
+
+          <!-- Deep Dark Radial Background -->
+          <rect width="1080" height="1080" fill="url(#bgGlow)" />
+
+          <!-- Background Ambient Glow Orbs -->
+          <circle cx="340" cy="340" r="280" fill="#06b6d4" opacity="0.12" filter="blur(60px)" />
+          <circle cx="740" cy="740" r="280" fill="#f59e0b" opacity="0.12" fill-opacity="0.1" filter="blur(60px)" />
+
+          <!-- Outer Decorative Ring -->
+          <circle cx="540" cy="540" r="480" fill="none" stroke="url(#ringGrad)" stroke-width="12" opacity="0.85" />
+          <circle cx="540" cy="540" r="455" fill="none" stroke="#334155" stroke-width="3" stroke-dasharray="8 8" opacity="0.6" />
+
+          <!-- Inner 3D Glassmorphic Badge Circle -->
+          <circle cx="540" cy="540" r="300" fill="#0f172a" stroke="url(#ringGrad)" stroke-width="8" filter="url(#dropShadow)" />
+          <circle cx="540" cy="540" r="294" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.15" />
+
+          <!-- Floating Accent Sparkles & Elements -->
+          <!-- Star top-right -->
+          <path d="M 720 340 L 728 358 L 748 360 L 733 373 L 738 392 L 720 381 L 702 392 L 707 373 L 692 360 L 712 358 Z" fill="#f59e0b" filter="url(#neonGlow)" />
+          <!-- Small Chat Bubble bottom-left -->
+          <circle cx="360" cy="700" r="24" fill="#06b6d4" opacity="0.9" />
+          <polygon points="345,715 330,735 360,720" fill="#06b6d4" />
+          <circle cx="352" cy="700" r="3" fill="#ffffff" />
+          <circle cx="360" cy="700" r="3" fill="#ffffff" />
+          <circle cx="368" cy="700" r="3" fill="#ffffff" />
+          <!-- Small Heart top-left -->
+          <path d="M 360 360 C 360 345 345 335 332 345 C 320 355 335 375 360 390 C 385 375 400 355 388 345 C 375 335 360 345 360 360 Z" fill="#e11d48" opacity="0.9" />
+
+          <!-- Central 3D "TR" Letters -->
+          <!-- Letter T -->
+          <g filter="url(#dropShadow)">
+            <!-- Shadow offset -->
+            <path d="M 400 420 L 510 420 L 510 465 L 478 465 L 478 650 L 432 650 L 432 465 L 400 465 Z" fill="#0369a1" />
+            <!-- Main Gradient T -->
+            <path d="M 395 415 L 505 415 L 505 460 L 473 460 L 473 645 L 427 645 L 427 460 L 395 460 Z" fill="url(#tGrad)" />
+            <!-- Highlight Gloss -->
+            <path d="M 398 418 L 502 418 L 502 430 L 398 430 Z" fill="#ffffff" opacity="0.4" />
+          </g>
+
+          <!-- Letter R -->
+          <g filter="url(#dropShadow)">
+            <!-- Shadow offset -->
+            <path d="M 540 420 L 635 420 C 670 420 685 440 685 470 C 685 498 668 515 640 522 L 690 650 L 642 650 L 598 535 L 582 535 L 582 650 L 540 650 Z M 582 460 L 582 495 L 625 495 C 642 495 650 488 650 477 C 650 466 642 460 625 460 Z" fill="#be123c" />
+            <!-- Main Gradient R -->
+            <path d="M 535 415 L 630 415 C 665 415 680 435 680 465 C 680 493 663 510 635 517 L 685 645 L 637 645 L 593 530 L 577 530 L 577 645 L 535 645 Z M 577 455 L 577 490 L 620 490 C 637 490 645 483 645 472 C 645 461 637 455 620 455 Z" fill="url(#rGrad)" />
+            <!-- Highlight Gloss -->
+            <path d="M 538 418 L 628 418 L 628 428 L 538 428 Z" fill="#ffffff" opacity="0.4" />
+          </g>
+
+          <!-- Upper Arc Curved Text: "E I N F A C H" -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#ffffff" letter-spacing="18" filter="url(#dropShadow)">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
+              EINFACH
+            </textPath>
+          </text>
+          
+          <!-- Upper Arc Text Accent Glow -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="78" fill="#f59e0b" letter-spacing="18" opacity="0.3" filter="url(#neonGlow)">
+            <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
+              EINFACH
+            </textPath>
+          </text>
+
+          <!-- Lower Arc Curved Text: "T Ü R K İ S C H" -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="74" fill="#06b6d4" letter-spacing="16" filter="url(#dropShadow)">
+            <textPath href="#bottomArcPath" startOffset="50%" text-anchor="middle">
+              TÜRKİSCH
+            </textPath>
+          </text>
+
+          <!-- Lower Arc Text Glow -->
+          <text font-family="'Outfit', sans-serif" font-weight="900" font-size="74" fill="#06b6d4" letter-spacing="16" opacity="0.4" filter="url(#neonGlow)">
+            <textPath href="#bottomArcPath" startOffset="50%" text-anchor="middle">
+              TÜRKİSCH
+            </textPath>
+          </text>
+
+        </svg>
+
+      </div>
+    </div>
+
+    <!-- Download Action Button -->
+    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <button id="downloadBtn" class="px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-amber-500 hover:from-cyan-400 hover:to-amber-400 text-white font-extrabold text-base shadow-xl shadow-cyan-500/30 hover:scale-105 transition-all flex items-center gap-2.5 font-heading">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        <span>Instagram Logosunu İndir (1080x1080 PNG)</span>
+      </button>
+
+      <a href="/" class="px-6 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-bold border border-slate-700 transition-all">
+        &larr; Ana Sayfaya Dön
+      </a>
+    </div>
+
+  </div>
+
+  <canvas id="exportCanvas" width="1080" height="1080" class="hidden"></canvas>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const svg = document.getElementById('logoSvg');
+      const canvas = document.getElementById('exportCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      const xml = new XMLSerializer().serializeToString(svg);
+      const svg64 = btoa(unescape(encodeURIComponent(xml)));
+      const image64 = 'data:image/svg+xml;base64,' + svg64;
+      
+      const img = new Image();
+      img.onload = function() {
+        ctx.clearRect(0, 0, 1080, 1080);
+        ctx.drawImage(img, 0, 0, 1080, 1080);
+        const pngUrl = canvas.toDataURL('image/png');
+        
+        const downloadLink = document.createElement('a');
+        downloadLink.href = pngUrl;
+        downloadLink.download = 'Einfach_Turkisch_Instagram_Profile_1080x1080.png';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      };
+      img.src = image64;
+    });
+  </script>
+</body>
+</html>
