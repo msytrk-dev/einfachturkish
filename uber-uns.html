@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="de" class="dark scroll-smooth">
+<head>
+  <!-- Einfach Türkisch v1.0.4 Cache Invalidation Marker -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einfach Türkisch – Türkisch lernen für Deutschsprachige</title>
+  <meta name="description" content="Lerne Türkisch schnell, effektiv und mit Freude. Die führende Lernplattform speziell entwickelt für Deutschsprachige. Jetzt kostenlos testen!">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#090d16',
+              navy: '#0f172a',
+              slate: '#1e293b',
+              accent: '#06b6d4',
+              gold: '#f59e0b',
+              red: '#e11d48'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-brand-dark text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
+
+  <!-- ==========================================
+       HEADER & NAVIGATION BAR
+       ========================================== -->
+  <header id="mainHeader" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-600 to-rose-500 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform duration-300">
+            <span class="text-xl font-extrabold text-white font-heading">TR</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white font-heading group-hover:text-cyan-400 transition-colors">
+              Einfach<span class="text-gradient-cyan">Türkisch</span>
+            </span>
+            <span class="text-[10px] tracking-widest uppercase font-semibold text-slate-400 -mt-1" data-de="Türkisch leicht gemacht" data-tr="Kolayca Türkçe">
+              Türkisch leicht gemacht
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6">
+          <a href="/" data-de="Startseite" data-tr="Ana Sayfa" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Startseite</a>
+          <a href="/erwachsene" data-de="Für Erwachsene" data-tr="Yetişkinler İçin" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Für Erwachsene</a>
+          <a href="/kinder" data-de="Für Kinder" data-tr="Çocuklar İçin" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Für Kinder</a>
+          <a href="/#unser-konzept" data-de="Unser Konzept" data-tr="Konseptimiz" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Unser Konzept</a>
+          <a href="/uber-uns" data-de="Über uns" data-tr="Hakkımızda" class="text-xs font-bold text-cyan-400 border-b-2 border-cyan-400 pb-0.5">Über uns</a>
+          <a href="#kontakt" data-de="Kontakt" data-tr="İletişim" class="text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-colors">Kontakt</a>
+        </nav>
+
+        <!-- CTA Action & Language Buttons -->
+        <div class="hidden sm:flex items-center gap-2.5">
+          <!-- DE / TR Language Switcher Button -->
+          <button class="lang-toggle-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700/80 text-xs font-extrabold text-white transition-all shadow-md" title="Sprache wechseln / Dil Değiştir">
+            <span class="lang-flag">🇩🇪</span>
+            <span class="lang-label">DE</span>
+            <i class="fas fa-globe text-cyan-400 text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex items-center gap-2 md:hidden">
+          <button class="lang-toggle-btn flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-800 border border-slate-700 text-xs font-bold text-white">
+            <span class="lang-flag">🇩🇪</span>
+            <span class="lang-label">DE</span>
+          </button>
+          <button id="mobileMenuBtn" type="button" aria-label="Menü öffnen" class="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-slate-300 hover:text-white">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-slate-950/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-3">
+      <!-- Mobile Audience Toggle -->
+      <div class="flex items-center justify-center p-1 rounded-xl bg-slate-900 border border-slate-700 mb-2">
+        <button class="audience-mode-btn w-1/2 py-2 rounded-lg text-xs font-bold transition-all bg-gradient-to-r from-cyan-500 to-blue-600 text-white" data-mode="adults" data-de="👨‍💼 Erwachsene" data-tr="👨‍💼 Yetişkinler">
+          👨‍💼 Yetişkinler
+        </button>
+        <button class="audience-mode-btn w-1/2 py-2 rounded-lg text-xs font-bold transition-all text-slate-400" data-mode="kids" data-de="🎈 Kinder" data-tr="🎈 Çocuklar">
+          🎈 Çocuklar
+        </button>
+      </div>
+
+      <a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Vokabel-Trainer</a>
+      <a href="#warum-wir" data-de="Warum wir?" data-tr="Neden Biz?" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Warum wir?</a>
+      <a href="#kurse" data-de="Kurspakete" data-tr="Kurs Paketleri" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Kurspakete</a>
+      <a href="#faq" data-de="FAQ" data-tr="SSS (FAQ)" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">FAQ</a>
+      <a href="#kontakt" data-de="Kontakt" data-tr="İletişim" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400">Kontakt</a>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       HERO SECTION (Hero Bölümü)
+       ========================================== -->
+  <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-hero-glow">
+    <!-- Glowing background blurs -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+          
+          <!-- Audience Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-xs md:text-sm font-semibold text-cyan-300 shadow-inner">
+            <span class="flex h-2 w-2 rounded-full bg-cyan-400 animate-ping"></span>
+            <span data-de="🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht" data-tr="🇩🇪 Almanca Konuşanlar İçin 🇹🇷 Kolay Türkçe">🇩🇪 Für Deutschsprachige 🇹🇷 Türkisch leicht gemacht</span>
+          </div>
+
+          <!-- Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]" data-de="Spreche fließend <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkisch</span> – Schnell &amp; Kontextuell!" data-tr="Akıcı <br class='hidden sm:inline'><span class='text-gradient-cyan'>Türkçe</span> Konuşun – Hızlı &amp; Bağlamsal!">
+            Spreche fließend <br class="hidden sm:inline">
+            <span class="text-gradient-cyan">Türkisch</span> – Schnell &amp; Kontextuell!
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0" data-de="Speziell entwickelte Lernmethode für Muttersprachler aus Deutschland, Österreich &amp; der Schweiz. Meistere Grammatik, Alltagsgespräche und Akzent ohne stundenlanges Büffeln." data-tr="Almanya, Avusturya ve İsviçre'den Almanca konuşanlar için özel geliştirilmiş öğrenme metodu. Gramer, günlük konuşma ve aksanı ezber yapmadan öğrenin.">
+            Speziell entwickelte Lernmethode für Muttersprachler aus Deutschland, Österreich &amp; der Schweiz. Meistere Grammatik, Alltagsgespräche und Akzent ohne stundenlanges Büffeln.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <button class="open-trial-modal w-full sm:w-auto px-8 py-4 rounded-xl text-base font-extrabold text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-xl shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0 border-2 border-amber-200 flex items-center justify-center gap-2 font-heading" data-de="⭐ Gratis Probestunde buchen" data-tr="⭐ Ücretsiz Deneme Dersi Planla">
+              ⭐ Gratis Probestunde buchen
+            </button>
+          </div>
+
+          <!-- Social Proof Stats -->
+          <div class="pt-6 border-t border-slate-800/80 grid grid-cols-2 gap-6 max-w-xs mx-auto lg:mx-0">
+            <div class="text-center lg:text-left">
+              <div class="text-2xl md:text-3xl font-extrabold text-amber-400 font-heading">4.9 ★</div>
+              <div class="text-xs text-slate-400 font-medium" data-de="Top Bewertung" data-tr="En Yüksek Puan">Top Bewertung</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-2xl md:text-3xl font-extrabold text-cyan-400 font-heading">98%</div>
+              <div class="text-xs text-slate-400 font-medium" data-de="Erfolgsquote" data-tr="Başarı Oranı">Erfolgsquote</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Glowing Accent Background Frame -->
+            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 to-indigo-600 opacity-30 blur-xl animate-pulse-glow"></div>
+            
+            <!-- Main Hero Image Card -->
+            <div class="relative glass-panel rounded-3xl p-3 border border-slate-700/60 shadow-2xl overflow-hidden">
+              <img id="heroImg" src="assets/images/hero_turkish_app.png" alt="Einfach Türkisch Lernplattform Preview" class="rounded-2xl w-full h-auto object-cover shadow-lg">
+              
+              <!-- Floating Mascot Badge (Only visible in Kids Mode) -->
+              <div class="hero-floating-badge absolute top-6 left-6 glass-panel px-4 py-2.5 rounded-2xl border border-white/10 shadow-xl animate-float hidden items-center gap-3">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       INTERACTIVE WIDGET: EXPRESS VOKABEL-TRAINER
+       ========================================== -->
+  <section id="vokabel-trainer" class="py-16 bg-slate-900/60 border-y border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Interaktiver Vorgeschmack" data-tr="İnteraktif Kelime Eğitimi">
+          Interaktiver Vorgeschmack
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 font-heading" data-de="Probier es direkt aus: <span class='text-gradient-cyan'>Express-Vokabeltrainer</span>" data-tr="Hemen Deneyin: <span class='text-gradient-cyan'>Hızlı Kelime Eğitimi</span>">
+          Probier es direkt aus: <span class="text-gradient-cyan">Express-Vokabeltrainer</span>
+        </h2>
+        <p class="text-slate-400 mt-2 text-base" data-de="Klicke auf die Karte, um die Übersetzung &amp; Aussprachehilfe umzudrehen." data-tr="Çeviriyi ve okunuş yardımını görmek için karta tıklayın.">
+          Klicke auf die Karte, um die Übersetzung &amp; Aussprachehilfe umzudrehen.
+        </p>
+      </div>
+
+      <!-- Flashcard Container -->
+      <div class="max-w-xl mx-auto">
+        <div id="vocabFlashcard" class="perspective-1000 cursor-pointer group">
+          <div class="flashcard-inner relative w-full h-80 rounded-3xl glass-panel border border-slate-700/80 shadow-2xl p-8 flex flex-col justify-between transition-transform duration-500">
+            
+            <!-- Front of Card (German) -->
+            <div class="flashcard-front absolute inset-0 p-8 flex flex-col justify-between rounded-3xl bg-gradient-to-b from-slate-800/90 to-slate-900/90">
+              <div class="flex items-center justify-between">
+                <span id="vocabCategory" class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  Begrüßung
+                </span>
+                <div class="flex items-center gap-2.5">
+                  <span id="vocabCounter" class="text-xs font-mono text-slate-400">1 / 31</span>
+                  <button id="vocabAudioBtnDe" type="button" title="Deutsche Aussprache anhören / Almanca Telaffuz" class="w-9 h-9 rounded-full bg-slate-800/90 hover:bg-slate-700 text-cyan-400 border border-slate-700/80 flex items-center justify-center transition-all hover:scale-110 shadow-md">
+                    <i class="fas fa-volume-high text-xs"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="text-center my-auto">
+                <span class="text-xs uppercase tracking-widest text-slate-400 font-bold block mb-2" data-de="Deutsch" data-tr="Almanca">Deutsch</span>
+                <h3 id="vocabDeText" class="text-3xl md:text-4xl font-extrabold text-white font-heading">
+                  Guten Tag / Hallo
+                </h3>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-800">
+                <span data-de="<i class='fas fa-hand-pointer text-cyan-400 mr-1.5'></i> Zum Umdrehen tippen" data-tr="<i class='fas fa-hand-pointer text-cyan-400 mr-1.5'></i> Çevirmek için tıklayın"><i class="fas fa-hand-pointer text-cyan-400 mr-1.5"></i> Zum Umdrehen tippen</span>
+                <span class="text-cyan-400 font-medium" data-de="Antwort zeigen &rarr;" data-tr="Cevabı göster &rarr;">Antwort zeigen &rarr;</span>
+              </div>
+            </div>
+
+            <!-- Back of Card (Turkish & Pronunciation) -->
+            <div class="flashcard-back absolute inset-0 p-8 flex flex-col justify-between rounded-3xl bg-gradient-to-b from-slate-900 to-indigo-950/80 border border-cyan-500/30">
+              <div class="flex items-center justify-between">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30" data-de="🇹🇷 Türkische Übersetzung" data-tr="🇹🇷 Türkçe Çevirisi">
+                  🇹🇷 Türkische Übersetzung
+                </span>
+                <button id="vocabAudioBtnTr" type="button" title="Türkische Aussprache anhören / Türkçe Telaffuz" class="w-10 h-10 rounded-full bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 flex items-center justify-center transition-all hover:scale-110 shadow-lg">
+                  <i class="fas fa-volume-high"></i>
+                </button>
+              </div>
+
+              <div class="text-center my-auto space-y-2">
+                <h3 id="vocabTrText" class="text-3xl md:text-4xl font-extrabold text-cyan-300 font-heading">
+                  Merhaba / İyi günler
+                </h3>
+                <p id="vocabPhonetic" class="text-sm font-mono text-amber-300/90 font-medium">
+                  [mer-ha-ba / i-yi gyün-ler]
+                </p>
+                <p id="vocabContext" class="text-xs text-slate-300 max-w-sm mx-auto pt-2">
+                  Der wichtigste Gruß im Alltag – morgens und nachmittags nutzbar.
+                </p>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-800/80">
+                <span class="text-slate-400" data-de="<i class='fas fa-rotate-left mr-1'></i> Karte zurückdrehen" data-tr="<i class='fas fa-rotate-left mr-1'></i> Geri çevir"><i class="fas fa-rotate-left mr-1"></i> Karte zurückdrehen</span>
+                <span class="text-emerald-400 font-semibold" data-de="<i class='fas fa-check-circle mr-1'></i> Verstanden" data-tr="<i class='fas fa-check-circle mr-1'></i> Anlaşıldı"><i class="fas fa-check-circle mr-1"></i> Verstanden</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controls below card -->
+        <div class="flex items-center justify-between mt-6 px-2">
+          <button id="vocabPrevBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors" data-de="<i class='fas fa-arrow-left'></i> Vorheriges" data-tr="<i class='fas fa-arrow-left'></i> Önceki">
+            <i class="fas fa-arrow-left"></i> Vorheriges
+          </button>
+          
+          <button id="vocabFlipBtn" class="px-6 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 text-sm font-semibold border border-cyan-500/40 transition-colors" data-de="<i class='fas fa-rotate mr-1.5'></i> Umdrehen" data-tr="<i class='fas fa-rotate mr-1.5'></i> Çevir">
+            <i class="fas fa-rotate mr-1.5"></i> Umdrehen
+          </button>
+
+          <button id="vocabNextBtn" class="px-5 py-2.5 rounded-xl glass-panel hover:bg-slate-800 text-slate-300 text-sm font-semibold flex items-center gap-2 transition-colors" data-de="Nächstes <i class='fas fa-arrow-right'></i>" data-tr="Sonraki <i class='fas fa-arrow-right'></i>">
+            Nächstes <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       WHY US? / NEDEN BİZ? (3 FEATURE CARDS)
+       ========================================== -->
+  <section id="warum-wir" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Title Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Warum Einfach Türkisch?" data-tr="Neden Biz? / Neden Einfach Türkisch?">
+          Warum Einfach Türkisch?
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading" data-de="Die modernste Art, <span class='text-gradient-cyan'>Türkisch</span> nachhaltig zu lernen" data-tr="Türkçeyi Kalıcı Olarak Öğrenmenin <span class='text-gradient-cyan'>En Modern Yolu</span>">
+          Die modernste Art, <span class="text-gradient-cyan">Türkisch</span> nachhaltig zu lernen
+        </h2>
+        <p class="text-slate-300 text-base md:text-lg" data-de="Herkömmliche Sprachkurse überfordern oft mit trockener Grammatik. Wir kombinieren intuitive deutsche Sprachvergleiche mit Alltagsdialogen." data-tr="Geleneksel dil kursları genellikle sıkıcı gramer ile zorlar. Biz Almanca karşılaştırmalarını günlük diyaloglarla birleştiriyoruz.">
+          Herkömmliche Sprachkurse überfordern oft mit trockener Grammatik. Wir kombinieren intuitive deutsche Sprachvergleiche mit Alltagsdialogen.
+        </p>
+      </div>
+
+      <!-- 3 Feature Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="glass-panel glass-panel-hover rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative group">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Speziell für Deutschsprachige" data-tr="Almanca Konuşanlara Özel">
+              Speziell für Deutschsprachige
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-de="Verstehe die türkische Sprachstruktur durch vergleichende Beispiele aus dem Deutschen. Wir erklären Suffixe, Vokalharmonie und Satzbau verständlich und ohne Kauderwelsch." data-tr="Türkçe dil yapısını Almanca örneklerle kolayca anlayın. Ekleri, ses uyumunu ve cümle yapısını karmaşadan uzak anlatıyoruz.">
+              Verstehe die türkische Sprachstruktur durch vergleichende Beispiele aus dem Deutschen. Wir erklären Suffixe, Vokalharmonie und Satzbau verständlich und ohne Kauderwelsch.
+            </p>
+          </div>
+          <ul class="mt-8 pt-6 border-t border-slate-800 space-y-2.5 text-xs text-slate-300 font-medium">
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-cyan-400'></i> Lautschrift für fehlerfreie Aussprache" data-tr="<i class='fas fa-check text-cyan-400'></i> Kusursuz telaffuz için okunuş rehberi"><i class="fas fa-check text-cyan-400"></i> Lautschrift für fehlerfreie Aussprache</li>
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-cyan-400'></i> Vergleichstabellen DE &amp; TR" data-tr="<i class='fas fa-check text-cyan-400'></i> Almanca &amp; Türkçe karşılaştırma tablosu"><i class="fas fa-check text-cyan-400"></i> Vergleichstabellen DE &amp; TR</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-panel glass-panel-hover rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative group">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Muttersprachliche Tutoren &amp; Live-Feedback" data-tr="Ana Dili Türkçe Eğitmenler &amp; Canlı Desteği">
+              Muttersprachliche Tutoren &amp; Live-Feedback
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-de="Lerne nicht nur aus Büchern, sondern sprich von Tag 1 an frei. Unsere zweisprachigen Lehrkräfte unterstützen dich in wöchentlichen Live-Sessions und korrigieren deine Sprechübungen." data-tr="Sadece kitaplardan öğrenmeyin, ilk günden itibaren özgürce konuşun. İki dilli öğretmenlerimiz haftalık canlı oturumlarda konuşmanızı geliştirir.">
+              Lerne nicht nur aus Büchern, sondern sprich von Tag 1 an frei. Unsere zweisprachigen Lehrkräfte unterstützen dich in wöchentlichen Live-Sessions und korrigieren deine Sprechübungen.
+            </p>
+          </div>
+          <ul class="mt-8 pt-6 border-t border-slate-800 space-y-2.5 text-xs text-slate-300 font-medium">
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-amber-400'></i> Kleine Live-Gruppen (max. 6 Schüler)" data-tr="<i class='fas fa-check text-amber-400'></i> Küçük canlı gruplar (maks. 6 öğrenci)"><i class="fas fa-check text-amber-400"></i> Kleine Live-Gruppen (max. 6 Schüler)</li>
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-amber-400'></i> 1-zu-1 Sprach-Feedback via Audio" data-tr="<i class='fas fa-check text-amber-400'></i> Sesli 1-a-1 konuşma geri bildirimi"><i class="fas fa-check text-amber-400"></i> 1-zu-1 Sprach-Feedback via Audio</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-panel glass-panel-hover rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative group">
+          <div class="space-y-6">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-2xl group-hover:scale-110 transition-transform">
+              <i class="fas fa-mobile-screen-button"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Flexibles 15-Minuten System" data-tr="Esnek 15 Dakikalık Sistem">
+              Flexibles 15-Minuten System
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-de="Integriere das Lernen mühelos in deinen Alltag. Ob in der Bahn, in der Mittagspause oder auf der Couch – unsere mundgerechten Lektionen garantieren stetigen Fortschritt." data-tr="Öğrenmeyi günlük hayatınıza kolayca entegre edin. Yolda, öğle arasında veya koltukta – kısa derslerimiz sürekli ilerleme sağlar.">
+              Integriere das Lernen mühelos in deinen Alltag. Ob in der Bahn, in der Mittagspause oder auf der Couch – unsere mundgerechten Lektionen garantieren stetigen Fortschritt.
+            </p>
+          </div>
+          <ul class="mt-8 pt-6 border-t border-slate-800 space-y-2.5 text-xs text-slate-300 font-medium">
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-indigo-400'></i> Offline-Modus &amp; App-Sync" data-tr="<i class='fas fa-check text-indigo-400'></i> Çevrimdışı mod ve uygulama senkronizasyonu"><i class="fas fa-check text-indigo-400"></i> Offline-Modus &amp; App-Sync</li>
+            <li class="flex items-center gap-2" data-de="<i class='fas fa-check text-indigo-400'></i> Gamifizierter Lernfortschritt" data-tr="<i class='fas fa-check text-indigo-400'></i> Oyunlaştırılmış öğrenme ilerlemesi"><i class="fas fa-check text-indigo-400"></i> Gamifizierter Lernfortschritt</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Extended Visual Showcase -->
+      <div class="mt-16 glass-panel rounded-3xl p-6 md:p-10 border border-slate-800 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <span class="px-3.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30" data-de="Echte Interaktion" data-tr="Gerçek Etkileşim">
+            Echte Interaktion
+          </span>
+          <h3 class="text-2xl md:text-3xl font-bold text-white font-heading" data-de="Live-Gesprächspraxis mit erfahrenen Türkisch-Coaches" data-tr="Deneyimli Türkçe Koçları ile Canlı Konuşma Pratiği">
+            Live-Gesprächspraxis mit erfahrenen Türkisch-Coaches
+          </h3>
+          <p class="text-slate-300 text-sm leading-relaxed" data-de="Keine Angst mehr vor Grammatikfehlern! In einer entspannten und motivierenden Atmosphäre übst du Alltagssituationen: Restaurantbestellungen, Urlaubssmalltalk, Verhandlungen auf dem Basar oder Gespräche mit der Familie." data-tr="Gramer hatalarından korkmayın! Rahat ve motive edici bir ortamda günlük durumları pratik edin: Restoran siparişleri, tatil sohbetleri, pazarda pazarlık veya aile sohbetleri.">
+            Keine Angst mehr vor Grammatikfehlern! In einer entspannten und motivierenden Atmosphäre übst du Alltagssituationen: Restaurantbestellungen, Urlaubssmalltalk, Verhandlungen auf dem Basar oder Gespräche mit der Familie.
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800" data-de="<div class='text-cyan-400 font-bold text-lg'>HD Videocalls</div><div class='text-xs text-slate-400'>Flexible Terminbuchung</div>" data-tr="<div class='text-cyan-400 font-bold text-lg'>HD Görüntülü Görüşme</div><div class='text-xs text-slate-400'>Esnek Randevu Sistemi</div>">
+              <div class="text-cyan-400 font-bold text-lg">HD Videocalls</div>
+              <div class="text-xs text-slate-400">Flexible Terminbuchung</div>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800" data-de="<div class='text-emerald-400 font-bold text-lg'>B1 Zertifikat</div><div class='text-xs text-slate-400'>Anerkanntes Sprachniveau</div>" data-tr="<div class='text-emerald-400 font-bold text-lg'>B1 Sertifikası</div><div class='text-xs text-slate-400'>Uluslararası Dil Seviyesi</div>">
+              <div class="text-emerald-400 font-bold text-lg">B1 Zertifikat</div>
+              <div class="text-xs text-slate-400">Anerkanntes Sprachniveau</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <img id="tutorImg" src="assets/images/tutor_session.png" alt="Türkisch Live Tutor Session" class="rounded-2xl w-full h-auto object-cover border border-slate-700 shadow-xl">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PROBESTUNDE / DENEME DERSİ FEATURE SECTION
+       ========================================== -->
+  <section id="probestunde" class="py-16 bg-gradient-to-b from-slate-900 via-amber-950/20 to-slate-900 border-y border-amber-500/30 relative overflow-hidden">
+    <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="glass-panel rounded-3xl p-8 md:p-12 border-2 border-amber-500/50 bg-gradient-to-br from-slate-900/90 via-slate-950/95 to-amber-950/40 shadow-2xl relative">
+        
+        <!-- Top Floating Star Badge -->
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-1.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 text-amber-950 text-xs font-black uppercase tracking-widest shadow-xl flex items-center gap-2 border border-yellow-200 animate-pulse">
+          <i class="fas fa-star text-amber-900"></i>
+          <span data-de="100% Kostenlos & Unverbindlich" data-tr="%100 Ücretsiz & Taahhütsüz">%100 Ücretsiz & Taahhütsüz</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+          <div class="lg:col-span-8 space-y-4 text-center lg:text-left">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-heading" data-de="Spreche noch heute dein erstes Türkisch <span class='text-gradient-gold'>in 15 Minuten!</span>" data-tr="İlk Türkçe Cümleni <span class='text-gradient-gold'>15 Dakikada</span> Konuş!">
+              Spreche noch heute dein erstes Türkisch <span class="text-gradient-gold">in 15 Minuten!</span>
+            </h2>
+            <p class="text-slate-300 text-base md:text-lg leading-relaxed" data-de="Buche jetzt deine persönliche Probestunde. Wir testen dein Sprachniveau, erstellen deinen individuellen Lernplan und beantworten alle deine Fragen – völlig kostenfrei." data-tr="Hemen kişisel deneme dersinizi planlayın. Dil seviyenizi tespit edelim, özel öğrenme planınızı oluşturalım ve tüm sorularınızı yanıtlayalım – tamamen ücretsiz.">
+              Buche jetzt deine persönliche Probestunde. Wir testen dein Sprachniveau, erstellen deinen individuellen Lernplan und beantworten alle deine Fragen – völlig kostenfrei.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-900/80 border border-amber-500/20">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">🎯</div>
+                <div class="text-xs text-slate-200 font-semibold" data-de="Niveau-Analyse" data-tr="Seviye Tespiti">Niveau-Analyse</div>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-900/80 border border-amber-500/20">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">🤝</div>
+                <div class="text-xs text-slate-200 font-semibold" data-de="1-zu-1 Coach Kennenlernen" data-tr="Eğitmen Tanışması">1-zu-1 Coach Kennenlernen</div>
+              </div>
+              <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-900/80 border border-amber-500/20">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-lg">🗺️</div>
+                <div class="text-xs text-slate-200 font-semibold" data-de="Persönlicher Lernplan" data-tr="Kişisel Ders Planı">Persönlicher Lernplan</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 text-center">
+            <button class="open-trial-modal w-full py-5 px-6 rounded-2xl text-lg font-black text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-2xl shadow-amber-500/40 hover:shadow-amber-500/60 transition-all duration-300 transform hover:scale-105 active:scale-95 border-2 border-yellow-200 font-heading flex items-center justify-center gap-3" data-de="⭐ Probestunde jetzt buchen" data-tr="⭐ Deneme Dersimi Planla">
+              <i class="fas fa-star text-amber-900"></i>
+              <span>⭐ Probestunde jetzt buchen</span>
+            </button>
+            <div class="mt-3 text-xs text-slate-400" data-de="⚡ Dauert nur 30 Sekunden · Kein Abo" data-tr="⚡ Sadece 30 saniye sürer · Abonelik yok">⚡ Dauert nur 30 Sekunden · Kein Abo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       COURSE PACKAGES / KURS PAKETLERİ (3 PRICING CARDS)
+       ========================================== -->
+  <section id="kurse" class="py-24 bg-slate-900/40 relative border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="Unsere Kurse &amp; Preise" data-tr="Kurs Paketleri &amp; Fiyatlar">
+          Unsere Kurse &amp; Preise
+        </span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white font-heading" data-de="Wähle das perfekte Paket für dein <span class='text-gradient-cyan'>Sprachziel</span>" data-tr="Dil Hedefiniz İçin <span class='text-gradient-cyan'>Mükemmel Paketi</span> Seçin">
+          Wähle das perfekte Paket für dein <span class="text-gradient-cyan">Sprachziel</span>
+        </h2>
+        <p class="text-slate-300 text-base md:text-lg" data-de="Transparent, fair und ohne versteckte Kosten. Alle Pakete beinhalten eine 14-Tage Geld-zurück-Garantie." data-tr="Şeffaf, adil ve gizli ücretler olmadan. Tüm paketler 14 günlük para iade garantisi içerir.">
+          Transparent, fair und ohne versteckte Kosten. Alle Pakete beinhalten eine 14-Tage Geld-zurück-Garantie.
+        </p>
+
+        <!-- Billing Period Toggle -->
+        <div class="pt-6 flex items-center justify-center gap-4">
+          <span class="text-sm font-medium text-slate-300" data-de="Monatlich" data-tr="Aylık">Monatlich</span>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="billingToggle" class="sr-only peer" checked>
+            <div class="w-14 h-7 bg-slate-800 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-cyan-400 after:border-slate-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-slate-950 border border-slate-700"></div>
+          </label>
+          <span class="text-sm font-medium text-white flex items-center gap-1.5" data-de="Jährlich <span class='px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30'>20% Rabatt</span>" data-tr="Yıllık <span class='px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30'>%20 İndirim</span>">
+            Jährlich <span class="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">20% Rabatt</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- 3 Pricing Cards Grid -->
+      <div id="coursePackagesGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- Package 1: Basis (Anfänger A1-A2) -->
+        <div class="glass-panel rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative hover:border-slate-700 transition-all">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" data-de="Einsteiger &amp; Urlaub" data-tr="Başlangıç &amp; Tatil">Einsteiger &amp; Urlaub</div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Basis Kurs" data-tr="Temel Paket">Basis Kurs</h3>
+            <p class="text-slate-300 text-xs mt-1" data-de="Ideal für Anfänger ohne Vorkenntnisse, die schnelle Grundlagen suchen." data-tr="Hızlı temeller arayan hiç bilgisi olmayan başlangıç seviyesindekiler için ideal.">Ideal für Anfänger ohne Vorkenntnisse, die schnelle Grundlagen suchen.</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white font-heading">€<span id="priceBasis">15</span></span>
+                <span class="text-slate-400 text-xs price-cycle-label" data-de="/Monat (jährlich abgerechnet)" data-tr="/Ay (yıllık ödeme)">/Monat (jährlich abgerechnet)</span>
+              </div>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Complete A1 &amp; A2 Videokurs" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Eksiksiz A1 &amp; A2 Video Kursu"><i class="fas fa-check text-cyan-400 text-base"></i> Complete A1 &amp; A2 Videokurs</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Interaktiver Vokabel-Trainer" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> İnteraktif Kelime Eğitimi"><i class="fas fa-check text-cyan-400 text-base"></i> Interaktiver Vokabel-Trainer</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Grammatik-Arbeitsbücher (PDF)" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Gramer Çalışma Kitapları (PDF)"><i class="fas fa-check text-cyan-400 text-base"></i> Grammatik-Arbeitsbücher (PDF)</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Zugang zur Lerner-Community" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Öğrenci Topluluğuna Erişim"><i class="fas fa-check text-cyan-400 text-base"></i> Zugang zur Lerner-Community</li>
+              <li class="flex items-center gap-3 text-slate-300/80" data-de="<i class='fas fa-xmark text-slate-300 text-base'></i> <span class='line-through'>Live-Sprechstunden</span>" data-tr="<i class='fas fa-xmark text-slate-300 text-base'></i> <span class='line-through'>Canlı Konuşma Dersi</span>"><i class="fas fa-xmark text-slate-300 text-base"></i> <span class="line-through">Live-Sprechstunden</span></li>
+            </ul>
+          </div>
+
+          <div class="pt-8">
+            <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-slate-200 bg-slate-800/90 hover:bg-slate-700 hover:text-white border border-slate-700 transition-all" data-package="basis" data-de="Basis Kurs buchen" data-tr="Temel Kursa Başla">
+              Basis Kurs buchen
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 2: Pro (Fortgeschrittene A1-B2) - BELIEBTEST / FEATURED -->
+        <div class="glass-panel rounded-3xl p-8 border-2 border-cyan-500/80 bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950/80 flex flex-col justify-between relative shadow-2xl glow-cyan transform lg:-translate-y-2">
+          
+          <!-- Highlight Badge -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-lg" data-de="★ Am Beliebtesten" data-tr="★ En Popüler">
+            ★ Am Beliebtesten
+          </div>
+
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2" data-de="Erfolgs-Garantie" data-tr="Başarı Garantisi">Erfolgs-Garantie</div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Pro Kurs" data-tr="Pro Paket">Pro Kurs</h3>
+            <p class="text-slate-300 text-xs mt-1" data-de="Für alle, die Türkisch fließend im Alltag &amp; Beruf sprechen wollen." data-tr="Günlük hayatta ve işte Türkçeyi akıcı konuşmak isteyen herkes için.">Für alle, die Türkisch fließend im Alltag &amp; Beruf sprechen wollen.</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-5xl font-extrabold text-white font-heading">€<span id="pricePro">29</span></span>
+                <span class="text-slate-400 text-xs price-cycle-label" data-de="/Monat (jährlich abgerechnet)" data-tr="/Ay (yıllık ödeme)">/Monat (jährlich abgerechnet)</span>
+              </div>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> <strong>Alles aus dem Basis Paket</strong>" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> <strong>Temel Paketin Tüm Özellikleri</strong>"><i class="fas fa-check text-cyan-400 text-base"></i> <strong>Alles aus dem Basis Paket</strong></li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> 2x wöchentlich Live-Gruppentraining" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Haftada 2x Canlı Grup Eğitimi"><i class="fas fa-check text-cyan-400 text-base"></i> 2x wöchentlich Live-Gruppentraining</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> KI-Aussprache-Feedback System" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Yapay Zeka Telaffuz Desteği"><i class="fas fa-check text-cyan-400 text-base"></i> KI-Aussprache-Feedback System</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Offizielles B1/B2 Sprachzertifikat" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Resmi B1/B2 Dil Sertifikası"><i class="fas fa-check text-cyan-400 text-base"></i> Offizielles B1/B2 Sprachzertifikat</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-cyan-400 text-base'></i> Tägliche WhatsApp Vokabel-Impulse" data-tr="<i class='fas fa-check text-cyan-400 text-base'></i> Günlük WhatsApp Kelime Bildirimleri"><i class="fas fa-check text-cyan-400 text-base"></i> Tägliche WhatsApp Vokabel-Impulse</li>
+            </ul>
+          </div>
+
+          <div class="pt-8">
+            <button class="open-course-modal w-full py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/30 transition-all transform hover:scale-[1.02]" data-package="pro" data-de="<i class='fas fa-bolt mr-2'></i> Jetzt Pro Kurs starten" data-tr="<i class='fas fa-bolt mr-2'></i> Hemen Pro Kursa Başla">
+              <i class="fas fa-bolt mr-2"></i> Jetzt Pro Kurs starten
+            </button>
+          </div>
+        </div>
+
+        <!-- Package 3: Premium VIP (1-zu-1 Betreuung) -->
+        <div class="glass-panel rounded-3xl p-8 border border-slate-800 flex flex-col justify-between relative hover:border-slate-700 transition-all">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2" data-de="Maximaler Erfolg" data-tr="Maksimum Başarı">Maximaler Erfolg</div>
+            <h3 class="text-2xl font-bold text-white font-heading" data-de="Intensiv VIP" data-tr="Yoğun VIP Paket">Intensiv VIP</h3>
+            <p class="text-slate-300 text-xs mt-1" data-de="Individuelles Einzelcoaching für schnelle, persönliche Fortschritte." data-tr="Hızlı ve kişisel ilerleme için birebir özel koçluk.">Individuelles Einzelcoaching für schnelle, persönliche Fortschritte.</p>
+
+            <div class="my-6">
+              <div class="flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-white font-heading">€<span id="priceVip">63</span></span>
+                <span class="text-slate-400 text-xs price-cycle-label" data-de="/Monat (jährlich abgerechnet)" data-tr="/Ay (yıllık ödeme)">/Monat (jährlich abgerechnet)</span>
+              </div>
+            </div>
+
+            <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-amber-400 text-base'></i> <strong>Alles aus dem Pro Paket</strong>" data-tr="<i class='fas fa-check text-amber-400 text-base'></i> <strong>Pro Paketin Tüm Özellikleri</strong>"><i class="fas fa-check text-amber-400 text-base"></i> <strong>Alles aus dem Pro Paket</strong></li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-amber-400 text-base'></i> 4x 1-zu-1 Einzelunterricht / Monat" data-tr="<i class='fas fa-check text-amber-400 text-base'></i> Ayda 4x Birebir Özel Ders"><i class="fas fa-check text-amber-400 text-base"></i> 4x 1-zu-1 Einzelunterricht / Monat</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-amber-400 text-base'></i> Maßgeschneiderter Lernplan" data-tr="<i class='fas fa-check text-amber-400 text-base'></i> Kişiye Özel Ders Planı"><i class="fas fa-check text-amber-400 text-base"></i> Maßgeschneiderter Lernplan</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-amber-400 text-base'></i> 24/7 VIP Chat-Support via WhatsApp" data-tr="<i class='fas fa-check text-amber-400 text-base'></i> WhatsApp Üzerinden 24/7 VIP Destek"><i class="fas fa-check text-amber-400 text-base"></i> 24/7 VIP Chat-Support via WhatsApp</li>
+              <li class="flex items-center gap-3" data-de="<i class='fas fa-check text-amber-400 text-base'></i> Spezialmodul: Business Türkisch" data-tr="<i class='fas fa-check text-amber-400 text-base'></i> Özel Modül: İş Türkçesi"><i class="fas fa-check text-amber-400 text-base"></i> Spezialmodul: Business Türkisch</li>
+            </ul>
+          </div>
+
+          <div class="pt-8">
+            <button class="open-course-modal w-full py-3.5 rounded-xl font-bold text-sm text-amber-300 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 transition-all" data-package="vip" data-de="VIP Paket anfordern" data-tr="VIP Paket Talep Et">
+              VIP Paket anfordern
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       CONTACT FORM & FAQ (İletişim Formu ve SSS)
+       ========================================== -->
+  <section id="faq" class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <!-- FAQ Column (Left - SSS) -->
+        <div id="sss" class="lg:col-span-7 space-y-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20" data-de="FAQ / Hilfebereich" data-tr="SSS / Sıkça Sorulan Sorular">
+              FAQ / Hilfebereich
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 font-heading" data-de="Häufig gestellte <span class='text-gradient-cyan'>Fragen</span>" data-tr="Sıkça Sorulan <span class='text-gradient-cyan'>Sorular</span>">
+              Häufig gestellte <span class="text-gradient-cyan">Fragen</span>
+            </h2>
+            <p class="text-slate-400 text-sm mt-2" data-de="Du hast Fragen zu unseren Kursen? Hier findest du schnelle Antworten." data-tr="Kurslarımız hakkında sorularınız mı var? Hızlı yanıtları burada bulabilirsiniz.">
+              Du hast Fragen zu unseren Kursen? Hier findest du schnelle Antworten.
+            </p>
+          </div>
+
+          <!-- Accordion Container -->
+          <div class="space-y-4">
+            
+            <!-- FAQ Item 1 -->
+            <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-colors">
+              <button type="button" class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                <span class="text-base font-semibold text-white" data-de="Wie schnell kann ich erste Gespräche auf Türkisch führen?" data-tr="Ne kadar hızlı Türkçe konuşmaya başlayabilirim?">Wie schnell kann ich erste Gespräche auf Türkisch führen?</span>
+                <i class="faq-icon fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4" data-de="Dank unserer kontrastiven Methode (Deutsch vs. Türkisch) verstehen meiste Schüler bereits nach 2 Wochen die Grundlogik der türkischen Grammatik. Nach 4-6 Wochen kannst du mühelos Alltagssituationen im Urlaub oder beim Restaurantbesuch meistern." data-tr="Karşılaştırmalı metodumuz sayesinde çoğu öğrencimiz 2 hafta içinde Türkçe gramer mantığını kavrar. 4-6 hafta içinde tatilde veya restoranda rahatça Türkçe konuşabilirsiniz.">
+                Dank unserer kontrastiven Methode (Deutsch vs. Türkisch) verstehen meiste Schüler bereits nach 2 Wochen die Grundlogik der türkischen Grammatik. Nach 4-6 Wochen kannst du mühelos Alltagssituationen im Urlaub oder beim Restaurantbesuch meistern.
+              </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-colors">
+              <button type="button" class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                <span class="text-base font-semibold text-white" data-de="Brauche ich irgendwelche Vorkenntnisse?" data-tr="Herhangi bir ön bilgiye ihtiyacım var mı?">Brauche ich irgendwelche Vorkenntnisse?</span>
+                <i class="faq-icon fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4" data-de="Nein, absolut gar keine! Unsere Kurse sind in klare Level unterteilt. Du kannst komplett bei Null (A1) starten oder bei vorhandenen Vorkenntnissen direkt einen einstufenden Check absolvieren." data-tr="Hayır, kesinlikle hayır! Kurslarımız net seviyelere ayrılmıştır. Sıfırdan (A1) başlayabilir veya seviye tespit testi yapabilirsiniz.">
+                Nein, absolut gar keine! Unsere Kurse sind in klare Level unterteilt. Du kannst komplett bei Null (A1) starten oder bei vorhandenen Vorkenntnissen direkt einen einstufenden Check absolvieren.
+              </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-colors">
+              <button type="button" class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                <span class="text-base font-semibold text-white" data-de="Gibt es eine Mindestvertragslaufzeit?" data-tr="Minimum sözleşme süresi var mı?">Gibt es eine Mindestvertragslaufzeit?</span>
+                <i class="faq-icon fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4" data-de="Nein. Bei monatlicher Abrechnung kannst du deine Mitgliedschaft jederzeit zum Monatsende mit einem Klick in deinen Kontoeinstellungen kündigen. Wir setzen auf volle Flexibilität." data-tr="Hayır. Aylık üyelikte istediğiniz zaman tek tıkla iptal edebilirsiniz. Tamamen esnek bir yapı sunuyoruz.">
+                Nein. Bei monatlicher Abrechnung kannst du deine Mitgliedschaft jederzeit zum Monatsende mit einem Klick in deinen Kontoeinstellungen kündigen. Wir setzen auf volle Flexibilität.
+              </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-colors">
+              <button type="button" class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                <span class="text-base font-semibold text-white" data-de="Wie funktioniert die 14-Tage Geld-zurück-Garantie?" data-tr="14 Günlük para iade garantisi nasıl çalışıyor?">Wie funktioniert die 14-Tage Geld-zurück-Garantie?</span>
+                <i class="faq-icon fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4" data-de="Solltest du innerhalb der ersten 14 Tage feststellen, dass der Kurs nicht zu dir passt, schicke uns einfach eine kurze Nachricht über das Kontaktformular. Wir erstatten dir 100% deines Beitrags ohne Rückfragen." data-tr="İlk 14 gün içinde kursun size uygun olmadığını düşünürseniz iletişim formundan yazmanız yeterlidir. Ücretinizi %100 iade ediyoruz.">
+                Solltest du innerhalb der ersten 14 Tage feststellen, dass der Kurs nicht zu dir passt, schicke uns einfach eine kurze Nachricht über das Kontaktformular. Wir erstatten dir 100% deines Beitrags ohne Rückfragen.
+              </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item glass-panel rounded-2xl border border-slate-800 overflow-hidden transition-colors">
+              <button type="button" class="faq-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none">
+                <span class="text-base font-semibold text-white" data-de="Wie laufen die Live-Einheiten ab?" data-tr="Canlı dersler nasıl yapılıyor?">Wie laufen die Live-Einheiten ab?</span>
+                <i class="faq-icon fas fa-chevron-down text-slate-400 transition-transform duration-300"></i>
+              </button>
+              <div class="faq-answer px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-4" data-de="Die Live-Einheiten finden mehrmals pro Woche statt. Du kannst dich einfach per Klick im Browser oder der App zuschalten. Kleine Gruppen garantieren, dass jeder Teilnehmer aktives Sprechtraining erhält." data-tr="Canlı dersler haftada birkaç kez düzenlenir. Tarayıcıdan veya uygulamadan tek tıkla katılabilirsiniz. Küçük gruplar herkesin pratik yapmasını sağlar.">
+                Die Live-Einheiten finden mehrmals pro Woche statt. Du kannst dich einfach per Klick im Browser oder der App zuschalten. Kleine Gruppen garantieren, dass jeder Teilnehmer aktives Sprechtraining erhält.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Form Column (Right - İletişim Formu) -->
+        <div id="kontakt" class="lg:col-span-5">
+          <div class="glass-panel rounded-3xl p-8 border border-slate-700/80 shadow-2xl relative">
+            
+            <div class="mb-6">
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-400" data-de="Kontaktformular" data-tr="İletişim Formu">Kontaktformular</span>
+              <h3 class="text-2xl font-bold text-white mt-1 font-heading" data-de="Schreib uns eine Nachricht" data-tr="Bize Bir Mesaj Gönderin">Schreib uns eine Nachricht</h3>
+              <p class="text-xs text-slate-400 mt-1" data-de="Hast du individuelle Fragen? Unser Team antwortet innerhalb von 24 Stunden." data-tr="Özel sorularınız mı var? Ekibimiz 24 saat içinde yanıt verir.">Hast du individuelle Fragen? Unser Team antwortet innerhalb von 24 Stunden.</p>
+            </div>
+
+            <!-- Inline Success Alert (Hidden by default) -->
+            <div id="contactSuccessAlert" class="hidden mb-6 p-4 rounded-2xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-xs">
+              <div class="flex items-center gap-2 font-bold mb-1">
+                <i class="fas fa-check-circle text-base text-emerald-400"></i> Mesajınız Gönderildi!
+              </div>
+              Vielen Dank für deine Nachricht. Ein Türkisch-Coach wird sich in Kürze bei dir melden.
+            </div>
+
+            <form id="contactForm" class="space-y-4">
+              <div>
+                <label for="contactName" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="Dein Name" data-tr="Adınız Soyadınız">Dein Name</label>
+                <input type="text" id="contactName" name="Name" required placeholder="z. B. Max Mustermann" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+              </div>
+
+              <div>
+                <label for="contactEmail" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="E-Mail-Adresse" data-tr="E-Posta Adresiniz">E-Mail-Adresse</label>
+                <input type="email" id="contactEmail" name="Email" required placeholder="max@beispiel.de" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+              </div>
+
+              <div>
+                <label for="contactLevel" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="Betreff / Sprachniveau" data-tr="Konu / Türkçe Seviyeniz">Betreff / Sprachniveau</label>
+                <select id="contactLevel" name="Sprachniveau" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-500 transition-colors">
+                  <option value="⭐ Kostenlose Probestunde / Deneme Dersi" selected data-de="⭐ Kostenlose Probestunde" data-tr="⭐ Ücretsiz Deneme Dersi">⭐ Ücretsiz Deneme Dersi</option>
+                  <option value="Absolute(r) Anfänger(in)" data-de="Absolute(r) Anfänger(in) (A1)" data-tr="Tam Başlangıç Seviyesi (A1)">Tam Başlangıç Seviyesi (A1)</option>
+                  <option value="Grundkenntnisse (A1-A2)" data-de="Grundkenntnisse (A1-A2)" data-tr="Temel Seviye (A1-A2)">Temel Seviye (A1-A2)</option>
+                  <option value="Fortgeschritten (B1-B2)" data-de="Fortgeschritten (B1-B2)" data-tr="Orta / İleri Seviye (B1-B2)">Orta / İleri Seviye (B1-B2)</option>
+                  <option value="Sonstiges / Beratung gewünscht" data-de="Sonstiges / Beratung gewünscht" data-tr="Diğer / Danışmanlık İsteği">Diğer / Danışmanlık İsteği</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contactMessage" class="block text-xs font-medium text-slate-300 mb-1.5" data-de="Deine Nachricht" data-tr="Mesajınız">Deine Nachricht</label>
+                <textarea id="contactMessage" name="Nachricht" rows="4" required placeholder="Wie können wir dir helfen?" class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/25 transition-all" data-de="<i class='fas fa-paper-plane mr-2'></i> Nachricht senden" data-tr="<i class='fas fa-paper-plane mr-2'></i> Mesaj Gönder">
+                <i class="fas fa-paper-plane mr-2"></i> Nachricht senden
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODERN FOOTER (Alt bilgi ve Sosyal Medya)
+       ========================================== -->
+  <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-rose-500 flex items-center justify-center font-bold text-white">
+              TR
+            </div>
+            <span class="text-xl font-extrabold text-white font-heading">
+              Einfach<span class="text-gradient-cyan">Türkisch</span>
+            </span>
+          </a>
+          <p class="text-xs leading-relaxed text-slate-400 max-w-sm" data-de="Einfach Türkisch ist die führende Online-Plattform für Deutschsprachige, die Türkisch effektiv, praxisnah und mit Freude lernen möchten." data-tr="Einfach Türkisch, Almanca konuşanların etkili, pratik ve keyifle Türkçe öğrenmesi için lider online platformdur.">
+            Einfach Türkisch ist die führende Online-Plattform für Deutschsprachige, die Türkisch effektiv, praxisnah und mit Freude lernen möchten.
+          </p>
+
+          <!-- Newsletter Mini Form -->
+          <div class="pt-2">
+            <span class="text-xs font-semibold text-white block mb-2" data-de="Gratis Vokabel-Impulse per E-Mail:" data-tr="E-Posta İle Ücretsiz Kelime Bülteni:">Gratis Vokabel-Impulse per E-Mail:</span>
+            <form id="newsletterForm" class="flex gap-2 max-w-sm">
+              <input type="email" required placeholder="deine@email.de" class="px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 flex-1">
+              <button type="submit" class="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-xs font-bold text-slate-950 transition-colors" data-de="Abonnieren" data-tr="Abone Ol">
+                Abonnieren
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading" data-de="Navigation" data-tr="Gezinme">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#vokabel-trainer" data-de="Vokabel-Trainer" data-tr="Kelime Eğitimi" class="hover:text-cyan-400 transition-colors">Vokabel-Trainer</a></li>
+            <li><a href="#warum-wir" data-de="Warum wir?" data-tr="Neden Biz?" class="hover:text-cyan-400 transition-colors">Warum wir?</a></li>
+            <li><a href="#kurse" data-de="Kurspakete" data-tr="Kurs Paketleri" class="hover:text-cyan-400 transition-colors">Kurspakete</a></li>
+            <li><a href="#faq" data-de="FAQ &amp; Hilfebereich" data-tr="SSS &amp; Yardım Merkezi" class="hover:text-cyan-400 transition-colors">FAQ &amp; Hilfebereich</a></li>
+            <li><a href="#kontakt" data-de="Kontaktformular" data-tr="İletişim Formu" class="hover:text-cyan-400 transition-colors">Kontaktformular</a></li>
+          </ul>
+        </div>
+
+        <!-- Course Levels -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading" data-de="Sprachniveaus" data-tr="Dil Seviyeleri">Sprachniveaus</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#kurse" data-de="Türkisch A1 (Anfänger)" data-tr="Türkçe A1 (Başlangıç)" class="hover:text-cyan-400 transition-colors">Türkisch A1 (Anfänger)</a></li>
+            <li><a href="#kurse" data-de="Türkisch A2 (Grundlagen)" data-tr="Türkçe A2 (Temel Seviye)" class="hover:text-cyan-400 transition-colors">Türkisch A2 (Grundlagen)</a></li>
+            <li><a href="#kurse" data-de="Türkisch B1 (Alltag)" data-tr="Türkçe B1 (Günlük Yaşam)" class="hover:text-cyan-400 transition-colors">Türkisch B1 (Alltag)</a></li>
+            <li><a href="#kurse" data-de="Türkisch B2 (Fließend)" data-tr="Türkçe B2 (Akıcı Seviye)" class="hover:text-cyan-400 transition-colors">Türkisch B2 (Fließend)</a></li>
+            <li><a href="#kurse" data-de="Business Türkisch" data-tr="İş Türkçesi" class="hover:text-cyan-400 transition-colors">Business Türkisch</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media & Contact -->
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 font-heading" data-de="Folge Uns" data-tr="Bizi Takip Edin">Folge Uns</h4>
+          <div class="flex gap-3 mb-4">
+            <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fab fa-instagram text-sm"></i>
+            </a>
+            <a href="#" aria-label="YouTube" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fab fa-youtube text-sm"></i>
+            </a>
+            <a href="#" aria-label="TikTok" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fab fa-tiktok text-sm"></i>
+            </a>
+            <a href="#" aria-label="Spotify Podcast" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 hover:text-cyan-400 flex items-center justify-center transition-colors">
+              <i class="fab fa-spotify text-sm"></i>
+            </a>
+          </div>
+          <div class="text-xs text-slate-400 space-y-1">
+            <div><i class="fas fa-envelope mr-1.5 text-cyan-400"></i> <a href="mailto:info@einfachturkisch.de" class="hover:text-cyan-400 font-medium">info@einfachturkisch.de</a></div>
+            <div><i class="fas fa-location-dot mr-1.5 text-cyan-400"></i> Berlin</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Legal & Copyright -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <div data-de="&copy; 2026 Einfach Türkisch. Alle Rechte vorbehalten." data-tr="&copy; 2026 Einfach Türkisch. Tüm hakları saklıdır.">
+          &copy; 2026 Einfach Türkisch. Alle Rechte vorbehalten.
+        </div>
+        <div class="flex gap-6">
+          <a href="#" data-de="Impressum" data-tr="Künye / İmpressum" class="hover:text-slate-300">Impressum</a>
+          <a href="#" data-de="Datenschutz" data-tr="Gizlilik Politikası" class="hover:text-slate-300">Datenschutz</a>
+          <a href="#" data-de="AGB" data-tr="Kullanım Şartları" class="hover:text-slate-300">AGB</a>
+          <a href="#" data-de="Cookie-Einstellungen" data-tr="Çerez Ayarları" class="hover:text-slate-300">Cookie-Einstellungen</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       COURSE REGISTRATION MODAL ("Kursa Başla" Modal)
+       ========================================== -->
+  <div id="courseModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="relative w-full max-w-lg glass-panel rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl animate-float-slow">
+      
+      <!-- Close Modal Button -->
+      <button type="button" class="close-modal-btn absolute top-5 right-5 text-slate-400 hover:text-white p-2">
+        <i class="fas fa-times text-lg"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-3 text-xl">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-white font-heading" data-de="Kurs starten – Jetzt loslegen" data-tr="Kursa Başla – Hemen Başlayın">Kurs starten – Jetzt loslegen</h3>
+        <p class="text-xs text-slate-400 mt-1" data-de="Starte deine 14-tägige kostenlose Testphase ohne Risiko." data-tr="14 günlük ücretsiz deneme sürenizi mecburi sözleşmesiz başlatın.">Starte deine 14-tägige kostenlose Testphase ohne Risiko.</p>
+      </div>
+
+      <form id="courseModalForm" class="space-y-4">
+        <div>
+          <label for="modalPackageSelect" class="block text-xs font-medium text-slate-300 mb-1" data-de="Ausgewähltes Paket" data-tr="Seçilen Paket">Ausgewähltes Paket</label>
+          <select id="modalPackageSelect" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white text-sm focus:outline-none focus:border-cyan-500">
+            <option value="basis" data-de="Basis Kurs (15€ / Monat)" data-tr="Temel Paket (15€ / Ay)">Basis Kurs (15€ / Monat)</option>
+            <option value="pro" selected data-de="Pro Kurs - Beliebtest (29€ / Monat)" data-tr="Pro Paket - En Popüler (29€ / Ay)">Pro Kurs - Beliebtest (29€ / Monat)</option>
+            <option value="vip" data-de="Intensiv VIP (63€ / Monat)" data-tr="Yoğun VIP Paket (63€ / Ay)">Intensiv VIP (63€ / Monat)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="modalName" class="block text-xs font-medium text-slate-300 mb-1" data-de="Dein Vor- &amp; Nachname" data-tr="Adınız ve Soyadınız">Dein Vor- &amp; Nachname</label>
+          <input type="text" id="modalName" required placeholder="z. B. Anna Schmidt" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div>
+          <label for="modalEmail" class="block text-xs font-medium text-slate-300 mb-1" data-de="Deine E-Mail-Adresse" data-tr="E-Posta Adresiniz">Deine E-Mail-Adresse</label>
+          <input type="email" id="modalEmail" required placeholder="anna@beispiel.de" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500">
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 shadow-lg shadow-cyan-500/30 transition-all" data-de="Kostenfrei testen" data-tr="Ücretsiz Dene">
+            Kostenfrei testen
+          </button>
+        </div>
+
+        <p class="text-[11px] text-center text-slate-400 pt-1" data-de="<i class='fas fa-lock text-cyan-400 mr-1'></i> Keine Kreditkarte für die Testphase erforderlich." data-tr="<i class='fas fa-lock text-cyan-400 mr-1'></i> Deneme süresi için kredi kartı gerekmez.">
+          <i class="fas fa-lock text-cyan-400 mr-1"></i> Keine Kreditkarte für die Testphase erforderlich.
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Trial Lesson Popup Modal (Deneme Dersi Modal) -->
+  <div id="trialModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+    <div class="glass-panel w-full max-w-lg rounded-3xl border-2 border-amber-500/60 bg-slate-900 p-6 md:p-8 shadow-2xl relative my-8">
+      <button id="closeTrialModal" type="button" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl p-2 rounded-full hover:bg-slate-800 transition-colors">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <div class="text-center space-y-2 mb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold border border-amber-500/30">
+          <i class="fas fa-star text-amber-400"></i> <span data-de="Kostenlose Probestunde" data-tr="Ücretsiz Deneme Dersi">Ücretsiz Deneme Dersi</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white font-heading" data-de="Probestunde buchen" data-tr="Deneme Dersi Planla">Deneme Dersi Planla</h3>
+        <p class="text-xs text-slate-300 max-w-sm mx-auto" data-de="Wähle deine bevorzugte Zeit – dein Coach meldet sich in Kürze!" data-tr="Tercih ettiğiniz zamanı seçin – öğretmeniniz en kısa sürede sizinle iletişime geçecektir!">Tercih ettiğiniz zamanı seçin – öğretmeniniz en kısa sürede sizinle iletişime geçecektir!</p>
+      </div>
+
+      <form id="trialForm" class="space-y-4">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="⭐ DENEME DERSİ TALEBİ! (einfachturkisch.de)">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Name & Nachname" data-tr="Ad Soyad">Ad Soyad *</label>
+          <input type="text" name="name" required placeholder="z.B. Alex Müller" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="E-Mail Adresse" data-tr="E-posta Adresi">E-posta Adresi *</label>
+          <input type="email" name="email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Zielgruppe" data-tr="Hedef Kitle">Hedef Kitle</label>
+            <select name="audience" class="w-full px-3 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+              <option value="Erwachsene / Yetişkin">👨‍💼 Yetişkinler</option>
+              <option value="Kinder / Çocuk">🎈 Çocuklar</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Sprachniveau" data-tr="Seviyeniz">Seviyeniz</label>
+            <select name="level" class="w-full px-3 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400">
+              <option value="A1 - Anfänger / Başlangıç">A1 - Başlangıç</option>
+              <option value="A2 - Grundkenntnisse / Temel">A2 - Temel</option>
+              <option value="B1/B2 - Fortgeschritten / Orta">B1/B2 - Orta</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 mb-1" data-de="Wunschtermin / Uhrzeit" data-tr="Tercih Edilen Gün & Saat">Tercih Edilen Gün & Saat</label>
+          <input type="text" name="preferred_time" placeholder="z.B. Montag 18:00 Uhr / Pazartesi 18:00" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400">
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-xl text-base font-black text-amber-950 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 hover:from-amber-200 hover:to-amber-400 shadow-xl shadow-amber-500/30 transition-all font-heading flex items-center justify-center gap-2" data-de="⭐ Jetzt Probestunde buchen" data-tr="⭐ Ücretsiz Deneme Dersimi Planla">
+          <i class="fas fa-star text-amber-900"></i>
+          <span>⭐ Ücretsiz Deneme Dersimi Planla</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

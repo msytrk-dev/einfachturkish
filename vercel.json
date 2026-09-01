@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/erwachsene", "destination": "/erwachsene.html" },
+    { "source": "/kinder", "destination": "/kinder.html" },
+    { "source": "/uber-uns", "destination": "/uber-uns.html" },
+    { "source": "/ueber-uns", "destination": "/uber-uns.html" }
+  ]
+}
