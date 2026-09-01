@@ -112,7 +112,7 @@ function initAudienceSwitcher() {
 }
 
 /* ==========================================
-   0. Language Switcher (DE ↔ TR)
+   0. Language Switcher (DE ↔ TR ↔ EN)
    ========================================== */
 let currentLanguage = localStorage.getItem('site_lang') || 'de';
 
@@ -128,7 +128,11 @@ function initLanguageSwitcher() {
       if (lang === 'tr') {
         if (flagEl) flagEl.textContent = '🇹🇷';
         if (labelEl) labelEl.textContent = 'TR';
-        btn.setAttribute('title', 'Almanca\'ya Geç (DE)');
+        btn.setAttribute('title', 'Switch to English (EN)');
+      } else if (lang === 'en') {
+        if (flagEl) flagEl.textContent = '🇬🇧';
+        if (labelEl) labelEl.textContent = 'EN';
+        btn.setAttribute('title', 'Auf Deutsch wechseln (DE)');
       } else {
         if (flagEl) flagEl.textContent = '🇩🇪';
         if (labelEl) labelEl.textContent = 'DE';
@@ -136,9 +140,9 @@ function initLanguageSwitcher() {
       }
     });
 
-    const translatableElements = document.querySelectorAll('[data-de][data-tr]');
+    const translatableElements = document.querySelectorAll('[data-de]');
     translatableElements.forEach(el => {
-      const translation = el.getAttribute(`data-${lang}`);
+      const translation = el.getAttribute(`data-${lang}`) || el.getAttribute('data-de');
       if (translation) {
         el.innerHTML = translation;
       }
@@ -155,9 +159,12 @@ function initLanguageSwitcher() {
     const btn = e.target.closest('.lang-toggle-btn');
     if (btn) {
       e.preventDefault();
-      const nextLang = currentLanguage === 'de' ? 'tr' : 'de';
+      const nextLang = currentLanguage === 'de' ? 'tr' : (currentLanguage === 'tr' ? 'en' : 'de');
       applyLanguage(nextLang);
-      showToast(nextLang === 'tr' ? 'Dil Türkçe olarak değiştirildi 🇹🇷' : 'Sprache auf Deutsch eingestellt 🇩🇪', 'info');
+      const toastMsg = nextLang === 'tr'
+        ? 'Dil Türkçe olarak değiştirildi 🇹🇷'
+        : (nextLang === 'en' ? 'Language switched to English 🇬🇧' : 'Sprache auf Deutsch eingestellt 🇩🇪');
+      showToast(toastMsg, 'info');
     }
   });
 
