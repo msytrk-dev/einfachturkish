@@ -859,12 +859,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-extrabold uppercase tracking-wider text-rose-400 mb-2">${lang === 'tr' ? '6-9 Yaş Grubu' : (lang === 'en' ? 'Age Group 6-9' : 'Altersgruppe 6-9')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Mini)' : (lang === 'en' ? 'Turkish Explorers (Mini)' : 'Türkisch-Entdecker (Mini)')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çizgi karakterler, eğlenceli şarkılar ve görsel kelime oyunları.' : (lang === 'en' ? 'Cartoon characters, cheerful songs and visual word games.' : 'Zeichentrickfiguren, fröhliche Lieder und visuelle Wortspiele.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-white font-heading">€19</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Interaktif Çizgi İllüstrasyonlar' : (lang === 'en' ? 'Interactive Cartoon Illustrations' : 'Interaktive Zeichnungen')}</li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-rose-400"></i> ${lang === 'tr' ? 'Sesli Harf & Kelime Oyunları' : (lang === 'en' ? 'Audio & Word Games' : 'Laut- & Wortspiele mit Audio')}</li>
@@ -887,12 +882,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-extrabold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? '10-14 Yaş Grubu' : (lang === 'en' ? 'Age Group 10-14' : 'Altersgruppe 10-14')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Türkçe Kaşifleri (Pro)' : (lang === 'en' ? 'Turkish Explorers (Pro)' : 'Türkisch-Entdecker (Pro)')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'İnteraktif grup oyunları, hikaye anlatımı ve okul destek dersleri.' : (lang === 'en' ? 'Interactive group games, storytelling and school support.' : 'Interaktive Gruppenspiele, Storytelling und Schulunterstützung.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-5xl font-extrabold text-white font-heading">€35</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'Haftalık Canlı Çocuk Grup Dersi (Min. 2 Kişi)' : (lang === 'en' ? 'Weekly Live Kids Group Class (Min 2)' : 'Wöchentlicher Kinder-Live-Unterricht')}</li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? 'İnteraktif Türkçe Masallar & Kulüpler' : (lang === 'en' ? 'Interactive Tales & Clubs' : 'Interaktive Märchen & Clubs')}</li>
@@ -912,12 +902,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-extrabold uppercase tracking-wider text-purple-400 mb-2">${lang === 'tr' ? 'Birebir Özel İlgi' : (lang === 'en' ? '1-on-1 VIP Care' : '1-zu-1 Betreuung')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Birebir Çocuk Koçluğu' : (lang === 'en' ? 'Kids VIP Coaching' : 'Kinder VIP Coaching')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Çocuğunuzun öğrenme hızına özel hazırlanmış birebir canlı dersler.' : (lang === 'en' ? 'Personalized 1-on-1 live lessons at your child\'s pace.' : 'Individueller Einzelunterricht im Lerntempo Ihres Kindes.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-white font-heading">€69</span>
-              <span class="text-slate-400 text-xs">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Ayda 4x Birebir Canlı Çocuk Dersi' : (lang === 'en' ? '4x Live 1-on-1 Kids Lessons / Month' : '4x Einzelunterricht im Monat')}</li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-purple-400"></i> ${lang === 'tr' ? 'Okul & Ödev Destek Rehberliği' : (lang === 'en' ? 'School & Homework Guidance' : 'Schul- & Hausaufgabenhilfe')}</li>
@@ -940,12 +925,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">${lang === 'tr' ? 'Bireysel Dersler' : (lang === 'en' ? 'Individual Lessons' : 'Einzelunterricht')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Bireysel Kurs Paketleri' : (lang === 'en' ? 'Individual Course Package' : 'Einzelkurs Paket')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Günlük konuşma, A1-C2 kur dersleri ve İş Türkçesi bireysel eğitimi.' : (lang === 'en' ? 'Daily conversation, A1-C2 courses & Business Turkish 1-on-1.' : 'Alltagsgespräche, A1-C2 Kurse & Business-Türkisch im Einzelunterricht.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-white font-heading">€15</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '🗣️ Günlük Konuşma Paketleri' : (lang === 'en' ? '🗣️ Daily Conversation Modules' : '🗣️ Alltagsgespräche Module')}</li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📚 A1\'den C2\'ye Kur Dersleri' : (lang === 'en' ? '📚 Courses A1 to C2 Level' : '📚 Kurse A1 bis C2 Level')}</li>
@@ -969,12 +949,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-2">${lang === 'tr' ? 'Interaktif Grup Eğitimi' : (lang === 'en' ? 'Interactive Group Training' : 'Gruppenunterricht')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Grup Dersleri Paketi' : (lang === 'en' ? 'Group Course Package' : 'Gruppenkurs Paket')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Min. 2 kişilik gruplarla A1-C2 dersleri ve canlı konuşma aktiviteleri.' : (lang === 'en' ? 'A1-C2 courses in small groups (Min 2) & live speaking.' : 'A1-C2 Kurse in Gruppen (Min. 2 Personen) & Aktivitäten.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-5xl font-extrabold text-white font-heading">€29</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> <strong>${lang === 'tr' ? '👥 Min. 2 Kişilik Butik Gruplar' : (lang === 'en' ? '👥 Small Boutique Groups (Min 2)' : '👥 Min. 2 Personen Gruppen')}</strong></li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-cyan-400"></i> ${lang === 'tr' ? '📊 A1\'den C2\'ye Seviye Sınıfları' : (lang === 'en' ? '📊 Level A1 to C2 Classes' : '📊 Level A1 bis C2 Kurse')}</li>
@@ -995,12 +970,7 @@ function renderCoursePackages(mode) {
           <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">${lang === 'tr' ? 'Maksimum Başarı' : (lang === 'en' ? 'Maximum Success' : 'Maximaler Erfolg')}</div>
           <h3 class="text-2xl font-bold text-white font-heading">${lang === 'tr' ? 'Intensiv VIP Coaching' : (lang === 'en' ? 'Intensive VIP Coaching' : 'Intensiv VIP Coaching')}</h3>
           <p class="text-slate-300 text-xs mt-1">${lang === 'tr' ? 'Kişiye özel 1-a-1 canlı dersler ve 24/7 VIP öğretmen desteği.' : (lang === 'en' ? 'Personal 1-on-1 live coaching & 24/7 VIP teacher support.' : 'Individuelles 1-zu-1 Einzelcoaching & 24/7 WhatsApp Support.')}</p>
-          <div class="my-6">
-            <div class="flex items-baseline gap-1">
-              <span class="text-4xl font-extrabold text-white font-heading">€63</span>
-              <span class="text-slate-400 text-xs price-cycle-label">${lang === 'tr' ? '/Ay (yıllık ödeme)' : (lang === 'en' ? '/Month (annual)' : '/Monat (jährlich abgerechnet)')}</span>
-            </div>
-          </div>
+          <div class="my-4 pt-2"></div>
           <ul class="space-y-3.5 text-sm text-slate-300 border-t border-slate-800 pt-6">
             <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> <strong>${lang === 'tr' ? 'Grup &amp; Bireysel Ders Hakları' : (lang === 'en' ? 'Group &amp; Individual Lessons' : 'Grup &amp; Einzelstunden')}</strong></li>
             <li class="flex items-center gap-3"><i class="fas fa-check text-amber-400"></i> ${lang === 'tr' ? '4x 1-zu-1 Özel Canlı Ders / Ay' : (lang === 'en' ? '4x 1-on-1 Live Private Lessons / Month' : '4x 1-zu-1 Einzelunterricht / Monat')}</li>
